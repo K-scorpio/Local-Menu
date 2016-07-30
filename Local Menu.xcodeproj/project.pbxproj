@@ -14,6 +14,13 @@
 		E23507411D4BF4ED003159FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E235073F1D4BF4ED003159FB /* LaunchScreen.storyboard */; };
 		E235074C1D4BF4EE003159FB /* Local_MenuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E235074B1D4BF4EE003159FB /* Local_MenuTests.swift */; };
 		E23507571D4BF4EE003159FB /* Local_MenuUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23507561D4BF4EE003159FB /* Local_MenuUITests.swift */; };
+		E23507651D4C0428003159FB /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E23507641D4C0428003159FB /* Mapbox.framework */; };
+		E23507661D4C0428003159FB /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E23507641D4C0428003159FB /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E23507691D4C1BD4003159FB /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23507681D4C1BD4003159FB /* NetworkController.swift */; };
+		E235076F1D4C1F88003159FB /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E235076E1D4C1F88003159FB /* RestaurantTableViewCell.swift */; };
+		E23507711D4C1FAD003159FB /* RestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23507701D4C1FAD003159FB /* RestaurantViewController.swift */; };
+		E23507731D4C200C003159FB /* RestaurantController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23507721D4C200C003159FB /* RestaurantController.swift */; };
+		E23507751D4C222E003159FB /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23507741D4C222E003159FB /* Restaurant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +40,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		E23507671D4C0428003159FB /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E23507661D4C0428003159FB /* Mapbox.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		E23507331D4BF4ED003159FB /* Local Menu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Local Menu.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E23507361D4BF4ED003159FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +68,12 @@
 		E23507521D4BF4EE003159FB /* Local MenuUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Local MenuUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E23507561D4BF4EE003159FB /* Local_MenuUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Local_MenuUITests.swift; sourceTree = "<group>"; };
 		E23507581D4BF4EE003159FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E23507641D4C0428003159FB /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mapbox.framework; sourceTree = "<group>"; };
+		E23507681D4C1BD4003159FB /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
+		E235076E1D4C1F88003159FB /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewCell.swift; sourceTree = "<group>"; };
+		E23507701D4C1FAD003159FB /* RestaurantViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantViewController.swift; sourceTree = "<group>"; };
+		E23507721D4C200C003159FB /* RestaurantController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantController.swift; sourceTree = "<group>"; };
+		E23507741D4C222E003159FB /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E23507651D4C0428003159FB /* Mapbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +105,8 @@
 		E235072A1D4BF4ED003159FB = {
 			isa = PBXGroup;
 			children = (
+				E235076E1D4C1F88003159FB /* RestaurantTableViewCell.swift */,
+				E23507641D4C0428003159FB /* Mapbox.framework */,
 				E23507351D4BF4ED003159FB /* Local Menu */,
 				E235074A1D4BF4EE003159FB /* Local MenuTests */,
 				E23507551D4BF4EE003159FB /* Local MenuUITests */,
@@ -100,6 +130,10 @@
 				E23507361D4BF4ED003159FB /* AppDelegate.swift */,
 				E23507381D4BF4ED003159FB /* ViewController.swift */,
 				E235073A1D4BF4ED003159FB /* Main.storyboard */,
+				E23507721D4C200C003159FB /* RestaurantController.swift */,
+				E23507701D4C1FAD003159FB /* RestaurantViewController.swift */,
+				E23507741D4C222E003159FB /* Restaurant.swift */,
+				E23507681D4C1BD4003159FB /* NetworkController.swift */,
 				E235073D1D4BF4ED003159FB /* Assets.xcassets */,
 				E235073F1D4BF4ED003159FB /* LaunchScreen.storyboard */,
 				E23507421D4BF4ED003159FB /* Info.plist */,
@@ -135,6 +169,7 @@
 				E235072F1D4BF4ED003159FB /* Sources */,
 				E23507301D4BF4ED003159FB /* Frameworks */,
 				E23507311D4BF4ED003159FB /* Resources */,
+				E23507671D4C0428003159FB /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -256,8 +291,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E235076F1D4C1F88003159FB /* RestaurantTableViewCell.swift in Sources */,
+				E23507711D4C1FAD003159FB /* RestaurantViewController.swift in Sources */,
+				E23507731D4C200C003159FB /* RestaurantController.swift in Sources */,
+				E23507751D4C222E003159FB /* Restaurant.swift in Sources */,
 				E23507391D4BF4ED003159FB /* ViewController.swift in Sources */,
 				E23507371D4BF4ED003159FB /* AppDelegate.swift in Sources */,
+				E23507691D4C1BD4003159FB /* NetworkController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +439,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Local Menu/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Local-Menu";
@@ -410,6 +454,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Local Menu/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Local-Menu";
