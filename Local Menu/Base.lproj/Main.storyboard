@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5xT-IT-Uc9">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
     </dependencies>
     <scenes>
         <!--Delegate-->
@@ -28,7 +29,7 @@
                                     <constraint firstAttribute="height" constant="335" id="TuO-bF-9jh"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="restaurantCell" textLabel="KXT-IR-Mv3" rowHeight="58" style="IBUITableViewCellStyleDefault" id="dLY-sq-ZWC" customClass="RestaurantTableViewCell" customModule="Local_Menu" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="restaurantCell" textLabel="KXT-IR-Mv3" detailTextLabel="ekW-cX-G79" rowHeight="58" style="IBUITableViewCellStyleSubtitle" id="dLY-sq-ZWC" customClass="RestaurantTableViewCell" customModule="Local_Menu" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="58"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dLY-sq-ZWC" id="0JP-Te-AVq">
@@ -36,14 +37,27 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KXT-IR-Mv3">
-                                                    <rect key="frame" x="15" y="0.0" width="384" height="57.5"/>
+                                                    <rect key="frame" x="15" y="12" width="35.5" height="21.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ekW-cX-G79">
+                                                    <rect key="frame" x="15" y="33.5" width="40.5" height="13.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="ljc-3t-qnE" kind="show" identifier="toRestaurantDetail" id="Yax-7S-t4l">
+                                                <segue key="commit" inheritsFrom="parent" id="s4Z-8B-orX"/>
+                                                <segue key="preview" inheritsFrom="commit" id="5ZT-Xi-H8I"/>
+                                            </segue>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -180,13 +194,14 @@
                             <constraint firstItem="3xH-gl-tdl" firstAttribute="bottom" secondItem="yK1-v2-Hih" secondAttribute="bottom" constant="-47" id="mOH-eV-QUW"/>
                             <constraint firstItem="3xH-gl-tdl" firstAttribute="centerX" secondItem="yK1-v2-Hih" secondAttribute="centerX" id="nL3-Bb-Z9F"/>
                             <constraint firstAttribute="trailingMargin" secondItem="lCk-md-35V" secondAttribute="trailing" constant="-20" id="o1E-a1-lFs"/>
-                            <constraint firstItem="lCk-md-35V" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="55" id="sEh-lM-yzk"/>
+                            <constraint firstItem="lCk-md-35V" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="55" id="tMI-CZ-SIe"/>
                             <constraint firstItem="VjW-vx-Bkk" firstAttribute="trailing" secondItem="yK1-v2-Hih" secondAttribute="trailing" id="uJ0-si-njF"/>
                             <constraint firstItem="6Gc-Ld-uo1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vDf-3N-hYX"/>
                             <constraint firstItem="VjW-vx-Bkk" firstAttribute="leading" secondItem="yK1-v2-Hih" secondAttribute="leading" id="w0Y-QM-ELD"/>
                             <constraint firstItem="b9z-l3-x9Q" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xH7-hZ-iZB"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="YbO-Qj-05m"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="filterLabel" destination="gFm-fb-aPb" id="FhL-DL-Y98"/>
@@ -197,10 +212,108 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="445" y="474"/>
+            <point key="canvasLocation" x="1257" y="474"/>
+        </scene>
+        <!--Restaurant Detail View Controller-->
+        <scene sceneID="btT-wl-i1g">
+            <objects>
+                <viewController id="ljc-3t-qnE" customClass="RestaurantDetailViewController" customModule="Local_Menu" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="m96-KM-bhf"/>
+                        <viewControllerLayoutGuide type="bottom" id="oKG-MI-6yR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PvL-cb-VOe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LocalMenuDetailBackground" translatesAutoresizingMaskIntoConstraints="NO" id="qab-yP-Obw">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8qq-EW-cyA">
+                                <rect key="frame" x="6" y="33" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="JBb-h7-Fkk"/>
+                                    <constraint firstAttribute="height" constant="30" id="cQG-rd-Tyy"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="custom" id="p1t-w1-KDU"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DemoFoodItem" translatesAutoresizingMaskIntoConstraints="NO" id="4Uu-j6-DXC">
+                                <rect key="frame" x="0.0" y="75" width="414" height="241"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="241" id="nfo-KX-jSe"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xsz-rg-JPN">
+                                <rect key="frame" x="0.0" y="314" width="414" height="107"/>
+                                <color key="backgroundColor" red="0.95420673076923079" green="0.95420673076923079" blue="0.95420673076923079" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="107" id="F4H-uf-j6a"/>
+                                </constraints>
+                            </view>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pxI-pz-ehh">
+                                <rect key="frame" x="0.0" y="421" width="414" height="315"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qab-yP-Obw" firstAttribute="centerX" secondItem="PvL-cb-VOe" secondAttribute="centerX" id="0mY-Qx-Bkh"/>
+                            <constraint firstItem="xsz-rg-JPN" firstAttribute="centerY" secondItem="PvL-cb-VOe" secondAttribute="centerY" id="1t6-0D-2fa"/>
+                            <constraint firstItem="4Uu-j6-DXC" firstAttribute="centerX" secondItem="PvL-cb-VOe" secondAttribute="centerX" id="7LO-km-g1F"/>
+                            <constraint firstItem="8qq-EW-cyA" firstAttribute="top" secondItem="m96-KM-bhf" secondAttribute="bottom" constant="13" id="8KE-pi-hnZ"/>
+                            <constraint firstItem="xsz-rg-JPN" firstAttribute="leading" secondItem="PvL-cb-VOe" secondAttribute="leading" id="EWP-Me-EpM"/>
+                            <constraint firstItem="8qq-EW-cyA" firstAttribute="leading" secondItem="PvL-cb-VOe" secondAttribute="leadingMargin" constant="-14" id="Q0T-GR-RmY"/>
+                            <constraint firstItem="qab-yP-Obw" firstAttribute="bottom" secondItem="oKG-MI-6yR" secondAttribute="top" id="TA6-wm-BDV"/>
+                            <constraint firstItem="qab-yP-Obw" firstAttribute="leading" secondItem="PvL-cb-VOe" secondAttribute="leading" id="XGo-xw-THl"/>
+                            <constraint firstItem="xsz-rg-JPN" firstAttribute="centerX" secondItem="PvL-cb-VOe" secondAttribute="centerX" id="f6L-tx-KWU"/>
+                            <constraint firstAttribute="trailing" secondItem="4Uu-j6-DXC" secondAttribute="trailing" id="imW-p5-XlS"/>
+                            <constraint firstItem="qab-yP-Obw" firstAttribute="centerY" secondItem="PvL-cb-VOe" secondAttribute="centerY" id="otR-zh-aMt"/>
+                            <constraint firstItem="4Uu-j6-DXC" firstAttribute="leading" secondItem="PvL-cb-VOe" secondAttribute="leading" id="sFN-hi-LB7"/>
+                            <constraint firstAttribute="trailing" secondItem="xsz-rg-JPN" secondAttribute="trailing" id="uhN-y6-IrP"/>
+                            <constraint firstItem="4Uu-j6-DXC" firstAttribute="top" secondItem="8qq-EW-cyA" secondAttribute="bottom" constant="12" id="xiD-9J-pps"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="myMenu" destination="pxI-pz-ehh" id="3j5-W4-1SA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="REg-66-9EM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1783" y="474"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="faY-Lj-LLr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="5xT-IT-Uc9" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Psq-bJ-aMT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="uqo-OC-o5m">
+                        <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="PJ5-KV-XKx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BzY-UU-uQG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="661" y="474"/>
         </scene>
     </scenes>
     <resources>
+        <image name="DemoFoodItem" width="464" height="271"/>
         <image name="LocalMenuBackground1" width="375" height="667"/>
+        <image name="LocalMenuDetailBackground" width="375" height="667"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="p1t-w1-KDU"/>
+        <segue reference="Yax-7S-t4l"/>
+    </inferredMetricsTieBreakers>
 </document>

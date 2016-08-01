@@ -11,11 +11,14 @@ import Foundation
 struct Restaurant {
     
     let name: String
+    let menuURL: String
     
     init?(dictionary: [String: AnyObject]) {
-        guard let name = dictionary["name"] as? String else {
+        guard let name = dictionary["name"] as? String,
+        let menuURL = dictionary["menu_url"] as? String else {
             return nil
         }
         self.name = name
+        self.menuURL = menuURL
     }
 }

@@ -24,10 +24,10 @@ class RestaurantController {
             completion(restaurants: [])
             return
         }
-
-        let bodyDict = ["fields": ["name"],
-        "venue_queries": [["categories" : ["name": "burgers"]]],
-        "api_key": "44be813e6e30f7c82da90e5369aa0618ac294d73"]
+        
+        let bodyDict = ["fields": ["name", "menu_url", "contact", "website_url", "extended", "open_hours", "location"],
+                        "venue_queries": [["categories" : ["name": "burgers"]]],
+                        "api_key": "44be813e6e30f7c82da90e5369aa0618ac294d73"]
         
         guard let data = try? NSJSONSerialization.dataWithJSONObject(bodyDict, options: .PrettyPrinted) else {
             return
@@ -46,11 +46,10 @@ class RestaurantController {
             
             let restaurantsArray = restaurants.flatMap { Restaurant(dictionary: $0) }
             restaurantsArray.forEach { print($0.name) }
+            restaurantsArray.forEach { print($0.menuURL) }
             
-//            _ = restaurants.flatMap { Restaurant(dictionary: $0) }
+            //            _ = restaurants.flatMap { Restaurant(dictionary: $0) }
             completion(restaurants: restaurantsArray)
         }
     }
-    
-    
 }
