@@ -14,9 +14,20 @@ class RestaurantDetailViewController: UIViewController {
 
     @IBOutlet weak var myMenu: UIWebView!
     
+    @IBAction func backButton(sender: AnyObject) {
+        self.navigationController?.popToRootViewControllerAnimated(true)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        let path = NSBundle.mainBundle().pathForResource("widget", ofType: "html")!
+        var html = try! String(contentsOfFile: path, encoding: NSUTF8StringEncoding)
+        
+        html = html.stringByReplacingOccurrencesOfString("{venue_id}", withString: "\("64e77833b184aff41b49")")
+        
+        myMenu.loadHTMLString(html, baseURL: NSURL(string: "https://locu.com")!)
+
+
     }
 
     override func didReceiveMemoryWarning() {

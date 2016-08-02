@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		285C52FB1D515B8A001D1055 /* widget.html in Resources */ = {isa = PBXBuildFile; fileRef = 285C52FA1D515B8A001D1055 /* widget.html */; };
 		E23507371D4BF4ED003159FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23507361D4BF4ED003159FB /* AppDelegate.swift */; };
-		E23507391D4BF4ED003159FB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23507381D4BF4ED003159FB /* ViewController.swift */; };
 		E235073C1D4BF4ED003159FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E235073A1D4BF4ED003159FB /* Main.storyboard */; };
 		E235073E1D4BF4ED003159FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E235073D1D4BF4ED003159FB /* Assets.xcassets */; };
 		E23507411D4BF4ED003159FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E235073F1D4BF4ED003159FB /* LaunchScreen.storyboard */; };
@@ -59,9 +59,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		285C52FA1D515B8A001D1055 /* widget.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = widget.html; path = ../../Desktop/WebKitPractice/WebKitPractice/widget.html; sourceTree = "<group>"; };
 		E23507331D4BF4ED003159FB /* Local Menu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Local Menu.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E23507361D4BF4ED003159FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E23507381D4BF4ED003159FB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E235073B1D4BF4ED003159FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E235073D1D4BF4ED003159FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E23507401D4BF4ED003159FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -109,6 +109,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		285C52F61D515B10001D1055 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E235076E1D4C1F88003159FB /* RestaurantTableViewCell.swift */,
+				E23507701D4C1FAD003159FB /* RestaurantViewController.swift */,
+				E29DF2141D4D85BA00A5765D /* RestaurantDetailViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		285C52F71D515B1F001D1055 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E23507741D4C222E003159FB /* Restaurant.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		285C52F81D515B30001D1055 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E23507721D4C200C003159FB /* RestaurantController.swift */,
+				E23507681D4C1BD4003159FB /* NetworkController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		285C52F91D515B74001D1055 /* HTML file */ = {
+			isa = PBXGroup;
+			children = (
+				285C52FA1D515B8A001D1055 /* widget.html */,
+			);
+			name = "HTML file";
+			sourceTree = "<group>";
+		};
 		E235072A1D4BF4ED003159FB = {
 			isa = PBXGroup;
 			children = (
@@ -134,15 +169,12 @@
 		E23507351D4BF4ED003159FB /* Local Menu */ = {
 			isa = PBXGroup;
 			children = (
-				E235076E1D4C1F88003159FB /* RestaurantTableViewCell.swift */,
+				285C52F91D515B74001D1055 /* HTML file */,
+				285C52F61D515B10001D1055 /* View Controllers */,
+				285C52F71D515B1F001D1055 /* Models */,
+				285C52F81D515B30001D1055 /* Controllers */,
 				E23507361D4BF4ED003159FB /* AppDelegate.swift */,
-				E23507381D4BF4ED003159FB /* ViewController.swift */,
 				E235073A1D4BF4ED003159FB /* Main.storyboard */,
-				E29DF2141D4D85BA00A5765D /* RestaurantDetailViewController.swift */,
-				E23507721D4C200C003159FB /* RestaurantController.swift */,
-				E23507701D4C1FAD003159FB /* RestaurantViewController.swift */,
-				E23507741D4C222E003159FB /* Restaurant.swift */,
-				E23507681D4C1BD4003159FB /* NetworkController.swift */,
 				E235073D1D4BF4ED003159FB /* Assets.xcassets */,
 				E235073F1D4BF4ED003159FB /* LaunchScreen.storyboard */,
 				E23507421D4BF4ED003159FB /* Info.plist */,
@@ -281,6 +313,7 @@
 			files = (
 				E23507411D4BF4ED003159FB /* LaunchScreen.storyboard in Resources */,
 				E235073E1D4BF4ED003159FB /* Assets.xcassets in Resources */,
+				285C52FB1D515B8A001D1055 /* widget.html in Resources */,
 				E235073C1D4BF4ED003159FB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -402,7 +435,6 @@
 				E29DF2151D4D85BA00A5765D /* RestaurantDetailViewController.swift in Sources */,
 				E23507731D4C200C003159FB /* RestaurantController.swift in Sources */,
 				E23507751D4C222E003159FB /* Restaurant.swift in Sources */,
-				E23507391D4BF4ED003159FB /* ViewController.swift in Sources */,
 				E23507371D4BF4ED003159FB /* AppDelegate.swift in Sources */,
 				E23507691D4C1BD4003159FB /* NetworkController.swift in Sources */,
 			);
