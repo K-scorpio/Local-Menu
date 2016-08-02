@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		285C52FB1D515B8A001D1055 /* widget.html in Resources */ = {isa = PBXBuildFile; fileRef = 285C52FA1D515B8A001D1055 /* widget.html */; };
+		285C52FD1D516802001D1055 /* widget.html in Resources */ = {isa = PBXBuildFile; fileRef = 285C52FC1D516802001D1055 /* widget.html */; };
 		E23507371D4BF4ED003159FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23507361D4BF4ED003159FB /* AppDelegate.swift */; };
 		E235073C1D4BF4ED003159FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E235073A1D4BF4ED003159FB /* Main.storyboard */; };
 		E235073E1D4BF4ED003159FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E235073D1D4BF4ED003159FB /* Assets.xcassets */; };
@@ -59,7 +59,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		285C52FA1D515B8A001D1055 /* widget.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = widget.html; path = ../../Desktop/WebKitPractice/WebKitPractice/widget.html; sourceTree = "<group>"; };
+		285C52FC1D516802001D1055 /* widget.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = widget.html; sourceTree = "<group>"; };
 		E23507331D4BF4ED003159FB /* Local Menu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Local Menu.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E23507361D4BF4ED003159FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E235073B1D4BF4ED003159FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -139,7 +139,7 @@
 		285C52F91D515B74001D1055 /* HTML file */ = {
 			isa = PBXGroup;
 			children = (
-				285C52FA1D515B8A001D1055 /* widget.html */,
+				285C52FC1D516802001D1055 /* widget.html */,
 			);
 			name = "HTML file";
 			sourceTree = "<group>";
@@ -313,7 +313,7 @@
 			files = (
 				E23507411D4BF4ED003159FB /* LaunchScreen.storyboard in Resources */,
 				E235073E1D4BF4ED003159FB /* Assets.xcassets in Resources */,
-				285C52FB1D515B8A001D1055 /* widget.html in Resources */,
+				285C52FD1D516802001D1055 /* widget.html in Resources */,
 				E235073C1D4BF4ED003159FB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
