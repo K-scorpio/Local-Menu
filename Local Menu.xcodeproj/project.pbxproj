@@ -14,16 +14,16 @@
 		E23507411D4BF4ED003159FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E235073F1D4BF4ED003159FB /* LaunchScreen.storyboard */; };
 		E235074C1D4BF4EE003159FB /* Local_MenuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E235074B1D4BF4EE003159FB /* Local_MenuTests.swift */; };
 		E23507571D4BF4EE003159FB /* Local_MenuUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23507561D4BF4EE003159FB /* Local_MenuUITests.swift */; };
-		E23507651D4C0428003159FB /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E23507641D4C0428003159FB /* Mapbox.framework */; };
-		E23507661D4C0428003159FB /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E23507641D4C0428003159FB /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E23507691D4C1BD4003159FB /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23507681D4C1BD4003159FB /* NetworkController.swift */; };
 		E235076F1D4C1F88003159FB /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E235076E1D4C1F88003159FB /* RestaurantTableViewCell.swift */; };
 		E23507711D4C1FAD003159FB /* RestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23507701D4C1FAD003159FB /* RestaurantViewController.swift */; };
 		E23507731D4C200C003159FB /* RestaurantController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23507721D4C200C003159FB /* RestaurantController.swift */; };
 		E23507751D4C222E003159FB /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23507741D4C222E003159FB /* Restaurant.swift */; };
+		E25768551D500A4700B2ADB7 /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E25768541D500A4700B2ADB7 /* Mapbox.framework */; };
+		E25768561D500A4700B2ADB7 /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E25768541D500A4700B2ADB7 /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E257685B1D50115400B2ADB7 /* MapboxGeocoder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E257685A1D50115400B2ADB7 /* MapboxGeocoder.framework */; };
+		E257685C1D50115400B2ADB7 /* MapboxGeocoder.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E257685A1D50115400B2ADB7 /* MapboxGeocoder.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E29DF2151D4D85BA00A5765D /* RestaurantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29DF2141D4D85BA00A5765D /* RestaurantDetailViewController.swift */; };
-		E29DF2171D4EB5B400A5765D /* MapboxGeocoder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E29DF2161D4EB5B400A5765D /* MapboxGeocoder.framework */; };
-		E29DF2181D4EB5B400A5765D /* MapboxGeocoder.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E29DF2161D4EB5B400A5765D /* MapboxGeocoder.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,14 +44,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		E23507671D4C0428003159FB /* Embed Frameworks */ = {
+		E25768491D5006DC00B2ADB7 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				E23507661D4C0428003159FB /* Mapbox.framework in Embed Frameworks */,
-				E29DF2181D4EB5B400A5765D /* MapboxGeocoder.framework in Embed Frameworks */,
+				E25768561D500A4700B2ADB7 /* Mapbox.framework in Embed Frameworks */,
+				E257685C1D50115400B2ADB7 /* MapboxGeocoder.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -72,14 +72,14 @@
 		E23507521D4BF4EE003159FB /* Local MenuUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Local MenuUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E23507561D4BF4EE003159FB /* Local_MenuUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Local_MenuUITests.swift; sourceTree = "<group>"; };
 		E23507581D4BF4EE003159FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E23507641D4C0428003159FB /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mapbox.framework; sourceTree = "<group>"; };
 		E23507681D4C1BD4003159FB /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
-		E235076E1D4C1F88003159FB /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewCell.swift; sourceTree = "<group>"; };
+		E235076E1D4C1F88003159FB /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RestaurantTableViewCell.swift; path = ../RestaurantTableViewCell.swift; sourceTree = "<group>"; };
 		E23507701D4C1FAD003159FB /* RestaurantViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantViewController.swift; sourceTree = "<group>"; };
 		E23507721D4C200C003159FB /* RestaurantController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantController.swift; sourceTree = "<group>"; };
 		E23507741D4C222E003159FB /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		E25768541D500A4700B2ADB7 /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mapbox.framework; sourceTree = "<group>"; };
+		E257685A1D50115400B2ADB7 /* MapboxGeocoder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MapboxGeocoder.framework; sourceTree = "<group>"; };
 		E29DF2141D4D85BA00A5765D /* RestaurantDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantDetailViewController.swift; sourceTree = "<group>"; };
-		E29DF2161D4EB5B400A5765D /* MapboxGeocoder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MapboxGeocoder.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,8 +87,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E23507651D4C0428003159FB /* Mapbox.framework in Frameworks */,
-				E29DF2171D4EB5B400A5765D /* MapboxGeocoder.framework in Frameworks */,
+				E25768551D500A4700B2ADB7 /* Mapbox.framework in Frameworks */,
+				E257685B1D50115400B2ADB7 /* MapboxGeocoder.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,9 +112,8 @@
 		E235072A1D4BF4ED003159FB = {
 			isa = PBXGroup;
 			children = (
-				E29DF2161D4EB5B400A5765D /* MapboxGeocoder.framework */,
-				E235076E1D4C1F88003159FB /* RestaurantTableViewCell.swift */,
-				E23507641D4C0428003159FB /* Mapbox.framework */,
+				E257685A1D50115400B2ADB7 /* MapboxGeocoder.framework */,
+				E25768541D500A4700B2ADB7 /* Mapbox.framework */,
 				E23507351D4BF4ED003159FB /* Local Menu */,
 				E235074A1D4BF4EE003159FB /* Local MenuTests */,
 				E23507551D4BF4EE003159FB /* Local MenuUITests */,
@@ -135,6 +134,7 @@
 		E23507351D4BF4ED003159FB /* Local Menu */ = {
 			isa = PBXGroup;
 			children = (
+				E235076E1D4C1F88003159FB /* RestaurantTableViewCell.swift */,
 				E23507361D4BF4ED003159FB /* AppDelegate.swift */,
 				E23507381D4BF4ED003159FB /* ViewController.swift */,
 				E235073A1D4BF4ED003159FB /* Main.storyboard */,
@@ -178,7 +178,8 @@
 				E235072F1D4BF4ED003159FB /* Sources */,
 				E23507301D4BF4ED003159FB /* Frameworks */,
 				E23507311D4BF4ED003159FB /* Resources */,
-				E23507671D4C0428003159FB /* Embed Frameworks */,
+				E25768491D5006DC00B2ADB7 /* Embed Frameworks */,
+				E25768531D5008F700B2ADB7 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -193,9 +194,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E235075E1D4BF4EE003159FB /* Build configuration list for PBXNativeTarget "Local MenuTests" */;
 			buildPhases = (
+				9C8A8973A128236268E48124 /* [CP] Check Pods Manifest.lock */,
 				E23507431D4BF4EE003159FB /* Sources */,
 				E23507441D4BF4EE003159FB /* Frameworks */,
 				E23507451D4BF4EE003159FB /* Resources */,
+				F05AAA87779F1CAF4D3E4D25 /* [CP] Embed Pods Frameworks */,
+				640D7279A107B2C148288E69 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -211,9 +215,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E23507611D4BF4EE003159FB /* Build configuration list for PBXNativeTarget "Local MenuUITests" */;
 			buildPhases = (
+				5CBB37C4E7EDDA08A8E748E1 /* [CP] Check Pods Manifest.lock */,
 				E235074E1D4BF4EE003159FB /* Sources */,
 				E235074F1D4BF4EE003159FB /* Frameworks */,
 				E23507501D4BF4EE003159FB /* Resources */,
+				4E6E401877A2BBB483F70E7C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -294,6 +300,97 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4E6E401877A2BBB483F70E7C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Local MenuUITests/Pods-Local MenuUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5CBB37C4E7EDDA08A8E748E1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		640D7279A107B2C148288E69 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Local MenuTests/Pods-Local MenuTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9C8A8973A128236268E48124 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E25768531D5008F700B2ADB7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "";
+		};
+		F05AAA87779F1CAF4D3E4D25 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Local MenuTests/Pods-Local MenuTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E235072F1D4BF4ED003159FB /* Sources */ = {
@@ -457,6 +554,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Local-Menu";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -472,6 +570,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Local-Menu";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Release;
 		};

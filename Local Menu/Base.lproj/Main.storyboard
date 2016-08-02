@@ -206,6 +206,7 @@
                     <connections>
                         <outlet property="filterLabel" destination="gFm-fb-aPb" id="FhL-DL-Y98"/>
                         <outlet property="filterView" destination="6Gc-Ld-uo1" id="013-dj-u1u"/>
+                        <outlet property="mapView" destination="lCk-md-35V" id="hKZ-Uh-rlk"/>
                         <outlet property="randomLabel" destination="vbp-76-opr" id="mwz-Lw-AW9"/>
                         <outlet property="restaurantTableView" destination="3xH-gl-tdl" id="pI7-n7-rb9"/>
                     </connections>
