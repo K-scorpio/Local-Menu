@@ -197,22 +197,31 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
         cell.textLabel?.text = restaurant.name
         cell.detailTextLabel?.text = restaurant.menuURL
         print(restaurant.name)
+        print(restaurant.locuID)
         
         return cell
     }
+    
+ 
     
     //    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     //        <#code#>
     //    }
     
-    /*
+    
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let detailViewController = segue.destinationViewController as? RestaurantDetailViewController
+        if segue.identifier == "toRestaurantDetail" {
+            guard let indexPath = restaurantTableView.indexPathForSelectedRow,
+                restaurant = RestaurantController.sharedInstance.myRestaurant[indexPath.row] as? Restaurant else {return}
+            detailViewController?.restaurant = restaurant
+        }
      // Get the new view controller using segue.destinationViewController.
      // Pass the selected object to the new view controller.
      }
-     */
+    
     
 }

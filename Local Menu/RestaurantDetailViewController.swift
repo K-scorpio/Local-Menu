@@ -11,6 +11,8 @@ import UIKit
 class RestaurantDetailViewController: UIViewController {
     
     let myRestaurant = [Restaurant]()
+    
+    var restaurant: Restaurant?
 
     @IBOutlet weak var myMenu: UIWebView!
     
@@ -20,14 +22,18 @@ class RestaurantDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        guard let locuID = restaurant?.locuID else {
+            return
+        }
+        
         let path = NSBundle.mainBundle().pathForResource("widget", ofType: "html")!
         var html = try! String(contentsOfFile: path, encoding: NSUTF8StringEncoding)
         
-        html = html.stringByReplacingOccurrencesOfString("{venue_id}", withString: "\("64e77833b184aff41b49")")
+        html = html.stringByReplacingOccurrencesOfString("{venue_id}", withString: "\(locuID)")
         
         myMenu.loadHTMLString(html, baseURL: NSURL(string: "https://locu.com")!)
 
-
+        
     }
 
     override func didReceiveMemoryWarning() {

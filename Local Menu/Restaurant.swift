@@ -11,6 +11,7 @@ import Foundation
 struct Restaurant {
     
     let name: String
+    let locuID: String
     let menuURL: String
     let address1: String
     let locality: String
@@ -22,6 +23,7 @@ struct Restaurant {
     
     init?(dictionary: [String: AnyObject]) {
         guard let name = dictionary["name"] as? String,
+            let locuID = dictionary["locu_id"] as? String,
             let menuURL = dictionary["menu_url"] as? String,
             let location = dictionary["location"] as? [String: AnyObject],
             let address1 = location["address1"] as? String,
@@ -30,8 +32,7 @@ struct Restaurant {
             let postalCode = location["postal_code"] as? String,
             let country = location["country"] as? String,
             let geo = location["geo"] as? [String: AnyObject],
-            let coordinates = geo["coordinates"] as? [Double]
-            else {
+            let coordinates = geo["coordinates"] as? [Double] else {
                 return nil
         }
         guard coordinates.count >= 2 else {
@@ -42,6 +43,7 @@ struct Restaurant {
         let latitude = coordinates[1]
         
         self.name = name
+        self.locuID = locuID
         self.menuURL = menuURL
         self.address1 = address1
         self.locality = locality
@@ -50,5 +52,6 @@ struct Restaurant {
         self.country = country
         self.latitude = latitude
         self.longitude = longitude
+        
     }
 }
