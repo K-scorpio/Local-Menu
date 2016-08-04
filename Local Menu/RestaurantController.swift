@@ -35,7 +35,7 @@ class RestaurantController {
             
             
             let bodyDict = ["fields": ["name", "locu_id", "menu_url", "contact", "website_url", "extended", "open_hours", "location"],
-                            "venue_queries": [["location"   : ["geo": locationRequest] ,"categories" : ["name":"Italian"]]],
+                            "venue_queries": [["location"   : ["geo": locationRequest] ,"categories" : ["name":"Italian"]], ["menus": ["sections": ["subsections": ["contents": "price"]]]]],
                             "api_key": "44be813e6e30f7c82da90e5369aa0618ac294d73"]
             
             

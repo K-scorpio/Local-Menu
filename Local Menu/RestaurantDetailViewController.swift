@@ -8,13 +8,18 @@
 
 import UIKit
 
-class RestaurantDetailViewController: UIViewController {
+class RestaurantDetailViewController: UIViewController, UIScrollViewDelegate {
     
+    @IBOutlet weak var iconView: UIView!
     let myRestaurant = [Restaurant]()
     
     var restaurant: Restaurant?
 
-    @IBOutlet weak var myMenu: UIWebView!
+    @IBOutlet weak var myMenu: UIWebView! {
+        didSet {
+            myMenu.scrollView.delegate = self
+        }
+    }
     
     @IBAction func backButton(sender: AnyObject) {
         self.navigationController?.popToRootViewControllerAnimated(true)
@@ -40,6 +45,31 @@ class RestaurantDetailViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    var maxConstraintValue: CGFloat!
+//    @IBOutlet weak var webViewTopConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var iconsTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var web: NSLayoutConstraint!
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+//        maxConstraintValue = web.constant
+        maxConstraintValue = iconsTopConstraint.constant
+        
+        
+    }
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        print(scrollView.contentOffset.y)
+        let offset: CGFloat = scrollView.contentOffset.y
+        guard offset > 0 else { return }
+        web.constant = max(20, maxConstraintValue - offset + iconView.frame.height)
+        
+        iconsTopConstraint.constant = max(20, maxConstraintValue - offset)
+    }
+    
+
     
 //    // MARK: - Navigation
 //
