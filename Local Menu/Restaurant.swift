@@ -29,7 +29,7 @@ struct Restaurant {
     let attire: String?
     let highRange: String?
     let lowRange: String?
-    let price: String?
+//    let price: String?
     
     
     
@@ -63,15 +63,15 @@ struct Restaurant {
         self.latitude = latitude
         self.longitude = longitude
         
-        if let menus = dictionary["menus"] as? [[String: AnyObject]],
-            let sections = menus[1]["sections"] as? [[String: AnyObject]],
-            let subsections = sections[1]["subsections"] as? [[String : AnyObject]],
-            let contents = subsections[1]["contents"] as? [[String: AnyObject]],
-            let price = contents[0]["price"] as? String {
-            self.price = price
-        } else {
-            return nil
-        }
+//        if let menus = dictionary["menus"] as? [[String: AnyObject]],
+//            let sections = menus[1]["sections"] as? [[String: AnyObject]],
+//            let subsections = sections[1]["subsections"] as? [[String : AnyObject]],
+//            let contents = subsections[1]["contents"] as? [[String: AnyObject]],
+//            let price = contents[0]["price"] as? String {
+//            self.price = price
+//        } else {
+//            return nil
+//        }
       
         
         if let extended = dictionary["extended"] as? [String: AnyObject] {
