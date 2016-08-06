@@ -10,6 +10,36 @@ import Foundation
 
 struct Restaurant {
     
+    private let kName = "name"
+    private let kLocuID = "locu_id"
+    private let kAddress1 = "address1"
+    private let kLocality = "locality"
+    private let kRegion = "region"
+    private let kPostalCode = "postal_code"
+    private let kCountry = "country"
+    private let kLongitude = "latitude"
+    private let kLatitude = "longitude"
+    private let kAlcohol = "alcohol"
+    private let kWifi = "wifi"
+    private let kMusic = "music"
+    private let kReservations = "reservations"
+    private let kGoodForKids = "good_for_kids"
+    private let kTakeout = "takeout"
+    private let kNoiseLevel = "noise_level"
+    private let kAttire = "attire"
+    private let kHighRange = "high"
+    private let kLowRange = "low"
+    private let kPrice = "price"
+    private let kPriceRange = "price_range"
+    private let kLocation = "location"
+    private let kGeo = "geo"
+    private let kCoordinates = "coordinates"
+    private let kMenus = "menus"
+    private let kExtended = "extended"
+    private let kSections = "sections"
+    private let kSubsections = "subsections"
+    private let kContents = "contents"
+    
     let name: String
     let locuID: String
     let address1: String
@@ -29,21 +59,21 @@ struct Restaurant {
     let attire: String?
     let highRange: String?
     let lowRange: String?
-    let price: String?
+    let prices: [String]?
     
     
     
     init?(dictionary: [String: AnyObject]) {
-        guard let name = dictionary["name"] as? String,
-            let locuID = dictionary["locu_id"] as? String,
-            let location = dictionary["location"] as? [String: AnyObject],
-            let address1 = location["address1"] as? String,
-            let region = location["region"] as? String,
-            let locality = location["locality"] as? String,
-            let postalCode = location["postal_code"] as? String,
-            let country = location["country"] as? String,
-            let geo = location["geo"] as? [String: AnyObject],
-            let coordinates = geo["coordinates"] as? [Double] else {
+        guard let name = dictionary[kName] as? String,
+            let locuID = dictionary[kLocuID] as? String,
+            let location = dictionary[kLocation] as? [String: AnyObject],
+            let address1 = location[kAddress1] as? String,
+            let region = location[kRegion] as? String,
+            let locality = location[kLocality] as? String,
+            let postalCode = location[kPostalCode] as? String,
+            let country = location[kCountry] as? String,
+            let geo = location[kGeo] as? [String: AnyObject],
+            let coordinates = geo[kCoordinates] as? [Double] else {
                 return nil
         }
         guard coordinates.count >= 2 else {
@@ -63,29 +93,34 @@ struct Restaurant {
         self.latitude = latitude
         self.longitude = longitude
         
-        if let menus = dictionary["menus"] as? [[String: AnyObject]],
-            let sections = menus[1]["sections"] as? [[String: AnyObject]],
-            let subsections = sections[1]["subsections"] as? [[String : AnyObject]],
-            let contents = subsections[1]["contents"] as? [[String: AnyObject]],
-            let price = contents[0]["price"] as? String {
-            self.price = price
+        
+    /////////// Menu Item Prices /////////////
+
+        
+        if let menus = dictionary[kMenus] as? [[String: AnyObject]],
+            let sections = menus[0][kSections] as? [[String: AnyObject]],
+            let subsections = sections[0][kSubsections] as? [[String : AnyObject]],
+            let contents = subsections[0][kContents] as? [[String: String]] {
+            let prices = contents.flatMap({$0["price"]})
+            self.prices = prices
         } else {
             return nil
         }
       
+      ////////// Extended Options ////////////
         
-        if let extended = dictionary["extended"] as? [String: AnyObject] {
-            self.alcohol = extended["alcohol"] as? String ?? nil
-            self.wifi = extended["wifi"] as? String ?? nil
-            self.music = extended["music"] as? [String] ?? nil
-            self.reservations = extended["reservations"] as? Bool ?? nil
-            self.goodForKids = extended["good_for_kids"] as? Bool ?? nil
-            self.takeout = extended["takeout"] as? Bool ?? nil
-            self.noiseLevel = extended["noise_level"] as? String ?? nil
-            self.attire = extended["attire"] as? String ?? nil
-            if let priceRange = extended["price_range"] as? [String: AnyObject] {
-                self.highRange = priceRange["high"] as? String ?? nil
-                self.lowRange = extended["low"] as? String ?? nil
+        if let extended = dictionary[kExtended] as? [String: AnyObject] {
+            self.alcohol = extended[kAlcohol] as? String ?? nil
+            self.wifi = extended[kWifi] as? String ?? nil
+            self.music = extended[kMusic] as? [String] ?? nil
+            self.reservations = extended[kReservations] as? Bool ?? nil
+            self.goodForKids = extended[kGoodForKids] as? Bool ?? nil
+            self.takeout = extended[kTakeout] as? Bool ?? nil
+            self.noiseLevel = extended[kNoiseLevel] as? String ?? nil
+            self.attire = extended[kAttire] as? String ?? nil
+            if let priceRange = extended[kPriceRange] as? [String: AnyObject] {
+                self.highRange = priceRange[kHighRange] as? String ?? nil
+                self.lowRange = extended[kLowRange] as? String ?? nil
             } else {
                 self.highRange = nil
                 self.lowRange = nil

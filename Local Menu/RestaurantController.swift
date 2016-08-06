@@ -21,6 +21,10 @@ class RestaurantController {
         
     }
     
+    func selectCategory() {
+        
+    }
+    
     func fetchLocuData(location: CLLocationCoordinate2D, completion: (restaurants: [Restaurant]) -> Void) {
         
         guard let baseURL = NSURL(string: "https://api.locu.com/v2/venue/search/") else {
@@ -34,8 +38,8 @@ class RestaurantController {
             locationRequest["$in_lat_lng_radius"] = [location.latitude,location.longitude,5000]
             
             
-            let bodyDict = ["fields": ["name", "locu_id", "menu_url", "contact", "website_url", "extended", "open_hours", "location"],
-                            "venue_queries": [["location"   : ["geo": locationRequest] ,"categories" : ["name":"Italian"]], ["menus": ["sections": ["subsections": ["contents": "price"]]]]],
+        let bodyDict = ["fields": ["name", "categories", "locu_id", "contact", "website_url", "extended", "open_hours", "location", "menus"],
+                            "venue_queries": [["location" : ["geo": locationRequest], "categories" : ["name":"Italian"]]],
                             "api_key": "44be813e6e30f7c82da90e5369aa0618ac294d73"]
             
             

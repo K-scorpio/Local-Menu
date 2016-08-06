@@ -147,7 +147,7 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
             annotationView!.frame = CGRectMake(0, 40, 40, 40)
             
             // Set the annotation view’s background color to a value determined by its longitude.
-            let hue = CGFloat(annotation.coordinate.longitude) / 100
+            _ = CGFloat(annotation.coordinate.longitude) / 100
             annotationView!.backgroundColor = UIColor(hue: 0.02, saturation: 0.93, brightness: 0.53, alpha: 1)
         }
         
@@ -195,12 +195,41 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
         let restaurant = restaurants[indexPath.row]
         
         cell.textLabel?.text = restaurant.name
+        
+        
+        if let priceAverage = self.averagePrice(restaurant) {
+            cell.detailTextLabel?.text = "$\(round(priceAverage))"
+        } else {
+            cell.detailTextLabel?.text = ""
+        }
+        
         print(restaurant.name)
         print("\(restaurant.address1) \(restaurant.locality), \(restaurant.region) \(restaurant.postalCode)")
         print("wifi: \(restaurant.wifi) \n alcohol \(restaurant.alcohol) \n kid Friendly \(restaurant.goodForKids) \n noise level \(restaurant.noiseLevel) \n takeout \(restaurant.takeout) \n reservations \(restaurant.reservations) \n music \(restaurant.music) \n high range \(restaurant.highRange) \n low range \(restaurant.lowRange)")
+        print("price \(restaurant.prices)")
+        
         
         return cell
     }
+    
+    func averagePrice(restaurant: Restaurant) -> Double? {
+        if let prices = restaurant.prices {
+            var total: Double = 0.0
+            for price in prices {
+                if let doublePrice = Double(price) {
+                    total += doublePrice
+                    
+                }
+                
+            }
+            return total / Double(prices.count)
+
+        } else {
+            return nil
+        }
+    }
+    
+    
     
  
     
