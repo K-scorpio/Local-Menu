@@ -144,7 +144,7 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
         // If there’s no reusable annotation view available, initialize a new one.
         if annotationView == nil {
             annotationView = CustomAnnotationView(reuseIdentifier: reuseIdentifier)
-            annotationView!.frame = CGRectMake(0, 40, 40, 40)
+            annotationView!.frame = CGRectMake(0, 40, 27, 27)
             
             // Set the annotation view’s background color to a value determined by its longitude.
             _ = CGFloat(annotation.coordinate.longitude) / 100
