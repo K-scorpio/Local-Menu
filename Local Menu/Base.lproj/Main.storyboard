@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
     </dependencies>
@@ -329,6 +330,7 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="13" id="NKg-dN-kcb"/>
+                                    <constraint firstAttribute="width" secondItem="aQz-tg-qtC" secondAttribute="height" multiplier="356:13" id="imh-2f-8wT"/>
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="n5T-zz-hd0">
@@ -357,6 +359,7 @@
                                     </imageView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="width" secondItem="n5T-zz-hd0" secondAttribute="height" multiplier="187:14" id="ZDp-SR-dQD"/>
                                     <constraint firstAttribute="height" constant="28" id="oT7-po-wm9"/>
                                 </constraints>
                             </stackView>
