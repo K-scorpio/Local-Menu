@@ -12,6 +12,8 @@ import Mapbox
 import CoreLocation
 
 class RestaurantViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MGLMapViewDelegate, CLLocationManagerDelegate {
+    //Populate with a prepare for segue.
+    let categoryArray = ["Mexican", "Italian", "Chinese", "Burgers", "Japanese", "Indian", "Bakery", "Coffee", "Thai", "Greek"]
     
     @IBOutlet weak var restaurantTableView: UITableView!
     
@@ -36,7 +38,7 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     var restaurants: [Restaurant] {
-        return RestaurantController.sharedInstance.myRestaurant
+        return RestaurantController.sharedInstance.myRestaurants
     }
     var locationManager: CLLocationManager!
     
@@ -60,50 +62,54 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.setupMyLocationManager()
+        //        self.setupMyLocationManager()
         setupMyLocationManager()
-        mapView.showsUserLocation = true
-        mapView.userTrackingMode = MGLUserTrackingMode(rawValue: 2)!
-        mapView.delegate = self
-        let center = CLLocationCoordinate2DMake(userCurrentLocation?.coordinate.latitude ?? 0.0, userCurrentLocation?.coordinate.longitude ?? 0.0)
-        mapView.setCenterCoordinate(center, zoomLevel: 12, animated: true)
+        requestLocuData()
+        
         // Do any additional setup after loading the view.
         
         //-------------------------
-        RestaurantController.sharedInstance.fetchLocuData(center) { (restaurants) in
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                RestaurantController.sharedInstance.myRestaurant = restaurants
-                // for restaurant in [restaurant] add a point. let the title = restaurant.title let subtitle = restaurant.streetAddress1
-                
-                for myRestaurant in self.restaurants {
-                    let point = MGLPointAnnotation()
-                    point.coordinate = CLLocationCoordinate2D(latitude: myRestaurant.latitude, longitude: myRestaurant.longitude)
-                    point.title = myRestaurant.name
-                    point.subtitle = myRestaurant.address1
-
-                    self.mapView.addAnnotation(point)
-                }
-                self.restaurantTableView.reloadData()
-            })
-        }
-        
     }
     
     var service: RestaurantController!
     
     func requestLocuData() {
-        service = RestaurantController()
-        // Async request for Locu Data
-        service.fetchLocuData(self.userCurrentLocation!.coordinate)  {
-            (response) in
-            self.locuData = response
+        mapView.showsUserLocation = true
+        mapView.userTrackingMode = MGLUserTrackingMode(rawValue: 2)!
+        mapView.delegate = self
+        let center = CLLocationCoordinate2DMake(userCurrentLocation?.coordinate.latitude ?? 0.0, userCurrentLocation?.coordinate.longitude ?? 0.0)
+        mapView.setCenterCoordinate(center, zoomLevel: 12, animated: true)
+        
+        let fetchRestaurantsGroup = dispatch_group_create()
+
+        for category in categoryArray {
+            dispatch_group_enter(fetchRestaurantsGroup)
+            RestaurantController.sharedInstance.fetchRestaurantsForCategory(category, location: center) { (success) in
+                
+                if success {
+                    dispatch_group_leave(fetchRestaurantsGroup)
+                }
+            }
         }
+        
+        dispatch_group_notify(fetchRestaurantsGroup, dispatch_get_main_queue(), {
+            RestaurantController.sharedInstance.myRestaurants = RestaurantController.sharedInstance.myRestaurants
+            // for restaurant in [restaurant] add a point. let the title = restaurant.title let subtitle = restaurant.streetAddress1
+            
+            for myRestaurant in self.restaurants {
+                let point = MGLPointAnnotation()
+                point.coordinate = CLLocationCoordinate2D(latitude: myRestaurant.latitude, longitude: myRestaurant.longitude)
+                point.title = myRestaurant.name
+                point.subtitle = myRestaurant.address1
+                
+                self.mapView.addAnnotation(point)
+            }
+            self.restaurantTableView.reloadData()
+        })
     }
     
-    
-    
-//    let center = CLLocationCoordinate2D(latitude: userCurrentLocation.coordinate.latitude, longitude: userCurrentLocation.coordinate.longitude)
-//    let region = MGLCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+       //    let center = CLLocationCoordinate2D(latitude: userCurrentLocation.coordinate.latitude, longitude: userCurrentLocation.coordinate.longitude)
+    //    let region = MGLCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
     
     func mapView(mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
         // Always try to show a callout when an annotation is tapped.
@@ -153,7 +159,7 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
         
         return annotationView
     }
-
+    
     // MGLAnnotationView subclass
     class CustomAnnotationView: MGLAnnotationView {
         override func layoutSubviews() {
@@ -185,9 +191,8 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //        return RestaurantController.sharedInstance.myRestaurant.count
+//                return RestaurantController.sharedInstance.myRestaurants.count
         return restaurants.count
-        //        return restaurant.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -196,61 +201,39 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
         
         cell.textLabel?.text = restaurant.name
         
-        
-        if let priceAverage = self.averagePrice(restaurant) {
-            cell.detailTextLabel?.text = "$\(round(priceAverage))"
+        if restaurant.menuURl != nil {
+            cell.detailTextLabel?.text = "MENU"
         } else {
             cell.detailTextLabel?.text = ""
         }
         
         print(restaurant.name)
-        print("\(restaurant.address1) \(restaurant.locality), \(restaurant.region) \(restaurant.postalCode)")
-        print("wifi: \(restaurant.wifi) \n alcohol \(restaurant.alcohol) \n kid Friendly \(restaurant.goodForKids) \n noise level \(restaurant.noiseLevel) \n takeout \(restaurant.takeout) \n reservations \(restaurant.reservations) \n music \(restaurant.music) \n high range \(restaurant.highRange) \n low range \(restaurant.lowRange)")
-        print("price \(restaurant.prices)")
+        //        print("\(restaurant.address1) \(restaurant.locality), \(restaurant.region) \(restaurant.postalCode)")
+        //        print("wifi: \(restaurant.wifi) \n alcohol \(restaurant.alcohol) \n kid Friendly \(restaurant.goodForKids) \n noise level \(restaurant.noiseLevel) \n takeout \(restaurant.takeout) \n reservations \(restaurant.reservations) \n music \(restaurant.music) \n high range \(restaurant.highRange) \n low range \(restaurant.lowRange)")
+        //        print("price \(restaurant.prices)")
         
         
         return cell
     }
-    
-    func averagePrice(restaurant: Restaurant) -> Double? {
-        if let prices = restaurant.prices {
-            var total: Double = 0.0
-            for price in prices {
-                if let doublePrice = Double(price) {
-                    total += doublePrice
-                    
-                }
-                
-            }
-            return total / Double(prices.count)
-
-        } else {
-            return nil
-        }
-    }
-    
-    
-    
- 
     
     //    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     //        <#code#>
     //    }
     
     
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let detailViewController = segue.destinationViewController as? RestaurantDetailViewController
         if segue.identifier == "toRestaurantDetail" {
             guard let indexPath = restaurantTableView.indexPathForSelectedRow,
-                restaurant = RestaurantController.sharedInstance.myRestaurant[indexPath.row] as? Restaurant else {return}
+                let restaurant = RestaurantController.sharedInstance.myRestaurants[indexPath.row] as? Restaurant else {return}
             detailViewController?.restaurant = restaurant
         }
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
     
     
 }

@@ -42,6 +42,7 @@ struct Restaurant {
     
     let name: String
     let locuID: String
+    let menuURl: String?
     let address1: String
     let locality: String
     let region: String
@@ -59,12 +60,7 @@ struct Restaurant {
     let attire: String?
     let highRange: String?
     let lowRange: String?
-<<<<<<< HEAD
     let prices: [String]?
-=======
-//    let price: String?
->>>>>>> 6da81cbdfe9ea754ebec533195da2f8f6b953b6c
-    
     
     
     init?(dictionary: [String: AnyObject]) {
@@ -89,6 +85,7 @@ struct Restaurant {
         
         self.name = name
         self.locuID = locuID
+        
         self.address1 = address1
         self.locality = locality
         self.region = region
@@ -96,8 +93,13 @@ struct Restaurant {
         self.country = country
         self.latitude = latitude
         self.longitude = longitude
+
         
-<<<<<<< HEAD
+        if let menuURL = dictionary["menu_url"] as? String ?? nil {
+            self.menuURl = menuURL
+        } else {
+            self.menuURl = nil
+        }
         
     /////////// Menu Item Prices /////////////
 
@@ -109,19 +111,9 @@ struct Restaurant {
             let prices = contents.flatMap({$0["price"]})
             self.prices = prices
         } else {
-            return nil
+            self.prices = nil
         }
-=======
-//        if let menus = dictionary["menus"] as? [[String: AnyObject]],
-//            let sections = menus[1]["sections"] as? [[String: AnyObject]],
-//            let subsections = sections[1]["subsections"] as? [[String : AnyObject]],
-//            let contents = subsections[1]["contents"] as? [[String: AnyObject]],
-//            let price = contents[0]["price"] as? String {
-//            self.price = price
-//        } else {
-//            return nil
-//        }
->>>>>>> 6da81cbdfe9ea754ebec533195da2f8f6b953b6c
+        
       
       ////////// Extended Options ////////////
         

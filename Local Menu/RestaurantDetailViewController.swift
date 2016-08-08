@@ -61,7 +61,7 @@ class RestaurantDetailViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        print(scrollView.contentOffset.y)
+//        print(scrollView.contentOffset.y)
         let offset: CGFloat = scrollView.contentOffset.y * 1.5
         guard offset > 0 else { return }
         web.constant = max(20, maxConstraintValue - offset + iconView.frame.height)
