@@ -10,7 +10,10 @@ import UIKit
 
 class RestaurantDetailViewController: UIViewController, UIScrollViewDelegate {
     
-    @IBOutlet weak var iconView: UIView!
+//    @IBOutlet weak var iconView: UIView!
+    
+    @IBOutlet weak var iconView: UIImageView!
+    
     let myRestaurant = [Restaurant]()
     
     var restaurant: Restaurant?
@@ -66,7 +69,7 @@ class RestaurantDetailViewController: UIViewController, UIScrollViewDelegate {
         guard offset > 0 else { return }
         web.constant = max(20, maxConstraintValue - offset + iconView.frame.height)
         
-        iconsTopConstraint.constant = max(20, maxConstraintValue - offset)
+        iconsTopConstraint.constant = max(-98, maxConstraintValue - offset)
     }
     
 

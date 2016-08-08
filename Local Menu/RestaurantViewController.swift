@@ -50,14 +50,22 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var filterView: UIView!
     @IBOutlet weak var filterLabel: UIButton!
     @IBOutlet weak var randomLabel: UIButton!
+    @IBOutlet weak var searchBarField: UISearchBar!
+    @IBAction func searchButtonPressed(sender: AnyObject) {
+        if searchBarField.hidden == true {
+            searchBarField.hidden = false
+        } else {
+            searchBarField.hidden = true
+        }
+    }
     
     @IBAction func filterButtonTapped(sender: AnyObject) {
         if filterView.hidden == false {
             filterView.hidden = true
-            filterLabel.setTitleColor(.grayColor(), forState: .Normal)
+            filterLabel.setTitleColor(UIColor.init(hue: 0.0, saturation: 0.0, brightness: 0.62, alpha: 1.0), forState: .Normal)
         } else if filterView.hidden == true {
             filterView.hidden = false
-            filterLabel.setTitleColor(.redColor(), forState: .Normal)
+            filterLabel.setTitleColor(UIColor.init(hue: 0.09, saturation: 0.44, brightness: 0.55, alpha: 1.0), forState: .Normal)
         }
     }
     override func viewDidLoad() {
@@ -80,7 +88,28 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
         let center = CLLocationCoordinate2DMake(userCurrentLocation?.coordinate.latitude ?? 0.0, userCurrentLocation?.coordinate.longitude ?? 0.0)
         mapView.setCenterCoordinate(center, zoomLevel: 12, animated: true)
         
+<<<<<<< Updated upstream
         let fetchRestaurantsGroup = dispatch_group_create()
+=======
+        //-------------------------
+        RestaurantController.sharedInstance.fetchLocuData(center) { (restaurants) in
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                RestaurantController.sharedInstance.myRestaurant = restaurants
+                // for restaurant in [restaurant] add a point. let the title = restaurant.title let subtitle = restaurant.streetAddress1
+                
+                for myRestaurant in self.restaurants {
+                    let point = MGLPointAnnotation()
+                    point.coordinate = CLLocationCoordinate2D(latitude: myRestaurant.latitude, longitude: myRestaurant.longitude)
+                    point.title = myRestaurant.name
+                    point.subtitle = myRestaurant.address1
+//                    let happy = "\(point.coordinate.longitude)"
+//                    let annotation = self.mapView.dequeueReusableAnnotationViewWithIdentifier(happy)
+//                    
+//                    func customMap(mapView: MGLMapView, viewForAnnotation annotation: MGLAnnotation) -> MGLAnnotationView? {
+//                    annotation.backgroundColor = UIColor.blueColor()
+//                    }
+
+>>>>>>> Stashed changes
 
         for category in categoryArray {
             dispatch_group_enter(fetchRestaurantsGroup)
