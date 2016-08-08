@@ -451,7 +451,6 @@
         <!--Title-->
         <scene sceneID="s2q-aR-pcu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mSJ-du-cZW" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <collectionViewController id="SjG-yL-WKq" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="R4p-5b-AI5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
@@ -496,6 +495,7 @@
                         </barButtonItem>
                     </navigationItem>
                 </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mSJ-du-cZW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2939" y="474"/>
         </scene>

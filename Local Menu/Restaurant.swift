@@ -42,6 +42,7 @@ struct Restaurant {
     
     let name: String
     let locuID: String
+    let menuURL: String?
     let address1: String
     let locality: String
     let region: String
@@ -105,6 +106,12 @@ struct Restaurant {
             self.prices = prices
         } else {
             self.prices = nil
+        }
+        
+        if let menuURL = dictionary["menu_url"] as? String ?? nil {
+            self.menuURL = menuURL
+        } else {
+            self.menuURL = nil
         }
       
       ////////// Extended Options ////////////

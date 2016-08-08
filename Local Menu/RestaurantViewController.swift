@@ -88,29 +88,8 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
         let center = CLLocationCoordinate2DMake(userCurrentLocation?.coordinate.latitude ?? 0.0, userCurrentLocation?.coordinate.longitude ?? 0.0)
         mapView.setCenterCoordinate(center, zoomLevel: 12, animated: true)
         
-<<<<<<< Updated upstream
         let fetchRestaurantsGroup = dispatch_group_create()
-=======
-        //-------------------------
-        RestaurantController.sharedInstance.fetchLocuData(center) { (restaurants) in
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                RestaurantController.sharedInstance.myRestaurant = restaurants
-                // for restaurant in [restaurant] add a point. let the title = restaurant.title let subtitle = restaurant.streetAddress1
-                
-                for myRestaurant in self.restaurants {
-                    let point = MGLPointAnnotation()
-                    point.coordinate = CLLocationCoordinate2D(latitude: myRestaurant.latitude, longitude: myRestaurant.longitude)
-                    point.title = myRestaurant.name
-                    point.subtitle = myRestaurant.address1
-//                    let happy = "\(point.coordinate.longitude)"
-//                    let annotation = self.mapView.dequeueReusableAnnotationViewWithIdentifier(happy)
-//                    
-//                    func customMap(mapView: MGLMapView, viewForAnnotation annotation: MGLAnnotation) -> MGLAnnotationView? {
-//                    annotation.backgroundColor = UIColor.blueColor()
-//                    }
-
->>>>>>> Stashed changes
-
+        
         for category in categoryArray {
             dispatch_group_enter(fetchRestaurantsGroup)
             RestaurantController.sharedInstance.fetchRestaurantsForCategory(category, location: center) { (success) in
@@ -136,6 +115,7 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
             self.restaurantTableView.reloadData()
         })
     }
+
     
        //    let center = CLLocationCoordinate2D(latitude: userCurrentLocation.coordinate.latitude, longitude: userCurrentLocation.coordinate.longitude)
     //    let region = MGLCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
@@ -230,7 +210,7 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
         
         cell.textLabel?.text = restaurant.name
         
-        if restaurant.menuURl != nil {
+        if restaurant.menuURL != nil {
             cell.detailTextLabel?.text = "MENU"
         } else {
             cell.detailTextLabel?.text = ""
