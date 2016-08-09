@@ -269,7 +269,8 @@ class RestaurantDetailViewController: UIViewController, UIScrollViewDelegate {
     // MARK: - Top Navigation Item:
     
     @IBAction func backButton(sender: AnyObject) {
-        self.navigationController?.popToRootViewControllerAnimated(true)
+        
+        performSegueWithIdentifier("unwindToRestaurantView", sender: self)
     }
     
     override func didReceiveMemoryWarning() {
