@@ -17,10 +17,10 @@ class RestaurantController {
     
     var myRestaurants = [Restaurant]()
     
-    func fetchRestaurantsForCategory(category: String, location: CLLocationCoordinate2D, completion: (success: Bool) -> Void) {
+    func fetchRestaurantsForCategory(category: String, location: CLLocationCoordinate2D, completion: (restaurants: [Restaurant], success: Bool) -> Void) {
         
         guard let baseURL = NSURL(string: "https://api.locu.com/v2/venue/search/") else {
-            completion(success: false)
+            completion(restaurants: [], success: false)
             return
         }
         
@@ -28,7 +28,7 @@ class RestaurantController {
         //            let location: CLLocationCoordinate2D
         var locationRequest = [String:AnyObject]()
         locationRequest["$in_lat_lng_radius"] = [location.latitude,location.longitude,5000]
-        let bodyDict = ["fields": ["name", "locu_id", "menu_url", "contact", "website_url", "extended", "open_hours", "location", "menus"],
+        let bodyDict = ["fields": ["name", "locu_id", "menu_url", "contact", "website_url", "extended", "open_hours", "location"],
                         "venue_queries": [["location": ["geo": locationRequest], "categories" : ["name":category]]],
                         "api_key": "44be813e6e30f7c82da90e5369aa0618ac294d73"]
         
@@ -41,12 +41,12 @@ class RestaurantController {
             }
             //            print(dataDictionary)
             guard let restaurants = dataDictionary["venues"] as? [[String: AnyObject]] else {
-                completion(success: false)
+                completion(restaurants: [], success: false)
                 return
             }
             let restaurantsArray = restaurants.flatMap { Restaurant(dictionary: $0) }
-            self.myRestaurants += restaurantsArray
-            completion(success: true)
+            self.myRestaurants.appendContentsOf(restaurantsArray)
+            completion(restaurants: restaurantsArray, success: true)
         }
     }
 }

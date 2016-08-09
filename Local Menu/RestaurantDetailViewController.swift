@@ -20,6 +20,11 @@ class RestaurantDetailViewController: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
         takeoutIconDisplay()
         wifiIconDisplay()
+        reservationIconDisplay()
+        noiseLevelIconDisplay()
+        alcoholIconDisplay()
+        kidFriendlyIconDisplay()
+        liveMusicIconDisplay()
         
         guard let locuID = restaurant?.locuID else {
             return
@@ -116,9 +121,22 @@ class RestaurantDetailViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func noiseLevelIconDisplay() {
-        
+        if restaurant?.noiseLevel != nil {
+            if (restaurant?.noiseLevel)! == "quiet" {
+                noiseIcon.image = UIImage(named: "Noise Icon 13")
+                noiseLevelUnknown.image = UIImage(named: "Unknown Icon Blank")
+            } else if (restaurant?.noiseLevel)! == "typical" {
+                noiseIcon.image = UIImage(named: "Noise Icon 23")
+                noiseLevelUnknown.image = UIImage(named: "Unknown Icon Blank")
+            } else if (restaurant?.noiseLevel)! == "typical" {
+                noiseIcon.image = UIImage(named: "Noise Icon 33")
+                noiseLevelUnknown.image = UIImage(named: "Unknown Icon Blank")
+            }
+        } else {
+            noiseIcon.image = UIImage(named: "Noise Icon NA")
+        }
     }
-    
+    //quiet, typical, loud, Noise Icon 13, Noise Icon 23, Noise Icon 33, Noise Icon NA
     func takeoutIconDisplay() {
         
         if restaurant?.takeout != nil {
@@ -192,9 +210,22 @@ class RestaurantDetailViewController: UIViewController, UIScrollViewDelegate {
     
 
     @IBAction func walkButtonTapped(sender: AnyObject) {
+        guard let latitude = restaurant?.latitude, let longitude = restaurant?.longitude else {
+            return
+        }
+        let url = NSURL(string: "http://maps.apple.com/?daddr=\(latitude),\(longitude)&dirflg=w")!
+        UIApplication.sharedApplication().openURL(url)
+        
+        
+        
     }
   
     @IBAction func driveButtonTapped(sender: AnyObject) {
+        guard let latitude = restaurant?.latitude, let longitude = restaurant?.longitude else {
+            return
+        }
+        let url = NSURL(string: "http://maps.apple.com/?daddr=\(latitude),\(longitude)")!
+        UIApplication.sharedApplication().openURL(url)
     }
     
     @IBAction func websiteButtonTapped(sender: AnyObject) {

@@ -67,6 +67,7 @@ struct Restaurant {
     let prices: [String]?
     let websiteURL: String?
     let phoneNumber: String?
+    let coverPhoto: String?
     
     
     init?(dictionary: [String: AnyObject]) {
@@ -131,6 +132,12 @@ struct Restaurant {
             self.websiteURL = nil
         }
         
+        
+        if let media = dictionary["media"] as? [String : AnyObject] {
+            self.coverPhoto = media["cover_photo"] as? String ?? nil
+        } else {
+            self.coverPhoto = nil
+        }
     //////////// Phone ///////////////
         
         if let contact = dictionary[kContact] as? [String: AnyObject] {

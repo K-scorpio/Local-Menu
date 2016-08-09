@@ -74,9 +74,6 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
         setupMyLocationManager()
         requestLocuData()
         
-        // Do any additional setup after loading the view.
-        
-        //-------------------------
     }
     
     var service: RestaurantController!
@@ -87,37 +84,33 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
         mapView.delegate = self
         let center = CLLocationCoordinate2DMake(userCurrentLocation?.coordinate.latitude ?? 0.0, userCurrentLocation?.coordinate.longitude ?? 0.0)
         mapView.setCenterCoordinate(center, zoomLevel: 12, animated: true)
-        
-        let fetchRestaurantsGroup = dispatch_group_create()
-        
         for category in categoryArray {
-            dispatch_group_enter(fetchRestaurantsGroup)
-            RestaurantController.sharedInstance.fetchRestaurantsForCategory(category, location: center) { (success) in
-                
-                if success {
-                    dispatch_group_leave(fetchRestaurantsGroup)
+            RestaurantController.sharedInstance.fetchRestaurantsForCategory(category, location: center) { (restaurants, success) in
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.restaurantTableView.reloadData()
+                })
+                var annotations = [MGLAnnotation]()
+                let group = dispatch_group_create()
+                for myRestaurant in restaurants {
+                    dispatch_group_enter(group)
+                    let point = MGLPointAnnotation()
+                    point.coordinate = CLLocationCoordinate2D(latitude: myRestaurant.latitude, longitude: myRestaurant.longitude)
+                    point.title = myRestaurant.name
+                    point.subtitle = myRestaurant.address1
+                    
+                    annotations.append(point)
+                    dispatch_group_leave(group)
                 }
+                dispatch_group_notify(group, dispatch_get_main_queue(), { 
+                    self.mapView.addAnnotations(annotations)
+                    
+                })
             }
         }
-        
-        dispatch_group_notify(fetchRestaurantsGroup, dispatch_get_main_queue(), {
-            RestaurantController.sharedInstance.myRestaurants = RestaurantController.sharedInstance.myRestaurants
-            // for restaurant in [restaurant] add a point. let the title = restaurant.title let subtitle = restaurant.streetAddress1
-            
-            for myRestaurant in self.restaurants {
-                let point = MGLPointAnnotation()
-                point.coordinate = CLLocationCoordinate2D(latitude: myRestaurant.latitude, longitude: myRestaurant.longitude)
-                point.title = myRestaurant.name
-                point.subtitle = myRestaurant.address1
-                
-                self.mapView.addAnnotation(point)
-            }
-            self.restaurantTableView.reloadData()
-        })
     }
-
     
-       //    let center = CLLocationCoordinate2D(latitude: userCurrentLocation.coordinate.latitude, longitude: userCurrentLocation.coordinate.longitude)
+    
+    //    let center = CLLocationCoordinate2D(latitude: userCurrentLocation.coordinate.latitude, longitude: userCurrentLocation.coordinate.longitude)
     //    let region = MGLCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
     
     func mapView(mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
@@ -200,7 +193,7 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//                return RestaurantController.sharedInstance.myRestaurants.count
+        //                return RestaurantController.sharedInstance.myRestaurants.count
         return restaurants.count
     }
     
@@ -221,7 +214,9 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
         //        print("wifi: \(restaurant.wifi) \n alcohol \(restaurant.alcohol) \n kid Friendly \(restaurant.goodForKids) \n noise level \(restaurant.noiseLevel) \n takeout \(restaurant.takeout) \n reservations \(restaurant.reservations) \n music \(restaurant.music) \n high range \(restaurant.highRange) \n low range \(restaurant.lowRange)")
         //        print("price \(restaurant.prices)")
         print(restaurant.takeout)
-        print(restaurant.reservations)
+        print("Reservation \(restaurant.reservations)")
+        print("Music \(restaurant.music)")
+        print("Wifi \(restaurant.wifi)")
         return cell
     }
     
