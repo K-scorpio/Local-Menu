@@ -39,6 +39,10 @@ struct Restaurant {
     private let kSections = "sections"
     private let kSubsections = "subsections"
     private let kContents = "contents"
+    private let kMenuUrl = "menu_url"
+    private let kWebsiteURL = "website_url"
+    private let kContact = "contact"
+    private let kPhoneNumber = "phone"
     
     let name: String
     let locuID: String
@@ -61,6 +65,8 @@ struct Restaurant {
     let highRange: String?
     let lowRange: String?
     let prices: [String]?
+    let websiteURL: String?
+    let phoneNumber: String?
     
     
     init?(dictionary: [String: AnyObject]) {
@@ -108,13 +114,32 @@ struct Restaurant {
             self.prices = nil
         }
         
-        if let menuURL = dictionary["menu_url"] as? String ?? nil {
+        
+    //////////// Menu URL ///////////////
+        
+        if let menuURL = dictionary[kMenuUrl] as? String ?? nil {
             self.menuURL = menuURL
         } else {
             self.menuURL = nil
         }
-      
-      ////////// Extended Options ////////////
+        
+    //////////// Website URL ///////////////
+
+        if let websiteURL = dictionary[kWebsiteURL] as? String ?? nil {
+            self.websiteURL = websiteURL
+        } else {
+            self.websiteURL = nil
+        }
+        
+    //////////// Phone ///////////////
+        
+        if let contact = dictionary[kContact] as? [String: AnyObject] {
+            self.phoneNumber = contact[kPhoneNumber] as? String ?? nil
+        } else {
+            self.phoneNumber = nil
+        }
+        
+    ////////// Extended Options ////////////
         
         if let extended = dictionary[kExtended] as? [String: AnyObject] {
             self.alcohol = extended[kAlcohol] as? String ?? nil

@@ -220,8 +220,8 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
         //        print("\(restaurant.address1) \(restaurant.locality), \(restaurant.region) \(restaurant.postalCode)")
         //        print("wifi: \(restaurant.wifi) \n alcohol \(restaurant.alcohol) \n kid Friendly \(restaurant.goodForKids) \n noise level \(restaurant.noiseLevel) \n takeout \(restaurant.takeout) \n reservations \(restaurant.reservations) \n music \(restaurant.music) \n high range \(restaurant.highRange) \n low range \(restaurant.lowRange)")
         //        print("price \(restaurant.prices)")
-        
-        
+        print(restaurant.takeout)
+        print(restaurant.reservations)
         return cell
     }
     

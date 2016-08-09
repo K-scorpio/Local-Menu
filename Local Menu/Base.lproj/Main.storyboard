@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5xT-IT-Uc9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5xT-IT-Uc9">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -279,18 +279,30 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xoj-rw-DZE">
                                         <rect key="frame" x="0.0" y="0.0" width="89" height="48"/>
                                         <state key="normal" image="Call Icon"/>
+                                        <connections>
+                                            <action selector="callButtonTapped:" destination="ljc-3t-qnE" eventType="touchUpInside" id="wmr-Mv-SYf"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ewz-Jb-QMQ">
                                         <rect key="frame" x="106" y="0.0" width="88" height="48"/>
                                         <state key="normal" image="Walk Icon"/>
+                                        <connections>
+                                            <action selector="walkButtonTapped:" destination="ljc-3t-qnE" eventType="touchUpInside" id="N7F-qi-bI1"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tw8-if-Hav">
                                         <rect key="frame" x="211" y="0.0" width="89" height="48"/>
                                         <state key="normal" image="Drive Icon"/>
+                                        <connections>
+                                            <action selector="driveButtonTapped:" destination="ljc-3t-qnE" eventType="touchUpInside" id="QHP-Pk-6YK"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RCX-hf-368">
                                         <rect key="frame" x="316" y="0.0" width="88" height="48"/>
                                         <state key="normal" image="Web Icon"/>
+                                        <connections>
+                                            <action selector="websiteButtonTapped:" destination="ljc-3t-qnE" eventType="touchUpInside" id="ire-GV-JjM"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -306,32 +318,37 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="49" translatesAutoresizingMaskIntoConstraints="NO" id="aQz-tg-qtC">
                                 <rect key="frame" x="29" y="399" width="356" height="13"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Unknown Icon" translatesAutoresizingMaskIntoConstraints="NO" id="BDz-VI-RBv">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Unknown Icon" translatesAutoresizingMaskIntoConstraints="NO" id="BDz-VI-RBv">
                                         <rect key="frame" x="0.0" y="0.0" width="9" height="13"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Unknown Icon" translatesAutoresizingMaskIntoConstraints="NO" id="EMu-Xb-eDo">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Unknown Icon" translatesAutoresizingMaskIntoConstraints="NO" id="EMu-Xb-eDo">
                                         <rect key="frame" x="58" y="0.0" width="9" height="13"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Unknown Icon" translatesAutoresizingMaskIntoConstraints="NO" id="OO6-Hs-7lm">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Unknown Icon" translatesAutoresizingMaskIntoConstraints="NO" id="OO6-Hs-7lm">
                                         <rect key="frame" x="116" y="0.0" width="9" height="13"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Unknown Icon" translatesAutoresizingMaskIntoConstraints="NO" id="Qzm-Mq-UTj">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Unknown Icon" translatesAutoresizingMaskIntoConstraints="NO" id="Qzm-Mq-UTj">
                                         <rect key="frame" x="174" y="0.0" width="9" height="13"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Unknown Icon" translatesAutoresizingMaskIntoConstraints="NO" id="gYp-jo-P2X">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Unknown Icon" translatesAutoresizingMaskIntoConstraints="NO" id="gYp-jo-P2X">
                                         <rect key="frame" x="232" y="0.0" width="9" height="13"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Unknown Icon" translatesAutoresizingMaskIntoConstraints="NO" id="hSO-16-jaz">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Unknown Icon" translatesAutoresizingMaskIntoConstraints="NO" id="hSO-16-jaz">
                                         <rect key="frame" x="290" y="0.0" width="9" height="13"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Unknown Icon" translatesAutoresizingMaskIntoConstraints="NO" id="7Ub-rT-rcD">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Unknown Icon" translatesAutoresizingMaskIntoConstraints="NO" id="7Ub-rT-rcD">
                                         <rect key="frame" x="347" y="0.0" width="9" height="13"/>
                                     </imageView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="13" id="NKg-dN-kcb"/>
-                                    <constraint firstAttribute="width" secondItem="aQz-tg-qtC" secondAttribute="height" multiplier="356:13" id="imh-2f-8wT"/>
+                                    <constraint firstAttribute="width" secondItem="aQz-tg-qtC" secondAttribute="height" multiplier="356:13" id="OhH-Ai-wkY"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="NKg-dN-kcb"/>
+                                    </mask>
+                                </variation>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="n5T-zz-hd0">
                                 <rect key="frame" x="20" y="371" width="374" height="28"/>
@@ -359,9 +376,14 @@
                                     </imageView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="n5T-zz-hd0" secondAttribute="height" multiplier="187:14" id="ZDp-SR-dQD"/>
                                     <constraint firstAttribute="height" constant="28" id="oT7-po-wm9"/>
+                                    <constraint firstAttribute="width" secondItem="n5T-zz-hd0" secondAttribute="height" multiplier="187:14" id="yR6-iD-CVl"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="oT7-po-wm9"/>
+                                    </mask>
+                                </variation>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AXk-YD-A5v">
                                 <rect key="frame" x="0.0" y="365" width="414" height="6"/>
@@ -441,10 +463,28 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
+                        <outlet property="alcoholIcon" destination="viB-rp-efG" id="UkO-QT-TcR"/>
+                        <outlet property="alcoholUnknown" destination="EMu-Xb-eDo" id="5GA-fe-cx7"/>
+                        <outlet property="callButton" destination="Xoj-rw-DZE" id="xRy-6t-IxH"/>
+                        <outlet property="driveButton" destination="Tw8-if-Hav" id="G4v-KJ-0Qq"/>
                         <outlet property="iconView" destination="hoA-9A-TYc" id="fjo-u7-3oX"/>
                         <outlet property="iconsTopConstraint" destination="uqx-lZ-qp3" id="ft9-AH-J7E"/>
+                        <outlet property="kidFriendlyIcon" destination="7uI-BG-FG0" id="lQl-OQ-pd2"/>
+                        <outlet property="kidFriendlyUnknown" destination="OO6-Hs-7lm" id="495-j9-lM3"/>
+                        <outlet property="liveMusicIcon" destination="VsY-xW-lqn" id="0tU-18-U58"/>
+                        <outlet property="liveMusicUnknown" destination="7Ub-rT-rcD" id="IaN-iq-pox"/>
                         <outlet property="myMenu" destination="pxI-pz-ehh" id="3j5-W4-1SA"/>
+                        <outlet property="noiseIcon" destination="RTN-fT-xvh" id="8g0-C1-4L5"/>
+                        <outlet property="noiseLevelUnknown" destination="Qzm-Mq-UTj" id="CEb-Af-59K"/>
+                        <outlet property="reservationsIcon" destination="2sr-F8-oAD" id="tvp-sX-PLv"/>
+                        <outlet property="reservationsUnknown" destination="hSO-16-jaz" id="S1x-Z3-VQ1"/>
+                        <outlet property="takeOutIcon" destination="hbQ-BA-0Al" id="u12-Bq-nVU"/>
+                        <outlet property="takeoutUnknown" destination="gYp-jo-P2X" id="5LF-5v-gTX"/>
+                        <outlet property="walkButton" destination="ewz-Jb-QMQ" id="gzP-VA-S94"/>
                         <outlet property="web" destination="y7M-t8-oop" id="GPY-1J-PgU"/>
+                        <outlet property="websiteButton" destination="RCX-hf-368" id="XP0-fn-s3u"/>
+                        <outlet property="wifiIcon" destination="Ft4-in-9Lz" id="xgA-qs-iHm"/>
+                        <outlet property="wifiUnknown" destination="BDz-VI-RBv" id="uF8-II-H7B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="REg-66-9EM" userLabel="First Responder" sceneMemberID="firstResponder"/>
