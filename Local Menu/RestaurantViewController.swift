@@ -232,6 +232,9 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
     
     // MARK: - Navigation
     
+    @IBAction func unwindToRestaurantView(segue: UIStoryboardSegue) {
+    }
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let detailViewController = segue.destinationViewController as? RestaurantDetailViewController

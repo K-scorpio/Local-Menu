@@ -24,6 +24,11 @@
 		E257685B1D50115400B2ADB7 /* MapboxGeocoder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E257685A1D50115400B2ADB7 /* MapboxGeocoder.framework */; };
 		E257685C1D50115400B2ADB7 /* MapboxGeocoder.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E257685A1D50115400B2ADB7 /* MapboxGeocoder.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E29DF2151D4D85BA00A5765D /* RestaurantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29DF2141D4D85BA00A5765D /* RestaurantDetailViewController.swift */; };
+		E2B6B05B1D5A521200DEDBD6 /* MMDrawerBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B6B0531D5A521200DEDBD6 /* MMDrawerBarButtonItem.m */; };
+		E2B6B05C1D5A521200DEDBD6 /* MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B6B0551D5A521200DEDBD6 /* MMDrawerController.m */; };
+		E2B6B05D1D5A521200DEDBD6 /* MMDrawerVisualState.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B6B0581D5A521200DEDBD6 /* MMDrawerVisualState.m */; };
+		E2B6B05E1D5A521200DEDBD6 /* UIViewController+MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B6B05A1D5A521200DEDBD6 /* UIViewController+MMDrawerController.m */; };
+		E2B6B0601D5A532600DEDBD6 /* CuisineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B6B05F1D5A532600DEDBD6 /* CuisineViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +85,17 @@
 		E25768541D500A4700B2ADB7 /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mapbox.framework; sourceTree = "<group>"; };
 		E257685A1D50115400B2ADB7 /* MapboxGeocoder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MapboxGeocoder.framework; sourceTree = "<group>"; };
 		E29DF2141D4D85BA00A5765D /* RestaurantDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantDetailViewController.swift; sourceTree = "<group>"; };
+		E2B6B0511D5A521200DEDBD6 /* Local Menu-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Local Menu-Bridging-Header.h"; sourceTree = "<group>"; };
+		E2B6B0521D5A521200DEDBD6 /* MMDrawerBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerBarButtonItem.h; sourceTree = "<group>"; };
+		E2B6B0531D5A521200DEDBD6 /* MMDrawerBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerBarButtonItem.m; sourceTree = "<group>"; };
+		E2B6B0541D5A521200DEDBD6 /* MMDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerController.h; sourceTree = "<group>"; };
+		E2B6B0551D5A521200DEDBD6 /* MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerController.m; sourceTree = "<group>"; };
+		E2B6B0561D5A521200DEDBD6 /* MMDrawerController+Subclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MMDrawerController+Subclass.h"; sourceTree = "<group>"; };
+		E2B6B0571D5A521200DEDBD6 /* MMDrawerVisualState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerVisualState.h; sourceTree = "<group>"; };
+		E2B6B0581D5A521200DEDBD6 /* MMDrawerVisualState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerVisualState.m; sourceTree = "<group>"; };
+		E2B6B0591D5A521200DEDBD6 /* UIViewController+MMDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MMDrawerController.h"; sourceTree = "<group>"; };
+		E2B6B05A1D5A521200DEDBD6 /* UIViewController+MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MMDrawerController.m"; sourceTree = "<group>"; };
+		E2B6B05F1D5A532600DEDBD6 /* CuisineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuisineViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +128,7 @@
 		285C52F61D515B10001D1055 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E2B6B05F1D5A532600DEDBD6 /* CuisineViewController.swift */,
 				E235076E1D4C1F88003159FB /* RestaurantTableViewCell.swift */,
 				E23507701D4C1FAD003159FB /* RestaurantViewController.swift */,
 				E29DF2141D4D85BA00A5765D /* RestaurantDetailViewController.swift */,
@@ -169,6 +186,17 @@
 		E23507351D4BF4ED003159FB /* Local Menu */ = {
 			isa = PBXGroup;
 			children = (
+				E2B6B0501D5A51AF00DEDBD6 /* CuisineSideMenu */,
+				E2B6B0521D5A521200DEDBD6 /* MMDrawerBarButtonItem.h */,
+				E2B6B0531D5A521200DEDBD6 /* MMDrawerBarButtonItem.m */,
+				E2B6B0541D5A521200DEDBD6 /* MMDrawerController.h */,
+				E2B6B0551D5A521200DEDBD6 /* MMDrawerController.m */,
+				E2B6B0561D5A521200DEDBD6 /* MMDrawerController+Subclass.h */,
+				E2B6B0571D5A521200DEDBD6 /* MMDrawerVisualState.h */,
+				E2B6B0581D5A521200DEDBD6 /* MMDrawerVisualState.m */,
+				E2B6B0591D5A521200DEDBD6 /* UIViewController+MMDrawerController.h */,
+				E2B6B05A1D5A521200DEDBD6 /* UIViewController+MMDrawerController.m */,
+				E2B6B0511D5A521200DEDBD6 /* Local Menu-Bridging-Header.h */,
 				285C52F91D515B74001D1055 /* HTML file */,
 				285C52F71D515B1F001D1055 /* Models */,
 				285C52F61D515B10001D1055 /* View Controllers */,
@@ -198,6 +226,13 @@
 				E23507581D4BF4EE003159FB /* Info.plist */,
 			);
 			path = "Local MenuUITests";
+			sourceTree = "<group>";
+		};
+		E2B6B0501D5A51AF00DEDBD6 /* CuisineSideMenu */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = CuisineSideMenu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,7 +310,7 @@
 				TargetAttributes = {
 					E23507321D4BF4ED003159FB = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 578KYYBXGE;
+						DevelopmentTeam = QEU47X3V2Y;
 					};
 					E23507461D4BF4EE003159FB = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -431,12 +466,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2B6B05E1D5A521200DEDBD6 /* UIViewController+MMDrawerController.m in Sources */,
+				E2B6B05D1D5A521200DEDBD6 /* MMDrawerVisualState.m in Sources */,
 				E235076F1D4C1F88003159FB /* RestaurantTableViewCell.swift in Sources */,
+				E2B6B05B1D5A521200DEDBD6 /* MMDrawerBarButtonItem.m in Sources */,
 				E23507711D4C1FAD003159FB /* RestaurantViewController.swift in Sources */,
+				E2B6B0601D5A532600DEDBD6 /* CuisineViewController.swift in Sources */,
 				E29DF2151D4D85BA00A5765D /* RestaurantDetailViewController.swift in Sources */,
 				E23507731D4C200C003159FB /* RestaurantController.swift in Sources */,
 				E23507751D4C222E003159FB /* Restaurant.swift in Sources */,
 				E23507371D4BF4ED003159FB /* AppDelegate.swift in Sources */,
+				E2B6B05C1D5A521200DEDBD6 /* MMDrawerController.m in Sources */,
 				E23507691D4C1BD4003159FB /* NetworkController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -579,6 +619,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -590,6 +631,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Local-Menu";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Local Menu/Local Menu-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Debug;
@@ -598,6 +641,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -609,6 +653,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Local-Menu";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Local Menu/Local Menu-Bridging-Header.h";
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Release;
