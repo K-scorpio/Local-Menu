@@ -21,30 +21,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="sjj-uw-uGo">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="40" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="sjj-uw-uGo">
                                 <rect key="frame" x="0.0" y="143" width="414" height="593"/>
                                 <color key="backgroundColor" red="0.1095564668174962" green="0.1095564668174962" blue="0.1095564668174962" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="separatorColor" red="0.56688701923076923" green="0.43578739490241547" blue="0.28469950283263273" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cuisineCell" rowHeight="44" id="FGK-pm-zHa" customClass="CuisineTableViewCell" customModule="Local_Menu" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="49.5" width="414" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cuisineCell" rowHeight="40" id="FGK-pm-zHa" customClass="CuisineTableViewCell" customModule="Local_Menu" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="49.5" width="414" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FGK-pm-zHa" id="7Ta-Or-Yvg">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="39.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uv3-G9-1dO">
-                                                    <rect key="frame" x="33" y="6" width="365" height="31.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                                    <rect key="frame" x="25" y="6.5" width="365" height="26.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                                     <color key="textColor" red="0.58690021681749627" green="0.58690021681749627" blue="0.58690021681749627" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="uv3-G9-1dO" firstAttribute="leading" secondItem="7Ta-Or-Yvg" secondAttribute="leadingMargin" constant="25" id="RX4-dc-ECB"/>
-                                                <constraint firstItem="uv3-G9-1dO" firstAttribute="top" secondItem="7Ta-Or-Yvg" secondAttribute="topMargin" constant="-2" id="WBI-QJ-Gwj"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="uv3-G9-1dO" secondAttribute="trailing" constant="8" id="cq7-oz-vNj"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="uv3-G9-1dO" secondAttribute="bottom" constant="-2" id="ufg-Pe-Mj0"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="uv3-G9-1dO" secondAttribute="bottom" constant="-1.5" id="0mU-Mr-XXJ"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="uv3-G9-1dO" secondAttribute="trailing" constant="16" id="Tj3-7g-mTS"/>
+                                                <constraint firstItem="uv3-G9-1dO" firstAttribute="leading" secondItem="7Ta-Or-Yvg" secondAttribute="leadingMargin" constant="17" id="mC3-WH-PYG"/>
+                                                <constraint firstItem="uv3-G9-1dO" firstAttribute="top" secondItem="7Ta-Or-Yvg" secondAttribute="topMargin" constant="-1.5" id="zdC-ed-4dp"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.10096153846153844" green="0.10096153846153844" blue="0.10096153846153844" alpha="0.30783943965517241" colorSpace="calibratedRGB"/>
