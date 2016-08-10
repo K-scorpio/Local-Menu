@@ -30,6 +30,7 @@
 		E2B6B05E1D5A521200DEDBD6 /* UIViewController+MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B6B05A1D5A521200DEDBD6 /* UIViewController+MMDrawerController.m */; };
 		E2B6B0601D5A532600DEDBD6 /* CuisineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B6B05F1D5A532600DEDBD6 /* CuisineViewController.swift */; };
 		E2B6B0621D5AA2CF00DEDBD6 /* CuisineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B6B0611D5AA2CF00DEDBD6 /* CuisineTableViewCell.swift */; };
+		E2B6B0641D5BA5B400DEDBD6 /* CuisineTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B6B0631D5BA5B400DEDBD6 /* CuisineTableViewDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,7 @@
 		E2B6B05A1D5A521200DEDBD6 /* UIViewController+MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MMDrawerController.m"; sourceTree = "<group>"; };
 		E2B6B05F1D5A532600DEDBD6 /* CuisineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuisineViewController.swift; sourceTree = "<group>"; };
 		E2B6B0611D5AA2CF00DEDBD6 /* CuisineTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuisineTableViewCell.swift; sourceTree = "<group>"; };
+		E2B6B0631D5BA5B400DEDBD6 /* CuisineTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuisineTableViewDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 		285C52F61D515B10001D1055 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E2B6B0631D5BA5B400DEDBD6 /* CuisineTableViewDataSource.swift */,
 				E2B6B0611D5AA2CF00DEDBD6 /* CuisineTableViewCell.swift */,
 				E2B6B05F1D5A532600DEDBD6 /* CuisineViewController.swift */,
 				E235076E1D4C1F88003159FB /* RestaurantTableViewCell.swift */,
@@ -471,6 +474,7 @@
 			files = (
 				E2B6B05E1D5A521200DEDBD6 /* UIViewController+MMDrawerController.m in Sources */,
 				E2B6B05D1D5A521200DEDBD6 /* MMDrawerVisualState.m in Sources */,
+				E2B6B0641D5BA5B400DEDBD6 /* CuisineTableViewDataSource.swift in Sources */,
 				E2B6B0621D5AA2CF00DEDBD6 /* CuisineTableViewCell.swift in Sources */,
 				E235076F1D4C1F88003159FB /* RestaurantTableViewCell.swift in Sources */,
 				E2B6B05B1D5A521200DEDBD6 /* MMDrawerBarButtonItem.m in Sources */,

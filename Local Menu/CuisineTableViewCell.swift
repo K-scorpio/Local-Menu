@@ -12,7 +12,6 @@ class CuisineTableViewCell: UITableViewCell {
 
     @IBOutlet weak var cuisineLabel: UILabel!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

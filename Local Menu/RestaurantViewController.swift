@@ -50,14 +50,46 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var filterView: UIView!
     @IBOutlet weak var filterLabel: UIButton!
     @IBOutlet weak var randomLabel: UIButton!
+    @IBOutlet weak var mapAndTableTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var searchBarField: UISearchBar!
+    
+    var isOpen = false
+    
     @IBAction func searchButtonPressed(sender: AnyObject) {
-        if searchBarField.hidden == true {
-            searchBarField.hidden = false
-        } else {
-            searchBarField.hidden = true
+        if isOpen == false {
+            searchBarField.searchBarStyle = .Minimal
+            isOpen = true
+            UIView.animateWithDuration(0.2, delay: 0.3, options: [], animations: {
+                self.mapAndTableTopConstraint.constant += 45
+                self.view.layoutIfNeeded()
+                }, completion: nil)
+            
+            //            mapAndTableTopConstraint.constant += searchBarField.bounds.height
+        } else if isOpen == true {
+            isOpen = false
+            
+            UIView.animateWithDuration(0.2, delay: 0.3, options: [], animations: {
+                self.mapAndTableTopConstraint.constant -= 45
+                self.view.layoutIfNeeded()
+                }, completion: nil)
+            
+            searchBarField.resignFirstResponder()
+            //            mapAndTableTopConstraint.constant -= searchBarField.bounds.height
         }
     }
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        if isOpen == true {
+            isOpen = false
+            //            mapAndTableTopConstraint.constant = searchBarField.bounds.height
+            UIView.animateWithDuration(0.2, delay: 0.3, options: [], animations: {
+                self.mapAndTableTopConstraint.constant -= 45
+                self.view.layoutIfNeeded()
+                }, completion: nil)
+        }
+        searchBarField.resignFirstResponder()
+    }
+    
     
     @IBAction func filterButtonTapped(sender: AnyObject) {
         if filterView.hidden == false {
@@ -73,8 +105,8 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
         //        self.setupMyLocationManager()
         setupMyLocationManager()
         requestLocuData()
-        
     }
+    
     
     var service: RestaurantController!
     
@@ -101,7 +133,7 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
                     annotations.append(point)
                     dispatch_group_leave(group)
                 }
-                dispatch_group_notify(group, dispatch_get_main_queue(), { 
+                dispatch_group_notify(group, dispatch_get_main_queue(), {
                     self.mapView.addAnnotations(annotations)
                     
                 })
@@ -227,14 +259,14 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
     
     // MARK: - Navigation
     
-//    enum toggledDrawer {
-//        case toggled
-//    }
+    //    enum toggledDrawer {
+    //        case toggled
+    //    }
     
     @IBAction func cuisineButtonTapped(sender: AnyObject) {
         let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.centerContainer?.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
-
+        
     }
     
     @IBAction func unwindToRestaurantView(segue: UIStoryboardSegue) {
