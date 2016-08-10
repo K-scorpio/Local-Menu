@@ -227,6 +227,16 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
     
     // MARK: - Navigation
     
+//    enum toggledDrawer {
+//        case toggled
+//    }
+    
+    @IBAction func cuisineButtonTapped(sender: AnyObject) {
+        let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.centerContainer?.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
+
+    }
+    
     @IBAction func unwindToRestaurantView(segue: UIStoryboardSegue) {
     }
     

@@ -29,6 +29,7 @@
 		E2B6B05D1D5A521200DEDBD6 /* MMDrawerVisualState.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B6B0581D5A521200DEDBD6 /* MMDrawerVisualState.m */; };
 		E2B6B05E1D5A521200DEDBD6 /* UIViewController+MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B6B05A1D5A521200DEDBD6 /* UIViewController+MMDrawerController.m */; };
 		E2B6B0601D5A532600DEDBD6 /* CuisineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B6B05F1D5A532600DEDBD6 /* CuisineViewController.swift */; };
+		E2B6B0621D5AA2CF00DEDBD6 /* CuisineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B6B0611D5AA2CF00DEDBD6 /* CuisineTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,7 @@
 		E2B6B0591D5A521200DEDBD6 /* UIViewController+MMDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MMDrawerController.h"; sourceTree = "<group>"; };
 		E2B6B05A1D5A521200DEDBD6 /* UIViewController+MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MMDrawerController.m"; sourceTree = "<group>"; };
 		E2B6B05F1D5A532600DEDBD6 /* CuisineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuisineViewController.swift; sourceTree = "<group>"; };
+		E2B6B0611D5AA2CF00DEDBD6 /* CuisineTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuisineTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 		285C52F61D515B10001D1055 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E2B6B0611D5AA2CF00DEDBD6 /* CuisineTableViewCell.swift */,
 				E2B6B05F1D5A532600DEDBD6 /* CuisineViewController.swift */,
 				E235076E1D4C1F88003159FB /* RestaurantTableViewCell.swift */,
 				E23507701D4C1FAD003159FB /* RestaurantViewController.swift */,
@@ -187,16 +190,6 @@
 			isa = PBXGroup;
 			children = (
 				E2B6B0501D5A51AF00DEDBD6 /* CuisineSideMenu */,
-				E2B6B0521D5A521200DEDBD6 /* MMDrawerBarButtonItem.h */,
-				E2B6B0531D5A521200DEDBD6 /* MMDrawerBarButtonItem.m */,
-				E2B6B0541D5A521200DEDBD6 /* MMDrawerController.h */,
-				E2B6B0551D5A521200DEDBD6 /* MMDrawerController.m */,
-				E2B6B0561D5A521200DEDBD6 /* MMDrawerController+Subclass.h */,
-				E2B6B0571D5A521200DEDBD6 /* MMDrawerVisualState.h */,
-				E2B6B0581D5A521200DEDBD6 /* MMDrawerVisualState.m */,
-				E2B6B0591D5A521200DEDBD6 /* UIViewController+MMDrawerController.h */,
-				E2B6B05A1D5A521200DEDBD6 /* UIViewController+MMDrawerController.m */,
-				E2B6B0511D5A521200DEDBD6 /* Local Menu-Bridging-Header.h */,
 				285C52F91D515B74001D1055 /* HTML file */,
 				285C52F71D515B1F001D1055 /* Models */,
 				285C52F61D515B10001D1055 /* View Controllers */,
@@ -231,6 +224,16 @@
 		E2B6B0501D5A51AF00DEDBD6 /* CuisineSideMenu */ = {
 			isa = PBXGroup;
 			children = (
+				E2B6B0521D5A521200DEDBD6 /* MMDrawerBarButtonItem.h */,
+				E2B6B0531D5A521200DEDBD6 /* MMDrawerBarButtonItem.m */,
+				E2B6B0541D5A521200DEDBD6 /* MMDrawerController.h */,
+				E2B6B0551D5A521200DEDBD6 /* MMDrawerController.m */,
+				E2B6B0561D5A521200DEDBD6 /* MMDrawerController+Subclass.h */,
+				E2B6B0571D5A521200DEDBD6 /* MMDrawerVisualState.h */,
+				E2B6B0581D5A521200DEDBD6 /* MMDrawerVisualState.m */,
+				E2B6B0591D5A521200DEDBD6 /* UIViewController+MMDrawerController.h */,
+				E2B6B05A1D5A521200DEDBD6 /* UIViewController+MMDrawerController.m */,
+				E2B6B0511D5A521200DEDBD6 /* Local Menu-Bridging-Header.h */,
 			);
 			name = CuisineSideMenu;
 			sourceTree = "<group>";
@@ -310,7 +313,7 @@
 				TargetAttributes = {
 					E23507321D4BF4ED003159FB = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 578KYYBXGE;
+						DevelopmentTeam = QEU47X3V2Y;
 					};
 					E23507461D4BF4EE003159FB = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -468,6 +471,7 @@
 			files = (
 				E2B6B05E1D5A521200DEDBD6 /* UIViewController+MMDrawerController.m in Sources */,
 				E2B6B05D1D5A521200DEDBD6 /* MMDrawerVisualState.m in Sources */,
+				E2B6B0621D5AA2CF00DEDBD6 /* CuisineTableViewCell.swift in Sources */,
 				E235076F1D4C1F88003159FB /* RestaurantTableViewCell.swift in Sources */,
 				E2B6B05B1D5A521200DEDBD6 /* MMDrawerBarButtonItem.m in Sources */,
 				E23507711D4C1FAD003159FB /* RestaurantViewController.swift in Sources */,
