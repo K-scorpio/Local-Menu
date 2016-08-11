@@ -10,6 +10,14 @@ import UIKit
 
 class RestaurantTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var restaurantNameLabel: UILabel!
+    
+    @IBOutlet weak var restaurantTypeLabel: UILabel!
+    
+    @IBOutlet weak var restaurantDistanceLabel: UILabel!
+    
+    @IBOutlet weak var restaurantMenuLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
