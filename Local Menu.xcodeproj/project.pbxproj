@@ -32,6 +32,11 @@
 		E2B6B0621D5AA2CF00DEDBD6 /* CuisineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B6B0611D5AA2CF00DEDBD6 /* CuisineTableViewCell.swift */; };
 		E2B6B0641D5BA5B400DEDBD6 /* CuisineTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B6B0631D5BA5B400DEDBD6 /* CuisineTableViewDataSource.swift */; };
 		E2B6B0661D5BEAC800DEDBD6 /* MyDrawerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B6B0651D5BEAC800DEDBD6 /* MyDrawerController.swift */; };
+		E2B6B0681D5CE07E00DEDBD6 /* RestaurantTableViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B6B0671D5CE07E00DEDBD6 /* RestaurantTableViewHelper.swift */; };
+		E2B6B0721D5CEB6900DEDBD6 /* pier-bold-italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = E2B6B06E1D5CEB6900DEDBD6 /* pier-bold-italic.otf */; };
+		E2B6B0731D5CEB6900DEDBD6 /* pier-bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E2B6B06F1D5CEB6900DEDBD6 /* pier-bold.otf */; };
+		E2B6B0741D5CEB6900DEDBD6 /* pier-italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = E2B6B0701D5CEB6900DEDBD6 /* pier-italic.otf */; };
+		E2B6B0751D5CEB6900DEDBD6 /* pier-regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = E2B6B0711D5CEB6900DEDBD6 /* pier-regular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +107,15 @@
 		E2B6B0611D5AA2CF00DEDBD6 /* CuisineTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuisineTableViewCell.swift; sourceTree = "<group>"; };
 		E2B6B0631D5BA5B400DEDBD6 /* CuisineTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuisineTableViewDataSource.swift; sourceTree = "<group>"; };
 		E2B6B0651D5BEAC800DEDBD6 /* MyDrawerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDrawerController.swift; sourceTree = "<group>"; };
+		E2B6B0671D5CE07E00DEDBD6 /* RestaurantTableViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewHelper.swift; sourceTree = "<group>"; };
+		E2B6B0691D5CEAD600DEDBD6 /* pier-bold-italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "pier-bold-italic.otf"; sourceTree = "<group>"; };
+		E2B6B06A1D5CEAD600DEDBD6 /* pier-bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "pier-bold.otf"; sourceTree = "<group>"; };
+		E2B6B06B1D5CEAD600DEDBD6 /* pier-italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "pier-italic.otf"; sourceTree = "<group>"; };
+		E2B6B06C1D5CEAD600DEDBD6 /* pier-regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "pier-regular.otf"; sourceTree = "<group>"; };
+		E2B6B06E1D5CEB6900DEDBD6 /* pier-bold-italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "pier-bold-italic.otf"; sourceTree = "<group>"; };
+		E2B6B06F1D5CEB6900DEDBD6 /* pier-bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "pier-bold.otf"; sourceTree = "<group>"; };
+		E2B6B0701D5CEB6900DEDBD6 /* pier-italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "pier-italic.otf"; sourceTree = "<group>"; };
+		E2B6B0711D5CEB6900DEDBD6 /* pier-regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "pier-regular.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +153,7 @@
 				E2B6B05F1D5A532600DEDBD6 /* CuisineViewController.swift */,
 				E235076E1D4C1F88003159FB /* RestaurantTableViewCell.swift */,
 				E23507701D4C1FAD003159FB /* RestaurantViewController.swift */,
+				E2B6B0671D5CE07E00DEDBD6 /* RestaurantTableViewHelper.swift */,
 				E29DF2141D4D85BA00A5765D /* RestaurantDetailViewController.swift */,
 				E2B6B0651D5BEAC800DEDBD6 /* MyDrawerController.swift */,
 			);
@@ -173,6 +188,10 @@
 		E235072A1D4BF4ED003159FB = {
 			isa = PBXGroup;
 			children = (
+				E2B6B06E1D5CEB6900DEDBD6 /* pier-bold-italic.otf */,
+				E2B6B06F1D5CEB6900DEDBD6 /* pier-bold.otf */,
+				E2B6B0701D5CEB6900DEDBD6 /* pier-italic.otf */,
+				E2B6B0711D5CEB6900DEDBD6 /* pier-regular.otf */,
 				E257685A1D50115400B2ADB7 /* MapboxGeocoder.framework */,
 				E25768541D500A4700B2ADB7 /* Mapbox.framework */,
 				E23507351D4BF4ED003159FB /* Local Menu */,
@@ -195,6 +214,7 @@
 		E23507351D4BF4ED003159FB /* Local Menu */ = {
 			isa = PBXGroup;
 			children = (
+				E2B6B06D1D5CEADD00DEDBD6 /* PierSans */,
 				E2B6B0501D5A51AF00DEDBD6 /* CuisineSideMenu */,
 				285C52F91D515B74001D1055 /* HTML file */,
 				285C52F71D515B1F001D1055 /* Models */,
@@ -242,6 +262,17 @@
 				E2B6B0511D5A521200DEDBD6 /* Local Menu-Bridging-Header.h */,
 			);
 			name = CuisineSideMenu;
+			sourceTree = "<group>";
+		};
+		E2B6B06D1D5CEADD00DEDBD6 /* PierSans */ = {
+			isa = PBXGroup;
+			children = (
+				E2B6B0691D5CEAD600DEDBD6 /* pier-bold-italic.otf */,
+				E2B6B06A1D5CEAD600DEDBD6 /* pier-bold.otf */,
+				E2B6B06B1D5CEAD600DEDBD6 /* pier-italic.otf */,
+				E2B6B06C1D5CEAD600DEDBD6 /* pier-regular.otf */,
+			);
+			name = PierSans;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -360,6 +391,10 @@
 				E235073E1D4BF4ED003159FB /* Assets.xcassets in Resources */,
 				285C52FD1D516802001D1055 /* widget.html in Resources */,
 				E235073C1D4BF4ED003159FB /* Main.storyboard in Resources */,
+				E2B6B0721D5CEB6900DEDBD6 /* pier-bold-italic.otf in Resources */,
+				E2B6B0731D5CEB6900DEDBD6 /* pier-bold.otf in Resources */,
+				E2B6B0741D5CEB6900DEDBD6 /* pier-italic.otf in Resources */,
+				E2B6B0751D5CEB6900DEDBD6 /* pier-regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,6 +516,7 @@
 				E2B6B0621D5AA2CF00DEDBD6 /* CuisineTableViewCell.swift in Sources */,
 				E235076F1D4C1F88003159FB /* RestaurantTableViewCell.swift in Sources */,
 				E2B6B05B1D5A521200DEDBD6 /* MMDrawerBarButtonItem.m in Sources */,
+				E2B6B0681D5CE07E00DEDBD6 /* RestaurantTableViewHelper.swift in Sources */,
 				E23507711D4C1FAD003159FB /* RestaurantViewController.swift in Sources */,
 				E2B6B0601D5A532600DEDBD6 /* CuisineViewController.swift in Sources */,
 				E29DF2151D4D85BA00A5765D /* RestaurantDetailViewController.swift in Sources */,

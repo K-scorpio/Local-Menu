@@ -119,7 +119,7 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
             let allAnnotations = self.mapView.annotations
             self.mapView.removeAnnotations(allAnnotations!)
         } else {
-            initialRequest()
+            RestaurantTableViewHelper.EmptyMessage("S W I P E \nR I G H T\nT O  P I C K  A\nC U I S I N E", viewController: restaurantTableView)
         }
         
         mapView.showsUserLocation = true
@@ -130,28 +130,29 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
         guard let type = cuisineType else { return }
         if type == .All {
             initialRequest()
+        } else {
+            RestaurantController.sharedInstance.fetchRestaurantsForCategory(type, location: center, completion: { (restaurants, success) in
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.restaurantTableView.reloadData()
+                })
+                var annotations = [MGLAnnotation]()
+                let group = dispatch_group_create()
+                for myRestaurant in restaurants {
+                    dispatch_group_enter(group)
+                    let point = MGLPointAnnotation()
+                    point.coordinate = CLLocationCoordinate2D(latitude: myRestaurant.latitude, longitude: myRestaurant.longitude)
+                    point.title = myRestaurant.name
+                    point.subtitle = myRestaurant.address1
+                    
+                    annotations.append(point)
+                    dispatch_group_leave(group)
+                }
+                dispatch_group_notify(group, dispatch_get_main_queue(), {
+                    self.mapView.addAnnotations(annotations)
+                    
+                })
+            })
         }
-        RestaurantController.sharedInstance.fetchRestaurantsForCategory(type, location: center, completion: { (restaurants, success) in
-            dispatch_async(dispatch_get_main_queue(), {
-                self.restaurantTableView.reloadData()
-            })
-            var annotations = [MGLAnnotation]()
-            let group = dispatch_group_create()
-            for myRestaurant in restaurants {
-                dispatch_group_enter(group)
-                let point = MGLPointAnnotation()
-                point.coordinate = CLLocationCoordinate2D(latitude: myRestaurant.latitude, longitude: myRestaurant.longitude)
-                point.title = myRestaurant.name
-                point.subtitle = myRestaurant.address1
-                
-                annotations.append(point)
-                dispatch_group_leave(group)
-            }
-            dispatch_group_notify(group, dispatch_get_main_queue(), {
-                self.mapView.addAnnotations(annotations)
-                
-            })
-        })
         
         /*
          for category in categoryArray {

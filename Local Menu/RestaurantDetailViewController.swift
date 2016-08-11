@@ -259,11 +259,16 @@ class RestaurantDetailViewController: UIViewController, UIScrollViewDelegate {
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         //        print(scrollView.contentOffset.y)
+        if restaurant?.menuURL == nil {
+            return
+        } else {
         let offset: CGFloat = scrollView.contentOffset.y * 1.5
         guard offset > 0 else { return }
+            // if scroll height is reached { do max val + height difference } else {
         web.constant = max(20, maxConstraintValue - offset + iconView.frame.height)
         
         iconsTopConstraint.constant = max(-98, maxConstraintValue - offset)
+        }
     }
     
     // MARK: - Top Navigation Item:
