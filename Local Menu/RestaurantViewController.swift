@@ -35,7 +35,7 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
     Ethic: Indian - Afghani - Armenian Bakeries*/
     let pizzaArray = ["Pizza", "Italian"]
     let SushiArray = ["Sushi", "Japanese"]
-    let europeanArray = ["French", "German"]
+    let europeanArray = ["French", "German", "Spanish", "Greek"]
     let earternArray = ["Indian", "Middel Eastern"]
     let latinAmericanArray = ["Brazilian", ""]
     let categoryArray = [/*"Mexican", "Italian", "Chinese", "Burgers", "Japanese", "Indian", "Bakeries", "Coffee", "Thai", "Greek", "French", "German", "Brazilian", "Peruvian", "Salvadorian", "Latin", "Spanish", "Salvadorian", "Spanish", "Bars", "Ice Cream", "Pizza", "Italian", "American", "Middle Eastern", "Sushi"*/ "Peruvian"]

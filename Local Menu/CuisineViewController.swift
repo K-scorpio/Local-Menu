@@ -42,12 +42,11 @@ enum CuisineType: String {
     case American
     case Thai
     case European
-    case Mediterranean
     case Seafood
     case Bar
     case All
     
-    static let allTypes = [All, Burgers, Pizza, Coffee, Bakery, IceCream, Mexican, Italian, Chinese, Japanese, Sushi, Indian, Eastern, American, Thai, European, Mediterranean, Seafood, Bar]
+    static let allTypes = [All, Burgers, Pizza, Coffee, Bakery, IceCream, Mexican, Italian, Chinese, Japanese, Sushi, Indian, Eastern, American, Thai, European, Seafood, Bar]
 }
 
 class CuisineViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
