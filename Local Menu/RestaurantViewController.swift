@@ -16,8 +16,29 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
     var service: RestaurantController!
     
     var isOpen = false
-    
-    let categoryArray = ["Mexican", "Italian", "Chinese", "Burgers", "Japanese", "Indian", "Bakery", "Coffee", "Thai", "Greek"]
+    /* Coffee
+    Burgers
+    Bakery
+    Pizza
+    Bar
+    Seafood
+    Ice-cream
+    Sports Bar
+    Chinese
+    Sushi & Japanese
+    Mexican
+    American
+    Italian
+    European: French - fish n chips - German
+    Mediterranean: Greek - Turkey - Spain - Italian
+    Latin American: Peruvian - Brazilian - Salvadorian - Columbian - Caribbean
+    Ethic: Indian - Afghani - Armenian Bakeries*/
+    let pizzaArray = ["Pizza", "Italian"]
+    let SushiArray = ["Sushi", "Japanese"]
+    let europeanArray = ["French", "German"]
+    let earternArray = ["Indian", "Middel Eastern"]
+    let latinAmericanArray = ["Brazilian", ""]
+    let categoryArray = [/*"Mexican", "Italian", "Chinese", "Burgers", "Japanese", "Indian", "Bakeries", "Coffee", "Thai", "Greek", "French", "German", "Brazilian", "Peruvian", "Salvadorian", "Latin", "Spanish", "Salvadorian", "Spanish", "Bars", "Ice Cream", "Pizza", "Italian", "American", "Middle Eastern", "Sushi"*/ "Peruvian"]
     
     @IBOutlet weak var restaurantTableView: UITableView!
     @IBOutlet weak var mapView: MGLMapView!
@@ -306,12 +327,12 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
         let restaurant = restaurants[indexPath.row]
         
         cell.textLabel?.text = restaurant.name
-        
-        if restaurant.menuURL != nil {
-            cell.detailTextLabel?.text = "MENU"
-        } else {
-            cell.detailTextLabel?.text = ""
-        }
+        cell.detailTextLabel?.text = restaurant.categoryName
+//        if restaurant.menuURL != nil {
+//            cell.detailTextLabel?.text = "MENU"
+//        } else {
+//            cell.detailTextLabel?.text = ""
+//        }
         
         print(restaurant.name)
         //        print("\(restaurant.address1) \(restaurant.locality), \(restaurant.region) \(restaurant.postalCode)")
@@ -321,6 +342,7 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
         print("Reservation \(restaurant.reservations)")
         print("Music \(restaurant.music)")
         print("Wifi \(restaurant.wifi)")
+        print("Category: \(restaurant.categoryName)")
         return cell
     }
     

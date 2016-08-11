@@ -11,22 +11,43 @@ import UIKit
 protocol CuisineViewControllerDelegate: class {
     func cuisineTypeSelected(type: CuisineType)
 }
-
+/*
+ 
+ 
+ Sushi & Japanese
+ 
+ 
+ 
+ European: French - fish n chips - German
+ : Greek - Turkey - Spain - Italian
+ Latin American: Peruvian - Brazilian - Salvadorian - Columbian - Caribbean
+ Ethic: Indian - Afghani - Armenian Bakeries
+ let categoryArray = ["Mexican", "Italian", "Chinese", "Burgers", "Japanese", "Indian", "Bakeries", "Coffee", "Thai", "Greek", "French", "German", "Brazilian", "Peruvian", "Salvadorian", "Latin", "Spanish", "Salvadorian", "Spanish", "Bars", "Ice Cream", "Pizza", "Italian", "American", "Middle Eastern"]
+ 
+*/
 enum CuisineType: String {
-    case All
+    
+    case Burgers
+    case Pizza
+    case Coffee
+    case Bakery
+    case IceCream
     case Mexican
     case Italian
     case Chinese
-    case Burgers
     case Japanese
+    case Sushi
     case Indian
-    case Coffee
+    case Eastern
+    case American
     case Thai
-    case Greek
+    case European
+    case Mediterranean
     case Seafood
-    case Other
+    case Bar
+    case All
     
-    static let allTypes = [All, Mexican, Italian, Chinese, Burgers, Japanese, Indian, Coffee, Thai, Greek, Seafood, Other]
+    static let allTypes = [All, Burgers, Pizza, Coffee, Bakery, IceCream, Mexican, Italian, Chinese, Japanese, Sushi, Indian, Eastern, American, Thai, European, Mediterranean, Seafood, Bar]
 }
 
 class CuisineViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {

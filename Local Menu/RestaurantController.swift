@@ -39,7 +39,7 @@ class RestaurantController {
             name = category.rawValue
         }
         
-        let bodyDict = ["fields": ["name", "locu_id", "menu_url", "contact", "website_url", "extended", "open_hours", "location"],
+        let bodyDict = ["fields": ["name", "locu_id", "menu_url", "contact", "website_url", "extended", "open_hours", "location", "categories"],
                         "venue_queries": [["location": ["geo": locationRequest], "categories" : ["name":name]]],
                         "api_key": "08f3f647d0de281100b36fa8f91f71bb821203e1"]
         
@@ -82,7 +82,7 @@ class RestaurantController {
         
         let bodyDict = ["fields": ["name", "locu_id", "menu_url", "contact", "website_url", "extended", "open_hours", "location"],
                         "venue_queries": [["location": ["geo": locationRequest], "categories" : ["name":category]]],
-                        "api_key": "08f3f647d0de281100b36fa8f91f71bb821203e1"]
+                        "api_key": "44be813e6e30f7c82da90e5369aa0618ac294d73"]
         
         guard let data = try? NSJSONSerialization.dataWithJSONObject(bodyDict, options: .PrettyPrinted) else {
             return

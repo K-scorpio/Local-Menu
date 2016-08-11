@@ -43,6 +43,7 @@ struct Restaurant {
     private let kWebsiteURL = "website_url"
     private let kContact = "contact"
     private let kPhoneNumber = "phone"
+    private let kCategoryName = "name"
     
     let name: String
     let locuID: String
@@ -67,7 +68,7 @@ struct Restaurant {
     let prices: [String]?
     let websiteURL: String?
     let phoneNumber: String?
-    let coverPhoto: String?
+    let categoryName: String?
     
     
     init?(dictionary: [String: AnyObject]) {
@@ -102,6 +103,14 @@ struct Restaurant {
         self.longitude = longitude
 
         
+    /////////// Category Name /////////////
+        
+        if let categories = dictionary["categories"] as? [[String: AnyObject]] {
+            self.categoryName = categories[0][kCategoryName] as? String ?? nil
+        } else {
+            self.categoryName = nil
+        }
+        
     /////////// Menu Item Prices /////////////
 
         
@@ -133,11 +142,6 @@ struct Restaurant {
         }
         
         
-        if let media = dictionary["media"] as? [String : AnyObject] {
-            self.coverPhoto = media["cover_photo"] as? String ?? nil
-        } else {
-            self.coverPhoto = nil
-        }
     //////////// Phone ///////////////
         
         if let contact = dictionary[kContact] as? [String: AnyObject] {
