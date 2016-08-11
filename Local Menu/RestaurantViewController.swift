@@ -35,7 +35,6 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
         }
     }
     
-    //Populate with a prepare for segue.
     var cuisineType: CuisineType? {
         didSet {
             requestLocuData()
@@ -46,7 +45,6 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
         super.viewDidLoad()
         //        self.setupMyLocationManager()
         setupMyLocationManager()
-        
         requestLocuData()
     }
     
@@ -117,12 +115,22 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
     
     func requestLocuData() {
         
+        if mapView.annotations != nil {
+            let allAnnotations = self.mapView.annotations
+            self.mapView.removeAnnotations(allAnnotations!)
+        } else {
+            initialRequest()
+        }
+        
         mapView.showsUserLocation = true
         mapView.userTrackingMode = MGLUserTrackingMode(rawValue: 2)!
         mapView.delegate = self
         let center = CLLocationCoordinate2DMake(userCurrentLocation?.coordinate.latitude ?? 0.0, userCurrentLocation?.coordinate.longitude ?? 0.0)
         mapView.setCenterCoordinate(center, zoomLevel: 12, animated: true)
         guard let type = cuisineType else { return }
+        if type == .All {
+            initialRequest()
+        }
         RestaurantController.sharedInstance.fetchRestaurantsForCategory(type, location: center, completion: { (restaurants, success) in
             dispatch_async(dispatch_get_main_queue(), {
                 self.restaurantTableView.reloadData()
@@ -145,17 +153,6 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
             })
         })
         
-        if mapView.annotations != nil {
-            let allAnnotations = self.mapView.annotations
-            self.mapView.removeAnnotations(allAnnotations!)
-        } else {
-            let type = CuisineType.allTypes
-            RestaurantController.sharedInstance.fetchRestaurantsForCategory(type, location: center, completion: { (restaurants, success) in
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.restaurantTableView.reloadData()
-                })
-            })
-        }
         /*
          for category in categoryArray {
          RestaurantController.sharedInstance.fetchRestaurantsForCategory(category, location: center) { (restaurants, success) in
@@ -181,6 +178,37 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
          }
          }
          */
+    }
+    
+    func initialRequest() {
+        mapView.showsUserLocation = true
+        mapView.userTrackingMode = MGLUserTrackingMode(rawValue: 2)!
+        mapView.delegate = self
+        let center = CLLocationCoordinate2DMake(userCurrentLocation?.coordinate.latitude ?? 0.0, userCurrentLocation?.coordinate.longitude ?? 0.0)
+        mapView.setCenterCoordinate(center, zoomLevel: 12, animated: true)
+        for category in categoryArray {
+            RestaurantController.sharedInstance.initialFetchRestaurantsForAll(category, location: center) { (restaurants, success) in
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.restaurantTableView.reloadData()
+                })
+                var annotations = [MGLAnnotation]()
+                let group = dispatch_group_create()
+                for myRestaurant in restaurants {
+                    dispatch_group_enter(group)
+                    let point = MGLPointAnnotation()
+                    point.coordinate = CLLocationCoordinate2D(latitude: myRestaurant.latitude, longitude: myRestaurant.longitude)
+                    point.title = myRestaurant.name
+                    point.subtitle = myRestaurant.address1
+                    
+                    annotations.append(point)
+                    dispatch_group_leave(group)
+                }
+                dispatch_group_notify(group, dispatch_get_main_queue(), {
+                    self.mapView.addAnnotations(annotations)
+                    
+                })
+            }
+        }
     }
     
     

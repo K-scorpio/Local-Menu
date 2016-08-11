@@ -13,7 +13,7 @@ protocol CuisineViewControllerDelegate: class {
 }
 
 enum CuisineType: String {
-    case All = ["All", "Mexican", "Italian", "Chinese", "Burgers", "Japanese", "Indian", "Coffee", "Thai", "Greek", "Seafood", "Other"]
+    case All
     case Mexican
     case Italian
     case Chinese
