@@ -23,6 +23,7 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var mapView: MGLMapView!
     @IBOutlet weak var filterView: UIView!
     @IBOutlet weak var filterLabel: UIButton!
+    @IBOutlet weak var swipeRightImageView: UIImageView!
     @IBOutlet weak var randomLabel: UIButton!
     @IBOutlet weak var mapAndTableTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var searchBarField: UISearchBar!
@@ -38,6 +39,10 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
     var cuisineType: CuisineType? {
         didSet {
             requestLocuData()
+            UIView.animateWithDuration(0.4, delay: 0.3, options: [], animations: {
+                self.swipeRightImageView.alpha = 0
+                self.view.layoutIfNeeded()
+                }, completion: nil)
         }
     }
     
@@ -118,8 +123,6 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
         if mapView.annotations != nil {
             let allAnnotations = self.mapView.annotations
             self.mapView.removeAnnotations(allAnnotations!)
-        } else {
-            RestaurantTableViewHelper.EmptyMessage("S W I P E \nR I G H T\nT O  P I C K  A\nC U I S I N E", viewController: restaurantTableView)
         }
         
         mapView.showsUserLocation = true
@@ -182,6 +185,7 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func initialRequest() {
+        self.swipeRightImageView.hidden = false
         mapView.showsUserLocation = true
         mapView.userTrackingMode = MGLUserTrackingMode(rawValue: 2)!
         mapView.delegate = self
@@ -218,9 +222,11 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
     //    let region = MGLCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
     
     func mapView(mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
-        // Always try to show a callout when an annotation is tapped.
+        // Always allow callouts to popup when annotations are tapped.
         return true
     }
+
+//-----------------------------
     
     func setupMyLocationManager() {
         locationManager = CLLocationManager()
@@ -256,7 +262,7 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
         // If there’s no reusable annotation view available, initialize a new one.
         if annotationView == nil {
             annotationView = CustomAnnotationView(reuseIdentifier: reuseIdentifier)
-            annotationView!.frame = CGRectMake(0, 40, 27, 27)
+            annotationView!.frame = CGRectMake(0, 40, 20, 20)
             
             // Set the annotation view’s background color to a value determined by its longitude.
             _ = CGFloat(annotation.coordinate.longitude) / 100
@@ -302,15 +308,19 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("restaurantCell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("restaurantCell", forIndexPath: indexPath) as! RestaurantTableViewCell
         let restaurant = restaurants[indexPath.row]
         
-        cell.textLabel?.text = restaurant.name
+//        cell.textLabel?.text = restaurant.name
+        
+        cell.restaurantNameLabel.text = restaurant.name
+//        cell.restaurantDistanceLabel.text
+//        cell.restaurantTypeLabel.text
         
         if restaurant.menuURL != nil {
-            cell.detailTextLabel?.text = "MENU"
+            cell.restaurantMenuLabel.text = "M E N U"
         } else {
-            cell.detailTextLabel?.text = ""
+            cell.restaurantMenuLabel?.text = ""
         }
         
         print(restaurant.name)
