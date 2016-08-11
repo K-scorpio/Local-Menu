@@ -8,10 +8,39 @@
 
 import UIKit
 
+protocol CuisineViewControllerDelegate: class {
+    func cuisineTypeSelected(type: CuisineType)
+}
+
+enum CuisineType: String {
+    case All = ["All", "Mexican", "Italian", "Chinese", "Burgers", "Japanese", "Indian", "Coffee", "Thai", "Greek", "Seafood", "Other"]
+    case Mexican
+    case Italian
+    case Chinese
+    case Burgers
+    case Japanese
+    case Indian
+    case Coffee
+    case Thai
+    case Greek
+    case Seafood
+    case Other
+    
+    static let allTypes = [All, Mexican, Italian, Chinese, Burgers, Japanese, Indian, Coffee, Thai, Greek, Seafood, Other]
+}
+
 class CuisineViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    weak var delegate: CuisineViewControllerDelegate?
 
-    let categories = ["A L L", "M E X I C A N", "I T A L I A N", "C H I N E S E", "B U R G E R S", "J A P E N E S E", "I N D I A N", "C O F F E E", "T H A I", "G R E E K", "S E A F O O D", "O T H E R"]
+    let categories: [String] = CuisineType.allTypes.map { type in
+        let uppercased = type.rawValue.uppercaseString
+        var finishedString = ""
+        for character in uppercased.characters {
+            finishedString += "\(character) "
+        }
+        return finishedString
+    }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return categories.count
@@ -23,6 +52,11 @@ class CuisineViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.cuisineLabel.text = categories[indexPath.row]
         
         return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let type = CuisineType.allTypes[indexPath.row]
+        delegate?.cuisineTypeSelected(type)
     }
 
     /*

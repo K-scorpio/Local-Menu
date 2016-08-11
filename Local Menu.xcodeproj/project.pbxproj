@@ -31,6 +31,7 @@
 		E2B6B0601D5A532600DEDBD6 /* CuisineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B6B05F1D5A532600DEDBD6 /* CuisineViewController.swift */; };
 		E2B6B0621D5AA2CF00DEDBD6 /* CuisineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B6B0611D5AA2CF00DEDBD6 /* CuisineTableViewCell.swift */; };
 		E2B6B0641D5BA5B400DEDBD6 /* CuisineTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B6B0631D5BA5B400DEDBD6 /* CuisineTableViewDataSource.swift */; };
+		E2B6B0661D5BEAC800DEDBD6 /* MyDrawerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B6B0651D5BEAC800DEDBD6 /* MyDrawerController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,7 @@
 		E2B6B05F1D5A532600DEDBD6 /* CuisineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuisineViewController.swift; sourceTree = "<group>"; };
 		E2B6B0611D5AA2CF00DEDBD6 /* CuisineTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuisineTableViewCell.swift; sourceTree = "<group>"; };
 		E2B6B0631D5BA5B400DEDBD6 /* CuisineTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuisineTableViewDataSource.swift; sourceTree = "<group>"; };
+		E2B6B0651D5BEAC800DEDBD6 /* MyDrawerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDrawerController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 				E235076E1D4C1F88003159FB /* RestaurantTableViewCell.swift */,
 				E23507701D4C1FAD003159FB /* RestaurantViewController.swift */,
 				E29DF2141D4D85BA00A5765D /* RestaurantDetailViewController.swift */,
+				E2B6B0651D5BEAC800DEDBD6 /* MyDrawerController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -484,6 +487,7 @@
 				E23507731D4C200C003159FB /* RestaurantController.swift in Sources */,
 				E23507751D4C222E003159FB /* Restaurant.swift in Sources */,
 				E23507371D4BF4ED003159FB /* AppDelegate.swift in Sources */,
+				E2B6B0661D5BEAC800DEDBD6 /* MyDrawerController.swift in Sources */,
 				E2B6B05C1D5A521200DEDBD6 /* MMDrawerController.m in Sources */,
 				E23507691D4C1BD4003159FB /* NetworkController.swift in Sources */,
 			);

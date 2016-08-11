@@ -13,11 +13,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
-    var centerContainer: MMDrawerController?
+    var centerContainer: MyDrawerController?
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        var rootViewController = self.window!.rootViewController
+//        var rootViewController = self.window!.rootViewController
         
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         
@@ -33,7 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //                centerNav.navigationController!.view.backgroundColor = .clearColor()
 //        centerNav.navigationBar.translucent = true
         
-        centerContainer = MMDrawerController(centerViewController: centerViewController, leftDrawerViewController: leftViewController)
+        centerContainer = MyDrawerController(centerViewController: centerViewController, leftDrawerViewController: leftViewController)
+        leftViewController.delegate = centerContainer
         
         centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.PanningCenterView;
         centerContainer!.closeDrawerGestureModeMask = MMCloseDrawerGestureMode.PanningCenterView;

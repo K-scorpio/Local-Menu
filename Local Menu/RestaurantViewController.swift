@@ -12,12 +12,20 @@ import Mapbox
 import CoreLocation
 
 class RestaurantViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MGLMapViewDelegate, CLLocationManagerDelegate {
-    //Populate with a prepare for segue.
+    
+    var service: RestaurantController!
+    
+    var isOpen = false
+    
     let categoryArray = ["Mexican", "Italian", "Chinese", "Burgers", "Japanese", "Indian", "Bakery", "Coffee", "Thai", "Greek"]
     
     @IBOutlet weak var restaurantTableView: UITableView!
-    
     @IBOutlet weak var mapView: MGLMapView!
+    @IBOutlet weak var filterView: UIView!
+    @IBOutlet weak var filterLabel: UIButton!
+    @IBOutlet weak var randomLabel: UIButton!
+    @IBOutlet weak var mapAndTableTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var searchBarField: UISearchBar!
     
     var locuData = [Restaurant]() {
         didSet {
@@ -27,14 +35,19 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
         }
     }
     
-    func updateMap(mapView:MGLMapView){
-        if let annotations = mapView.annotations {
-            for a in annotations {
-                mapView.removeAnnotation(a)
-                mapView.addAnnotation(a)
-                mapView.showAnnotations(a as! [MGLAnnotation], animated: false)
-            }
+    //Populate with a prepare for segue.
+    var cuisineType: CuisineType? {
+        didSet {
+            requestLocuData()
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //        self.setupMyLocationManager()
+        setupMyLocationManager()
+        
+        requestLocuData()
     }
     
     var restaurants: [Restaurant] {
@@ -46,14 +59,6 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
     var userCurrentLocation: CLLocation? {
         return locationManager.location
     }
-    
-    @IBOutlet weak var filterView: UIView!
-    @IBOutlet weak var filterLabel: UIButton!
-    @IBOutlet weak var randomLabel: UIButton!
-    @IBOutlet weak var mapAndTableTopConstraint: NSLayoutConstraint!
-    @IBOutlet weak var searchBarField: UISearchBar!
-    
-    var isOpen = false
     
     @IBAction func searchButtonPressed(sender: AnyObject) {
         if isOpen == false {
@@ -78,6 +83,16 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
         }
     }
     
+    @IBAction func filterButtonTapped(sender: AnyObject) {
+        if filterView.hidden == false {
+            filterView.hidden = true
+            filterLabel.setTitleColor(UIColor.init(hue: 0.0, saturation: 0.0, brightness: 0.62, alpha: 1.0), forState: .Normal)
+        } else if filterView.hidden == true {
+            filterView.hidden = false
+            filterLabel.setTitleColor(UIColor.init(hue: 0.09, saturation: 0.44, brightness: 0.55, alpha: 1.0), forState: .Normal)
+        }
+    }
+    
     func scrollViewDidScroll(scrollView: UIScrollView) {
         if isOpen == true {
             isOpen = false
@@ -90,56 +105,84 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
         searchBarField.resignFirstResponder()
     }
     
-    
-    @IBAction func filterButtonTapped(sender: AnyObject) {
-        if filterView.hidden == false {
-            filterView.hidden = true
-            filterLabel.setTitleColor(UIColor.init(hue: 0.0, saturation: 0.0, brightness: 0.62, alpha: 1.0), forState: .Normal)
-        } else if filterView.hidden == true {
-            filterView.hidden = false
-            filterLabel.setTitleColor(UIColor.init(hue: 0.09, saturation: 0.44, brightness: 0.55, alpha: 1.0), forState: .Normal)
+    func updateMap(mapView:MGLMapView){
+        if let annotations = mapView.annotations {
+            for a in annotations {
+                mapView.removeAnnotation(a)
+                mapView.addAnnotation(a)
+                mapView.showAnnotations(a as! [MGLAnnotation], animated: false)
+            }
         }
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        //        self.setupMyLocationManager()
-        setupMyLocationManager()
-        requestLocuData()
-    }
-    
-    
-    var service: RestaurantController!
     
     func requestLocuData() {
+        
         mapView.showsUserLocation = true
         mapView.userTrackingMode = MGLUserTrackingMode(rawValue: 2)!
         mapView.delegate = self
         let center = CLLocationCoordinate2DMake(userCurrentLocation?.coordinate.latitude ?? 0.0, userCurrentLocation?.coordinate.longitude ?? 0.0)
         mapView.setCenterCoordinate(center, zoomLevel: 12, animated: true)
-        for category in categoryArray {
-            RestaurantController.sharedInstance.fetchRestaurantsForCategory(category, location: center) { (restaurants, success) in
+        guard let type = cuisineType else { return }
+        RestaurantController.sharedInstance.fetchRestaurantsForCategory(type, location: center, completion: { (restaurants, success) in
+            dispatch_async(dispatch_get_main_queue(), {
+                self.restaurantTableView.reloadData()
+            })
+            var annotations = [MGLAnnotation]()
+            let group = dispatch_group_create()
+            for myRestaurant in restaurants {
+                dispatch_group_enter(group)
+                let point = MGLPointAnnotation()
+                point.coordinate = CLLocationCoordinate2D(latitude: myRestaurant.latitude, longitude: myRestaurant.longitude)
+                point.title = myRestaurant.name
+                point.subtitle = myRestaurant.address1
+                
+                annotations.append(point)
+                dispatch_group_leave(group)
+            }
+            dispatch_group_notify(group, dispatch_get_main_queue(), {
+                self.mapView.addAnnotations(annotations)
+                
+            })
+        })
+        
+        if mapView.annotations != nil {
+            let allAnnotations = self.mapView.annotations
+            self.mapView.removeAnnotations(allAnnotations!)
+        } else {
+            let type = CuisineType.allTypes
+            RestaurantController.sharedInstance.fetchRestaurantsForCategory(type, location: center, completion: { (restaurants, success) in
                 dispatch_async(dispatch_get_main_queue(), {
                     self.restaurantTableView.reloadData()
                 })
-                var annotations = [MGLAnnotation]()
-                let group = dispatch_group_create()
-                for myRestaurant in restaurants {
-                    dispatch_group_enter(group)
-                    let point = MGLPointAnnotation()
-                    point.coordinate = CLLocationCoordinate2D(latitude: myRestaurant.latitude, longitude: myRestaurant.longitude)
-                    point.title = myRestaurant.name
-                    point.subtitle = myRestaurant.address1
-                    
-                    annotations.append(point)
-                    dispatch_group_leave(group)
-                }
-                dispatch_group_notify(group, dispatch_get_main_queue(), {
-                    self.mapView.addAnnotations(annotations)
-                    
-                })
-            }
+            })
         }
+        /*
+         for category in categoryArray {
+         RestaurantController.sharedInstance.fetchRestaurantsForCategory(category, location: center) { (restaurants, success) in
+         dispatch_async(dispatch_get_main_queue(), {
+         self.restaurantTableView.reloadData()
+         })
+         var annotations = [MGLAnnotation]()
+         let group = dispatch_group_create()
+         for myRestaurant in restaurants {
+         dispatch_group_enter(group)
+         let point = MGLPointAnnotation()
+         point.coordinate = CLLocationCoordinate2D(latitude: myRestaurant.latitude, longitude: myRestaurant.longitude)
+         point.title = myRestaurant.name
+         point.subtitle = myRestaurant.address1
+         
+         annotations.append(point)
+         dispatch_group_leave(group)
+         }
+         dispatch_group_notify(group, dispatch_get_main_queue(), {
+         self.mapView.addAnnotations(annotations)
+         
+         })
+         }
+         }
+         */
     }
+    
     
     
     //    let center = CLLocationCoordinate2D(latitude: userCurrentLocation.coordinate.latitude, longitude: userCurrentLocation.coordinate.longitude)
@@ -252,9 +295,9 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
         return cell
     }
     
-    //    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    //        <#code#>
-    //    }
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
     
     
     // MARK: - Navigation
