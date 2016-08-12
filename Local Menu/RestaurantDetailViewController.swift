@@ -39,12 +39,16 @@ class RestaurantDetailViewController: UIViewController, UIScrollViewDelegate {
         
         
         restaurantNameLabel.text = restaurant?.name
-//        hoursOfOperationLabel.text =
-//        openClosedNowLabel.text = restaurant.
-        dressTypeLabel.text = restaurant?.attire
-        restaurantAddressLabel.text = restaurant?.address1
+        guard let streetAddress = restaurant?.address1,
+        let city = restaurant?.locality,
+        let state = restaurant?.region,
+            let postalCode = restaurant?.postalCode else {
+                return
+        }
+        restaurantAddressLabel.text = ("\(streetAddress), \(city), \(state) \(postalCode)")
         
-        
+        restaurantNameLabel.adjustsFontSizeToFitWidth = true
+        restaurantNameLabel.minimumScaleFactor = 0.2
     }
 
     
@@ -54,8 +58,7 @@ class RestaurantDetailViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var restaurantNameLabel: UILabel!
     @IBOutlet weak var hoursOfOperationLabel: UILabel!
-    @IBOutlet weak var openClosedNowLabel: UILabel!
-    @IBOutlet weak var dressTypeLabel: UILabel!
+    @IBOutlet weak var yelpReviews: UILabel!
     
     // MARK: - Detail Button outlets:
     
@@ -167,7 +170,6 @@ class RestaurantDetailViewController: UIViewController, UIScrollViewDelegate {
         } else {
             takeOutIcon.image = UIImage(named: "Take Out Icon False")
         }
-
     }
     
     
@@ -183,7 +185,6 @@ class RestaurantDetailViewController: UIViewController, UIScrollViewDelegate {
         } else {
             reservationsIcon.image = UIImage(named: "Reservation Icon False")
         }
-        
     }
     
     func liveMusicIconDisplay() {
@@ -205,6 +206,21 @@ class RestaurantDetailViewController: UIViewController, UIScrollViewDelegate {
     
     
     // MARK: - Detail "Call", "Walk", "Drive", "Web" Button Actions:
+    
+    
+    
+    @IBAction func yelpButtonTapped(sender: AnyObject) {
+        guard let venue = restaurant?.name,
+            let city = restaurant?.locality else { return }
+        
+        let formattedVenueString = venue.stringByReplacingOccurrencesOfString(" ", withString: "%20")
+        let formattedCityString = city.stringByReplacingOccurrencesOfString(" ", withString: "%20")
+        
+        let url = NSURL(string: "https://m.yelp.com/search?find_desc=\(formattedVenueString)%20&find_loc=\(formattedCityString)")
+        let svc = SFSafariViewController(URL: url!, entersReaderIfAvailable: true)
+        self.presentViewController(svc, animated: true, completion: nil)
+        
+    }
     
     @IBAction func callButtonTapped(sender: AnyObject) {
         if let phoneNumber = restaurant?.phoneNumber {
