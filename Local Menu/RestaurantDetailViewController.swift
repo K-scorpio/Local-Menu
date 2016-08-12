@@ -232,9 +232,6 @@ class RestaurantDetailViewController: UIViewController, UIScrollViewDelegate {
         }
         let url = NSURL(string: "http://maps.apple.com/?daddr=\(latitude),\(longitude)&dirflg=w")!
         UIApplication.sharedApplication().openURL(url)
-        
-        
-        
     }
   
     @IBAction func driveButtonTapped(sender: AnyObject) {

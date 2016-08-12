@@ -8,15 +8,18 @@
 
 import UIKit
 import Mapbox
-//import MapboxGeocoder
+import MapboxGeocoder
 import CoreLocation
 
 class RestaurantViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MGLMapViewDelegate, CLLocationManagerDelegate {
     
     var service: RestaurantController!
     
+    var restaurant = Restaurant?()
+    
     var isOpen = false
     
+    let geocoder = Geocoder.sharedGeocoder
     
     let pizzaArray = ["Pizza", "Italian"]
     let sushiArray = ["Sushi", "Japanese"]
@@ -74,7 +77,33 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
     
     
     var userCurrentLocation: CLLocation? {
+        // var postsearch = false unless searching happens, then locationManager.location = coordinates of searchBarField.text
         return locationManager.location
+    }
+    
+    func restaurantDistance(restaurant: Restaurant) -> Double {
+        let latitude = restaurant.latitude
+        let longitude = restaurant.longitude
+        let loc = CLLocation(latitude: (userCurrentLocation?.coordinate.latitude)!, longitude: (userCurrentLocation?.coordinate.longitude)!)
+        let distance = loc.distanceFromLocation(CLLocation(latitude: latitude, longitude: longitude))
+        print(distance)
+        return distance
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+//        guard let searchTerm = searchBar.text else {
+//            return
+//        }
+//        RestaurantController.sharedInstance.searchForRestaurantsByItem(searchTerm, city: "Salt Lake City") { (restaurants) in
+//            self. = restaurants
+//            dispatch_async(dispatch_get_main_queue(), {
+//                if restaurants.count > 0 {
+//                    self.tableView.reloadData()
+//                } else {
+//                    self.noResultsFound()
+//                }
+//            })
+//        }
     }
     
     @IBAction func searchButtonPressed(sender: AnyObject) {
@@ -437,8 +466,13 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
         
         //        cell.textLabel?.text = restaurant.name
         
+        let distance = restaurantDistance(restaurant)
+        let roundedDistance = round(distance)
+        let milesDistance = roundedDistance * 0.000621371
+        let roundedMiles = String(format: "%.1f", milesDistance)
+        
         cell.restaurantNameLabel.text = restaurant.name
-        //        cell.restaurantDistanceLabel.text
+                cell.restaurantDistanceLabel.text = "\(roundedMiles) mi"
         //        cell.restaurantTypeLabel.text
         cell.restaurantTypeLabel.text = restaurant.categoryName
         if restaurant.menuURL != nil {
