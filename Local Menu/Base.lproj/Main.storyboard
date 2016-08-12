@@ -354,7 +354,7 @@
                                     <action selector="cuisineButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5vA-Mc-D4P"/>
                                 </connections>
                             </button>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Swipe Right" translatesAutoresizingMaskIntoConstraints="NO" id="2hI-H7-763">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Swipe Right" translatesAutoresizingMaskIntoConstraints="NO" id="2hI-H7-763">
                                 <rect key="frame" x="0.0" y="355" width="414" height="335"/>
                             </imageView>
                         </subviews>
@@ -432,13 +432,12 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="236" id="7L5-0J-ncv"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="7L5-0J-ncv"/>
+                                    </mask>
+                                </variation>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fWm-SM-2rC">
-                                <rect key="frame" x="5" y="207" width="404" height="16"/>
-                                <fontDescription key="fontDescription" name="PierSans" family="Pier Sans" pointSize="16"/>
-                                <color key="textColor" red="0.90763221153846152" green="0.90763221153846152" blue="0.90763221153846152" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YyC-Ur-l8J">
                                 <rect key="frame" x="20" y="129" width="374" height="59"/>
                                 <constraints>
@@ -446,6 +445,12 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="PierSans" family="Pier Sans" pointSize="55"/>
                                 <color key="textColor" red="0.89837740384615383" green="0.89837740384615383" blue="0.89837740384615383" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fWm-SM-2rC">
+                                <rect key="frame" x="5" y="207" width="404" height="16"/>
+                                <fontDescription key="fontDescription" name="PierSans" family="Pier Sans" pointSize="16"/>
+                                <color key="textColor" red="0.90763221153846152" green="0.90763221153846152" blue="0.90763221153846152" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WRh-T7-IXS">
@@ -613,6 +618,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="WRh-T7-IXS" firstAttribute="trailing" secondItem="PvL-cb-VOe" secondAttribute="trailingMargin" id="0SN-hv-Ab1"/>
+                            <constraint firstItem="YyC-Ur-l8J" firstAttribute="top" secondItem="8qq-EW-cyA" secondAttribute="bottom" constant="66" id="0tP-AN-DBg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hoA-9A-TYc" secondAttribute="trailing" constant="-25" id="1sT-mT-TcY"/>
                             <constraint firstAttribute="trailing" secondItem="7GB-oC-3hv" secondAttribute="trailing" id="4UD-Uo-DVv"/>
                             <constraint firstItem="0Nf-Uy-AdE" firstAttribute="top" secondItem="In1-AJ-DG0" secondAttribute="bottom" id="5xA-Oj-6eE"/>
@@ -629,7 +635,7 @@
                             <constraint firstItem="pxI-pz-ehh" firstAttribute="top" secondItem="Dxm-cJ-vjy" secondAttribute="bottom" id="LfR-nb-PEN"/>
                             <constraint firstItem="WRh-T7-IXS" firstAttribute="top" secondItem="fWm-SM-2rC" secondAttribute="bottom" constant="15" id="Mes-VO-b7f"/>
                             <constraint firstAttribute="trailing" secondItem="aQz-tg-qtC" secondAttribute="trailing" constant="29" id="Nw4-Q9-Y9J"/>
-                            <constraint firstItem="X3U-gB-Sff" firstAttribute="top" secondItem="YyC-Ur-l8J" secondAttribute="bottom" constant="-113" id="R4Y-Ei-UfO"/>
+                            <constraint firstItem="X3U-gB-Sff" firstAttribute="top" secondItem="YyC-Ur-l8J" secondAttribute="bottom" constant="-113" id="Nxu-gt-JcE"/>
                             <constraint firstItem="aQz-tg-qtC" firstAttribute="top" secondItem="n5T-zz-hd0" secondAttribute="bottom" id="SOa-KZ-dEB"/>
                             <constraint firstItem="oKG-MI-6yR" firstAttribute="top" secondItem="pxI-pz-ehh" secondAttribute="bottom" id="UNe-S1-4Dk"/>
                             <constraint firstItem="qab-yP-Obw" firstAttribute="leading" secondItem="Dxm-cJ-vjy" secondAttribute="leading" id="Xy6-7C-31q"/>
@@ -648,6 +654,7 @@
                             <constraint firstAttribute="trailing" secondItem="X3U-gB-Sff" secondAttribute="trailing" id="lNf-ir-Y3B"/>
                             <constraint firstItem="hoA-9A-TYc" firstAttribute="leading" secondItem="PvL-cb-VOe" secondAttribute="leadingMargin" constant="-25" id="o4g-Od-TI1"/>
                             <constraint firstItem="qab-yP-Obw" firstAttribute="top" secondItem="X3U-gB-Sff" secondAttribute="bottom" constant="-311" id="oB2-Ka-oYm"/>
+                            <constraint firstItem="X3U-gB-Sff" firstAttribute="top" secondItem="8qq-EW-cyA" secondAttribute="bottom" constant="12" id="oze-9K-zoC"/>
                             <constraint firstItem="Dxm-cJ-vjy" firstAttribute="leading" secondItem="PvL-cb-VOe" secondAttribute="leading" id="pdc-PQ-qrv"/>
                             <constraint firstAttribute="top" secondItem="PvL-cb-VOe" secondAttribute="topMargin" constant="71" id="peU-xU-2MN"/>
                             <constraint firstItem="7GB-oC-3hv" firstAttribute="top" secondItem="PvL-cb-VOe" secondAttribute="top" id="ppz-Id-6xR"/>
@@ -669,6 +676,7 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="peU-xU-2MN"/>
+                                <exclude reference="Nxu-gt-JcE"/>
                                 <exclude reference="qee-1e-1b9"/>
                                 <exclude reference="LfR-nb-PEN"/>
                                 <exclude reference="UNe-S1-4Dk"/>
