@@ -70,7 +70,7 @@ struct Restaurant {
     let phoneNumber: String?
     let categoryName: String?
     
-    
+    //andrew@devmountain.com
     init?(dictionary: [String: AnyObject]) {
         guard let name = dictionary[kName] as? String,
             let locuID = dictionary[kLocuID] as? String,

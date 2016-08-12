@@ -33,11 +33,11 @@ class RestaurantController {
         locationRequest["$in_lat_lng_radius"] = [location.latitude,location.longitude, 5000]
         
         let name = category.rawValue
-//        if category == .All {
-//            name = ""
-//        } else {
-//            name = category.rawValue
-//        }
+        //        if category == .All {
+        //            name = ""
+        //        } else {
+        //            name = category.rawValue
+        //        }
         
         let bodyDict = ["fields": ["name", "locu_id", "menu_url", "contact", "website_url", "extended", "open_hours", "location", "categories"],
                         "venue_queries": [["location": ["geo": locationRequest], "categories" : ["name":name]]],
@@ -178,13 +178,13 @@ class RestaurantController {
                 return
             }
             let restaurantsArray = restaurants.flatMap { Restaurant(dictionary: $0) }
-//            if restaurantsArray.count != 0 {
-//               restaurantsArray.removeAll()
-//            } else {
+            //            if restaurantsArray.count != 0 {
+            //               restaurantsArray.removeAll()
+            //            } else {
             self.myRestaurants.appendContentsOf(restaurantsArray)
             self.myRestaurants = restaurantsArray
             completion(restaurants: restaurantsArray, success: true)
-//            }
+            //            }
         }
     }
     
@@ -306,7 +306,40 @@ class RestaurantController {
             
             
             
-                        self.myRestaurants = restaurantsArray
+            self.myRestaurants = restaurantsArray
+            completion(restaurants: restaurantsArray, success: true)
+        }
+    }
+    
+    func searchForRestaurantsByItem(searchTerm: String, city: String, completion: (restaurants: [Restaurant], success: Bool) -> Void) {
+        
+        guard let baseURL = NSURL(string: "https://api.locu.com/v2/venue/search/") else {
+            completion(restaurants: [], success: false)
+            return
+        }
+        
+        let bodyDict = ["fields": ["name", "menu_items"],
+                        "venue_queries": [["location": ["locality": city]]],
+                        "menu_item_queries" : [["name": searchTerm]],
+                        "api_key": "08f3f647d0de281100b36fa8f91f71bb821203e1"]
+        
+        guard let data = try? NSJSONSerialization.dataWithJSONObject(bodyDict, options: .PrettyPrinted) else {
+            return
+        }
+        
+        NetworkController.performRequestForURL(baseURL, httpMethod: .Post, body: data) { (data, response, error) in
+            guard let _ = response, data = data, serializedData = try? NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments), dataDictionary = serializedData as? [String: AnyObject] else {
+                completion(restaurants: [], success: false)
+                return
+            }
+            //            print(dataDictionary)
+            guard let restaurants = dataDictionary["venues"] as? [[String: AnyObject]] else {
+                completion(restaurants: [], success: false)
+                return
+            }
+            let restaurantsArray = restaurants.flatMap { Restaurant(dictionary: $0) }
+            self.myRestaurants.appendContentsOf(restaurantsArray)
+            self.myRestaurants = restaurantsArray
             completion(restaurants: restaurantsArray, success: true)
         }
     }
