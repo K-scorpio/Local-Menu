@@ -38,11 +38,24 @@ class RestaurantDetailViewController: UIViewController, UIScrollViewDelegate {
         myMenu.loadHTMLString(html, baseURL: NSURL(string: "https://locu.com")!)
         
         
+        restaurantNameLabel.text = restaurant?.name
+//        hoursOfOperationLabel.text =
+//        openClosedNowLabel.text = restaurant.
+        dressTypeLabel.text = restaurant?.attire
+        restaurantAddressLabel.text = restaurant?.address1
+        
+        
     }
 
     
     @IBOutlet weak var iconView: UIImageView!
     
+    @IBOutlet weak var cuisineBackgroundImage: UIImageView!
+    
+    @IBOutlet weak var restaurantNameLabel: UILabel!
+    @IBOutlet weak var hoursOfOperationLabel: UILabel!
+    @IBOutlet weak var openClosedNowLabel: UILabel!
+    @IBOutlet weak var dressTypeLabel: UILabel!
     
     // MARK: - Detail Button outlets:
     
@@ -50,6 +63,10 @@ class RestaurantDetailViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var walkButton: UIButton!
     @IBOutlet weak var driveButton: UIButton!
     @IBOutlet weak var websiteButton: UIButton!
+    
+    
+    
+    @IBOutlet weak var restaurantAddressLabel: UILabel!
     
     
     // MARK: - Icon Outlets and functions:
