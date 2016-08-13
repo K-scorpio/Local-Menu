@@ -25,7 +25,6 @@ class RestaurantDetailViewController: UIViewController, UIScrollViewDelegate {
         alcoholIconDisplay()
         kidFriendlyIconDisplay()
         liveMusicIconDisplay()
-        backgroundImage ()
         
         guard let locuID = restaurant?.locuID else {
             return
@@ -50,6 +49,7 @@ class RestaurantDetailViewController: UIViewController, UIScrollViewDelegate {
         
         restaurantNameLabel.adjustsFontSizeToFitWidth = true
         restaurantNameLabel.minimumScaleFactor = 0.2
+        
     }
 
     
@@ -283,19 +283,23 @@ class RestaurantDetailViewController: UIViewController, UIScrollViewDelegate {
     
     var typeOfFood: MyDrawerController.Type?
     
+    var restaurantVC: RestaurantViewController?
+    
     
     func backgroundImage() {
         
+//        if restaurantVC?.cuisineType?.rawValue == "Burgers" {
+//            
+//        }
+//        
         
-        
-        
-        if restaurant?.categoryName == "Burgers"{
+        if restaurantVC?.cuisineType?.rawValue == "Burgers"{
             cuisineBackgroundImage.image = UIImage(named: "Burgers Item")
-        } else if restaurant?.categoryName == "Pizza" {
+        } else if restaurantVC?.cuisineType?.rawValue == "Pizza" {
             cuisineBackgroundImage.image = UIImage(named: "Pizza Item")
-        } else if restaurant?.categoryName == "Coffee & Tea" {
+        } else if cuisineType?.rawValue == "Coffee & Tea" {
             cuisineBackgroundImage.image = UIImage(named: "Coffee Item")
-        } else if  ((restaurant?.categoryName?.containsString("Bakeries")) != nil) {
+        } else if  cuisineType?.rawValue == "Bakery" {
             cuisineBackgroundImage.image = UIImage(named: "Bakeries Item")
         } else if restaurant?.categoryName == "Mexican" {
             cuisineBackgroundImage.image = UIImage(named: "Mexican Item")
