@@ -25,6 +25,7 @@ class RestaurantDetailViewController: UIViewController, UIScrollViewDelegate {
         alcoholIconDisplay()
         kidFriendlyIconDisplay()
         liveMusicIconDisplay()
+        backgroundImage ()
         
         guard let locuID = restaurant?.locuID else {
             return
@@ -276,6 +277,55 @@ class RestaurantDetailViewController: UIViewController, UIScrollViewDelegate {
 
         }
         
+    }
+    
+    var cuisineType: CuisineType?
+    
+    var typeOfFood: MyDrawerController.Type?
+    
+    
+    func backgroundImage() {
+        
+        
+        
+        
+        if restaurant?.categoryName == "Burgers"{
+            cuisineBackgroundImage.image = UIImage(named: "Burgers Item")
+        } else if restaurant?.categoryName == "Pizza" {
+            cuisineBackgroundImage.image = UIImage(named: "Pizza Item")
+        } else if restaurant?.categoryName == "Coffee & Tea" {
+            cuisineBackgroundImage.image = UIImage(named: "Coffee Item")
+        } else if  ((restaurant?.categoryName?.containsString("Bakeries")) != nil) {
+            cuisineBackgroundImage.image = UIImage(named: "Bakeries Item")
+        } else if restaurant?.categoryName == "Mexican" {
+            cuisineBackgroundImage.image = UIImage(named: "Mexican Item")
+        } else if restaurant?.categoryName == "Italian" {
+            cuisineBackgroundImage.image = UIImage(named: "Italian Item")
+        } else if  restaurant?.categoryName == "Chinese" {
+            cuisineBackgroundImage.image = UIImage(named: "Chinese Item")
+        } else if restaurant?.categoryName == "Japanese" {
+            cuisineBackgroundImage.image = UIImage(named: "Japanese Item")
+        } else if restaurant?.categoryName == "Sushi" {
+            cuisineBackgroundImage.image = UIImage(named: "Sushi Item")
+        } else if  restaurant?.categoryName == "Indian" {
+            cuisineBackgroundImage.image = UIImage(named: "Indian Item")
+        } else if restaurant?.categoryName == "American" {
+            cuisineBackgroundImage.image = UIImage(named: "American Item")
+        } else if restaurant?.categoryName == "Thai" {
+            cuisineBackgroundImage.image = UIImage(named: "Thai Item")
+        } else if  restaurant?.categoryName == "French" {
+            cuisineBackgroundImage.image = UIImage(named: "French Item")
+        } else if restaurant?.categoryName == "Greek" {
+            cuisineBackgroundImage.image = UIImage(named: "Greek Item")
+        } else if restaurant?.categoryName == "Seafood" {
+            cuisineBackgroundImage.image = UIImage(named: "Seafood Item")
+        } else if  restaurant?.categoryName == "Bars" {
+            cuisineBackgroundImage.image = UIImage(named: "Bars Item")
+        } else if restaurant?.categoryName == "Korean" {
+            cuisineBackgroundImage.image = UIImage(named: "Korean Item")
+        } else {
+            cuisineBackgroundImage.image = UIImage(named: "Japanese Item")
+        }
     }
     
     

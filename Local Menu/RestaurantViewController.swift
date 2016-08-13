@@ -468,7 +468,7 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
         cell.restaurantNameLabel.text = restaurant.name
                 cell.restaurantDistanceLabel.text = "\(roundedMiles) mi"
         //        cell.restaurantTypeLabel.text
-        cell.restaurantTypeLabel.text = restaurant.categoryName
+        cell.restaurantTypeLabel.text = "Distance:"
         if restaurant.menuURL != nil {
             cell.restaurantMenuLabel.text = "M E N U"
         } else {
