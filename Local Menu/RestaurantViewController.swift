@@ -127,6 +127,37 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
         }
     }
     
+    @IBAction func dismissKeyboardTapGesture(sender: AnyObject) {
+        if isOpen == false {
+            searchBarField.searchBarStyle = .Minimal
+            isOpen = true
+            UIView.animateWithDuration(0.2, delay: 0.3, options: [], animations: {
+                self.mapAndTableTopConstraint.constant += 45
+                self.view.layoutIfNeeded()
+                }, completion: nil)
+            
+            //            mapAndTableTopConstraint.constant += searchBarField.bounds.height
+        } else if isOpen == true {
+            isOpen = false
+            
+            UIView.animateWithDuration(0.2, delay: 0.3, options: [], animations: {
+                self.mapAndTableTopConstraint.constant -= 45
+                self.view.layoutIfNeeded()
+                }, completion: nil)
+            
+            searchBarField.resignFirstResponder()
+            //            mapAndTableTopConstraint.constant -= searchBarField.bounds.height
+        }
+    }
+
+    @IBAction func closeDrawerTapGesture(sender: AnyObject) {
+        let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+//        appDelegate.centerContainer?.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
+        appDelegate.centerContainer?.closeDrawerAnimated(true, completion: nil)
+    }
+
+    
+    
     @IBAction func filterButtonTapped(sender: AnyObject) {
         if filterView.hidden == false {
             filterView.hidden = true
@@ -501,7 +532,17 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
     @IBAction func cuisineButtonTapped(sender: AnyObject) {
         let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.centerContainer?.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
-        
+        if isOpen == true {
+            isOpen = false
+            
+            UIView.animateWithDuration(0.2, delay: 0.3, options: [], animations: {
+                self.mapAndTableTopConstraint.constant -= 45
+                self.view.layoutIfNeeded()
+                }, completion: nil)
+            
+            searchBarField.resignFirstResponder()
+            //            mapAndTableTopConstraint.constant -= searchBarField.bounds.height
+        }
     }
     
     @IBAction func unwindToRestaurantView(segue: UIStoryboardSegue) {
@@ -518,6 +559,4 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    
-    
 }

@@ -87,19 +87,29 @@
                                     <constraint firstAttribute="width" secondItem="lxp-nh-1YF" secondAttribute="height" multiplier="1:1" id="GVU-SJ-1I3"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eqD-x3-hiN">
+                                <rect key="frame" x="0.0" y="156" width="414" height="15"/>
+                                <color key="backgroundColor" red="0.11233620850000001" green="0.11233620850000001" blue="0.11233620850000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="Ubl-XB-lHe"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.11233620852187043" green="0.11233620852187043" blue="0.11233620852187043" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="eqD-x3-hiN" firstAttribute="top" secondItem="U38-7T-mTn" secondAttribute="bottom" id="16D-mo-ShL"/>
                             <constraint firstItem="sjj-uw-uGo" firstAttribute="top" secondItem="U38-7T-mTn" secondAttribute="bottom" constant="-17" id="94U-P9-p8T"/>
                             <constraint firstItem="sjj-uw-uGo" firstAttribute="centerX" secondItem="UbX-Oi-YuF" secondAttribute="centerX" id="BVT-ed-1SD"/>
                             <constraint firstItem="sjj-uw-uGo" firstAttribute="leading" secondItem="UbX-Oi-YuF" secondAttribute="leading" id="DPB-HH-Zrs"/>
                             <constraint firstItem="U38-7T-mTn" firstAttribute="centerX" secondItem="lxp-nh-1YF" secondAttribute="centerX" constant="69" id="LvU-Zd-7eh"/>
                             <constraint firstItem="lxp-nh-1YF" firstAttribute="top" secondItem="UbX-Oi-YuF" secondAttribute="topMargin" constant="28" id="QNP-vo-Kvq"/>
+                            <constraint firstAttribute="trailing" secondItem="eqD-x3-hiN" secondAttribute="trailing" id="XB8-WB-6yR"/>
                             <constraint firstAttribute="trailing" secondItem="sjj-uw-uGo" secondAttribute="trailing" id="bBV-ty-ZgR"/>
                             <constraint firstItem="0Xd-Pv-oEJ" firstAttribute="top" secondItem="sjj-uw-uGo" secondAttribute="bottom" id="bPi-rY-4xp"/>
                             <constraint firstItem="U38-7T-mTn" firstAttribute="top" secondItem="lxp-nh-1YF" secondAttribute="bottom" constant="3" id="bWX-r5-iRY"/>
                             <constraint firstItem="sjj-uw-uGo" firstAttribute="leading" secondItem="UbX-Oi-YuF" secondAttribute="leading" id="feo-tt-cMO"/>
                             <constraint firstItem="0Xd-Pv-oEJ" firstAttribute="top" secondItem="sjj-uw-uGo" secondAttribute="bottom" constant="20" id="ihd-cl-hC1"/>
+                            <constraint firstItem="eqD-x3-hiN" firstAttribute="leading" secondItem="UbX-Oi-YuF" secondAttribute="leading" id="qzE-5v-IOo"/>
                             <constraint firstAttribute="trailing" secondItem="sjj-uw-uGo" secondAttribute="trailing" id="rBq-Mr-MX7"/>
                             <constraint firstItem="lxp-nh-1YF" firstAttribute="leading" secondItem="UbX-Oi-YuF" secondAttribute="leadingMargin" constant="64" id="rgI-vu-nip"/>
                         </constraints>
@@ -130,6 +140,7 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LocalMenuBackground1" translatesAutoresizingMaskIntoConstraints="NO" id="yK1-v2-Hih">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <gestureRecognizers/>
                             </imageView>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="c7g-Sp-L84">
                                 <rect key="frame" x="0.0" y="75" width="414" height="44"/>
@@ -337,10 +348,12 @@
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3sH-La-WQn">
                                 <rect key="frame" x="355" y="20" width="46" height="47"/>
-                                <color key="backgroundColor" red="0.11570512820512824" green="0.11570512820512824" blue="0.11570512820512824" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="46" id="KG8-y9-j41"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="searchButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7fk-f2-qdG"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgC-Wo-OzN">
                                 <rect key="frame" x="0.0" y="28" width="81" height="39"/>

@@ -1,0 +1,310 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		025B951A1D4BD3CA0041A8D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025B95191D4BD3CA0041A8D6 /* AppDelegate.swift */; };
+		025B951C1D4BD3CA0041A8D6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025B951B1D4BD3CA0041A8D6 /* ViewController.swift */; };
+		025B951F1D4BD3CA0041A8D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 025B951D1D4BD3CA0041A8D6 /* Main.storyboard */; };
+		025B95211D4BD3CA0041A8D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 025B95201D4BD3CA0041A8D6 /* Assets.xcassets */; };
+		025B95241D4BD3CA0041A8D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 025B95221D4BD3CA0041A8D6 /* LaunchScreen.storyboard */; };
+		025B952C1D4BD3F60041A8D6 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025B952B1D4BD3F60041A8D6 /* NetworkController.swift */; };
+		02A08D181D4BEEB900005034 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A08D171D4BEEB900005034 /* Venue.swift */; };
+		283BF5951D4D098B001A6590 /* RestaurantController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283BF5941D4D098B001A6590 /* RestaurantController.swift */; };
+		283BF5971D4D1B87001A6590 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283BF5961D4D1B87001A6590 /* DetailViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		025B95161D4BD3CA0041A8D6 /* LocuEx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocuEx.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		025B95191D4BD3CA0041A8D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		025B951B1D4BD3CA0041A8D6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		025B951E1D4BD3CA0041A8D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		025B95201D4BD3CA0041A8D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		025B95231D4BD3CA0041A8D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		025B95251D4BD3CA0041A8D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		025B952B1D4BD3F60041A8D6 /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
+		02A08D171D4BEEB900005034 /* Venue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
+		283BF5941D4D098B001A6590 /* RestaurantController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantController.swift; sourceTree = "<group>"; };
+		283BF5961D4D1B87001A6590 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		025B95131D4BD3CA0041A8D6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		025B950D1D4BD3CA0041A8D6 = {
+			isa = PBXGroup;
+			children = (
+				025B95181D4BD3CA0041A8D6 /* LocuEx */,
+				025B95171D4BD3CA0041A8D6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		025B95171D4BD3CA0041A8D6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				025B95161D4BD3CA0041A8D6 /* LocuEx.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		025B95181D4BD3CA0041A8D6 /* LocuEx */ = {
+			isa = PBXGroup;
+			children = (
+				025B95191D4BD3CA0041A8D6 /* AppDelegate.swift */,
+				025B951B1D4BD3CA0041A8D6 /* ViewController.swift */,
+				283BF5961D4D1B87001A6590 /* DetailViewController.swift */,
+				02A08D171D4BEEB900005034 /* Venue.swift */,
+				283BF5941D4D098B001A6590 /* RestaurantController.swift */,
+				025B952B1D4BD3F60041A8D6 /* NetworkController.swift */,
+				025B951D1D4BD3CA0041A8D6 /* Main.storyboard */,
+				025B95201D4BD3CA0041A8D6 /* Assets.xcassets */,
+				025B95221D4BD3CA0041A8D6 /* LaunchScreen.storyboard */,
+				025B95251D4BD3CA0041A8D6 /* Info.plist */,
+			);
+			path = LocuEx;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		025B95151D4BD3CA0041A8D6 /* LocuEx */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 025B95281D4BD3CA0041A8D6 /* Build configuration list for PBXNativeTarget "LocuEx" */;
+			buildPhases = (
+				025B95121D4BD3CA0041A8D6 /* Sources */,
+				025B95131D4BD3CA0041A8D6 /* Frameworks */,
+				025B95141D4BD3CA0041A8D6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LocuEx;
+			productName = LocuEx;
+			productReference = 025B95161D4BD3CA0041A8D6 /* LocuEx.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		025B950E1D4BD3CA0041A8D6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Falcone Development";
+				TargetAttributes = {
+					025B95151D4BD3CA0041A8D6 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 025B95111D4BD3CA0041A8D6 /* Build configuration list for PBXProject "LocuEx" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 025B950D1D4BD3CA0041A8D6;
+			productRefGroup = 025B95171D4BD3CA0041A8D6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				025B95151D4BD3CA0041A8D6 /* LocuEx */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		025B95141D4BD3CA0041A8D6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				025B95241D4BD3CA0041A8D6 /* LaunchScreen.storyboard in Resources */,
+				025B95211D4BD3CA0041A8D6 /* Assets.xcassets in Resources */,
+				025B951F1D4BD3CA0041A8D6 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		025B95121D4BD3CA0041A8D6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				025B951C1D4BD3CA0041A8D6 /* ViewController.swift in Sources */,
+				02A08D181D4BEEB900005034 /* Venue.swift in Sources */,
+				025B951A1D4BD3CA0041A8D6 /* AppDelegate.swift in Sources */,
+				283BF5971D4D1B87001A6590 /* DetailViewController.swift in Sources */,
+				025B952C1D4BD3F60041A8D6 /* NetworkController.swift in Sources */,
+				283BF5951D4D098B001A6590 /* RestaurantController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		025B951D1D4BD3CA0041A8D6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				025B951E1D4BD3CA0041A8D6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		025B95221D4BD3CA0041A8D6 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				025B95231D4BD3CA0041A8D6 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		025B95261D4BD3CA0041A8D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		025B95271D4BD3CA0041A8D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		025B95291D4BD3CA0041A8D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = LocuEx/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.falconedevelopment.LocuEx;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		025B952A1D4BD3CA0041A8D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = LocuEx/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.falconedevelopment.LocuEx;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		025B95111D4BD3CA0041A8D6 /* Build configuration list for PBXProject "LocuEx" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				025B95261D4BD3CA0041A8D6 /* Debug */,
+				025B95271D4BD3CA0041A8D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		025B95281D4BD3CA0041A8D6 /* Build configuration list for PBXNativeTarget "LocuEx" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				025B95291D4BD3CA0041A8D6 /* Debug */,
+				025B952A1D4BD3CA0041A8D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 025B950E1D4BD3CA0041A8D6 /* Project object */;
+}

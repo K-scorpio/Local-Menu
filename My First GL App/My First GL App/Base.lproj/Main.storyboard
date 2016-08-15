@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Delegate-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="My_First_GL_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" placeholder="Search (ex: &quot;Pizza in Boston&quot;)" translatesAutoresizingMaskIntoConstraints="NO" id="qmM-Er-z2x">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Rly-5M-WDq">
+                                <rect key="frame" x="0.0" y="262" width="600" height="338"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="338" id="Eff-HI-bVC"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="restaurantCell" id="aei-kp-XNn">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aei-kp-XNn" id="0ru-Ck-Mcr">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZuF-Ep-mJa" customClass="MGLMapView">
+                                <rect key="frame" x="0.0" y="64" width="600" height="190"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="styleURL__" value="mapbox://styles/localmenu/cir6sktle0001brnom4ugoliu"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showsUserLocation" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="ep3-s5-VZu"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.62733147909999998" green="0.49174305289999998" blue="0.18823796940000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="qmM-Er-z2x" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="3ma-S7-W8F"/>
+                            <constraint firstItem="qmM-Er-z2x" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="6bY-UB-h2c"/>
+                            <constraint firstItem="qmM-Er-z2x" firstAttribute="trailing" secondItem="ZuF-Ep-mJa" secondAttribute="trailing" id="8ny-fG-JgR"/>
+                            <constraint firstItem="qmM-Er-z2x" firstAttribute="leading" secondItem="ZuF-Ep-mJa" secondAttribute="leading" id="EXl-TY-3Ws"/>
+                            <constraint firstItem="ZuF-Ep-mJa" firstAttribute="trailing" secondItem="Rly-5M-WDq" secondAttribute="trailing" id="Hlc-t7-1MI"/>
+                            <constraint firstItem="ZuF-Ep-mJa" firstAttribute="leading" secondItem="Rly-5M-WDq" secondAttribute="leading" id="IaY-3u-KiW"/>
+                            <constraint firstItem="Rly-5M-WDq" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="U1h-En-fJK"/>
+                            <constraint firstItem="Rly-5M-WDq" firstAttribute="top" secondItem="ZuF-Ep-mJa" secondAttribute="bottom" constant="8" id="XqU-34-xNE"/>
+                            <constraint firstAttribute="trailing" secondItem="qmM-Er-z2x" secondAttribute="trailing" id="Y9Z-VK-qaP"/>
+                            <constraint firstItem="ZuF-Ep-mJa" firstAttribute="top" secondItem="qmM-Er-z2x" secondAttribute="bottom" id="uHN-EA-9Ap"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="latitude">
+                                <real key="value" value="45.522449999999999"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="longitude">
+                                <real key="value" value="-122.67773"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="zoomLevel">
+                                <real key="value" value="14"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="string" keyPath="styleURL__" value="mapbox://styles/localmenu/cir6sktle0001brnom4ugoliu"/>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="showsUserLocation" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="ZuF-Ep-mJa" id="TTj-pb-byg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="402" y="474"/>
+        </scene>
+    </scenes>
+</document>

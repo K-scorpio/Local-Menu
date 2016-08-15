@@ -36,12 +36,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         centerContainer = MyDrawerController(centerViewController: centerViewController, leftDrawerViewController: leftViewController)
         leftViewController.delegate = centerContainer
         
-        centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.PanningCenterView;
-        centerContainer!.closeDrawerGestureModeMask = MMCloseDrawerGestureMode.PanningCenterView;
+        centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.PanningCenterView
+          centerContainer!.closeDrawerGestureModeMask = MMCloseDrawerGestureMode.All
+//        let drawer = application.windows.first?.rootViewController as! MMDrawerController
+//        drawer.closeDrawerGestureModeMask = MMCloseDrawerGestureMode.TapCenterView
 
         window!.rootViewController = centerContainer
         window!.makeKeyAndVisible()
-
+        
         return true
     }
     
