@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-//        var rootViewController = self.window!.rootViewController
+        //        var rootViewController = self.window!.rootViewController
         
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         
@@ -26,21 +26,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let leftViewController = mainStoryboard.instantiateViewControllerWithIdentifier("CuisineViewController") as! CuisineViewController
         
         
-//        let leftSideNav = UINavigationController(rootViewController: leftViewController)
-//                leftSideNav.navigationController!.view.backgroundColor = .clearColor()
-//        leftSideNav.navigationBar.translucent = true
-//        let centerNav = UINavigationController(rootViewController: centerViewController)
-//                centerNav.navigationController!.view.backgroundColor = .clearColor()
-//        centerNav.navigationBar.translucent = true
+        //        let leftSideNav = UINavigationController(rootViewController: leftViewController)
+        //                leftSideNav.navigationController!.view.backgroundColor = .clearColor()
+        //        leftSideNav.navigationBar.translucent = true
+        //        let centerNav = UINavigationController(rootViewController: centerViewController)
+        //                centerNav.navigationController!.view.backgroundColor = .clearColor()
+        //        centerNav.navigationBar.translucent = true
         
         centerContainer = MyDrawerController(centerViewController: centerViewController, leftDrawerViewController: leftViewController)
         leftViewController.delegate = centerContainer
         
-        centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.PanningCenterView
-          centerContainer!.closeDrawerGestureModeMask = MMCloseDrawerGestureMode.All
-//        let drawer = application.windows.first?.rootViewController as! MMDrawerController
-//        drawer.closeDrawerGestureModeMask = MMCloseDrawerGestureMode.TapCenterView
-
+        centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.PanningCenterView 
+        centerContainer!.closeDrawerGestureModeMask = MMCloseDrawerGestureMode.All
+        //        let drawer = application.windows.first?.rootViewController as! MMDrawerController
+        //        drawer.closeDrawerGestureModeMask = MMCloseDrawerGestureMode.TapCenterView
+        
         window!.rootViewController = centerContainer
         window!.makeKeyAndVisible()
         

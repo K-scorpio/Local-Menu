@@ -17,7 +17,7 @@ class RestaurantController {
     
     var myRestaurants = [Restaurant]()
     
-    func fetchRestaurantsForCategory(category: CuisineType, location: CLLocationCoordinate2D, completion: (restaurants: [Restaurant], success: Bool) -> Void) {
+    func fetchRestaurantsForCategory(category: CuisineType, distance: Float, location: CLLocationCoordinate2D, completion: (restaurants: [Restaurant], success: Bool) -> Void) {
         
         guard let baseURL = NSURL(string: "https://api.locu.com/v2/venue/search/") else {
             completion(restaurants: [], success: false)
@@ -30,7 +30,7 @@ class RestaurantController {
         //        func request(location: CLLocationCoordinate2D) {
         //            let location: CLLocationCoordinate2D
         var locationRequest = [String:AnyObject]()
-        locationRequest["$in_lat_lng_radius"] = [location.latitude,location.longitude, 5000]
+        locationRequest["$in_lat_lng_radius"] = [location.latitude,location.longitude, distance]
         
         let name = category.rawValue
         //        if category == .All {
