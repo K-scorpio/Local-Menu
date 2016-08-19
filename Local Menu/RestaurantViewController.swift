@@ -78,10 +78,10 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
             resignFirstResponder()
         }
         
-//        let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-//        appDelegate.centerContainer?.centerHiddenInteractionMode
+        //        let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        //        appDelegate.centerContainer?.centerHiddenInteractionMode
         
-//        if appDelegate.centerContainer?.centerViewController
+        //        if appDelegate.centerContainer?.centerViewController
         
         RestaurantController.sharedInstance.searchForRestaurantsByItem("pizza", city: "Salt Lake City") { (restaurants, success) in
             if success {
@@ -241,21 +241,21 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
             }, completion: nil)
         
         filterLabel.setTitleColor(UIColor.init(hue: 0.0, saturation: 0.0, brightness: 0.62, alpha: 1.0), forState: .Normal)
-//        filterView.hidden = true
-//        filterLeftConstraint.constant += 600
+        //        filterView.hidden = true
+        //        filterLeftConstraint.constant += 600
     }
     
     func unhideFilterView() {
         
-            filterViewHasDissapeared = false
-            //        filterView.hidden = false
-            UIView.animateWithDuration(0.2, delay: 0.1, options: [], animations: {
-                self.filterView.alpha = 1.0
-                self.filterViewBottomConstraint.constant -= 30
-                self.view.layoutIfNeeded()
-                }, completion: nil)
-            
-            filterLabel.setTitleColor(UIColor.init(hue: 0.0, saturation: 0.0, brightness: 0.62, alpha: 1.0), forState: .Normal)
+        filterViewHasDissapeared = false
+        //        filterView.hidden = false
+        UIView.animateWithDuration(0.2, delay: 0.1, options: [], animations: {
+            self.filterView.alpha = 1.0
+            self.filterViewBottomConstraint.constant -= 30
+            self.view.layoutIfNeeded()
+            }, completion: nil)
+        
+        filterLabel.setTitleColor(UIColor.init(hue: 0.0, saturation: 0.0, brightness: 0.62, alpha: 1.0), forState: .Normal)
     }
     
     //-----------------------------------//
@@ -277,12 +277,9 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     var allCuisineSelected = true
-    var onlyMenusSelected = false
     
     @IBAction func allCuisineButtonTapped(sender: AnyObject) {
-        allCuisineSelected = true
-        onlyMenusSelected = false
-        if allCuisineSelected == true {
+        if allCuisineSelected == false {
             UIView.animateWithDuration(0.5, animations: {
                 self.allCuisineLabel.layer.borderColor = UIColor(hue: 0.09, saturation: 0.44, brightness: 0.55, alpha: 1.0).CGColor
                 self.allCuisineLabel.layer.backgroundColor = UIColor(hue: 0.09, saturation: 0.44, brightness: 0.55, alpha: 1.0).CGColor
@@ -292,15 +289,15 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
                 self.onlyMenusLabel.layer.borderWidth = 3
                 self.onlyMenusLabel.textColor = UIColor.grayColor()
             })
+            allCuisineSelected = true
+            requestLocuData()
         } else {
             return
         }
     }
     
     @IBAction func onlyMenusButtonTapped(sender: AnyObject) {
-        allCuisineSelected = false
-        onlyMenusSelected = true
-        if onlyMenusSelected == true {
+        if allCuisineSelected == true {
             UIView.animateWithDuration(0.5, animations: {
                 self.onlyMenusLabel.layer.borderColor = UIColor(hue: 0.09, saturation: 0.44, brightness: 0.55, alpha: 1.0).CGColor
                 self.onlyMenusLabel.layer.backgroundColor = UIColor(hue: 0.09, saturation: 0.44, brightness: 0.55, alpha: 1.0).CGColor
@@ -310,9 +307,12 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
                 self.allCuisineLabel.layer.borderWidth = 3
                 self.allCuisineLabel.textColor = UIColor.grayColor()
             })
+            allCuisineSelected = false
+            requestLocuData()
         } else {
             return
-        }    }
+        }
+    }
     func scrollViewDidScroll(scrollView: UIScrollView) {
         if filterViewHasDissapeared == false {
             //IF THE FILTER IS SHOWING, THEN:
@@ -356,6 +356,8 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
         if type != cuisineType {
             return
         } else {
+//            if allCuisineSelected == false { // I believe here we need to say manuURL is optional yes. I think we can add that code here.
+                // I mean, there's gotta be multiple ways to do this... but, I think instead of doing either of these options, we should just take the current data that comes in from a network request and filter that to only show the menuURLs. I'm almost done doing that in cellForRowAtIndexPath.. can i show you that quick?For sure
             RestaurantController.sharedInstance.fetchRestaurantsForCategory(type, distance: distanceSlider.value, location: center, completion: { (restaurants, success) in
                 dispatch_async(dispatch_get_main_queue(), {
                     self.restaurantTableView.reloadData()
@@ -377,6 +379,30 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
                     
                 })
             })
+//            } else { //Somehow here we need to say that the menuURL is the menuURL
+//                RestaurantController.sharedInstance.fetchRestaurantsForCategory(type, distance: distanceSlider.value, location: center, completion: { (restaurants, success) in
+//                    dispatch_async(dispatch_get_main_queue(), {
+//                        self.restaurantTableView.reloadData()
+//                    })
+//                    var annotations = [MGLAnnotation]()
+//                    let group = dispatch_group_create()
+//                    for myRestaurant in restaurants {
+//                        dispatch_group_enter(group)
+//                        let point = MGLPointAnnotation()
+//                        point.coordinate = CLLocationCoordinate2D(latitude: myRestaurant.latitude, longitude: myRestaurant.longitude)
+//                        point.title = myRestaurant.name
+//                        point.subtitle = myRestaurant.address1
+//                        
+//                        annotations.append(point)
+//                        dispatch_group_leave(group)
+//                    }
+//                    dispatch_group_notify(group, dispatch_get_main_queue(), {
+//                        self.mapView.addAnnotations(annotations)
+//                        
+//                    })
+//                })
+//                
+//            }
         }
         
         //        func initialRequest() {
@@ -543,6 +569,8 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
     //    }
     
     
+    //haha so much green ^
+    
     
     
     //    let center = CLLocationCoordinate2D(latitude: userCurrentLocation.coordinate.latitude, longitude: userCurrentLocation.coordinate.longitude)
@@ -638,22 +666,49 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
         let cell = tableView.dequeueReusableCellWithIdentifier("restaurantCell", forIndexPath: indexPath) as! RestaurantTableViewCell
         let restaurant = restaurants[indexPath.row]
         
-        //        cell.textLabel?.text = restaurant.name
+        //-------------------------------------------------------------------//
         
-        let distance = restaurantDistance(restaurant)
-        let roundedDistance = round(distance)
-        let milesDistance = roundedDistance * 0.000621371
-        let roundedMiles = String(format: "%.1f", milesDistance)
-        
-        cell.restaurantNameLabel.text = restaurant.name
-        cell.restaurantDistanceLabel.text = "\(roundedMiles) mi"
-        //        cell.restaurantTypeLabel.text
-        cell.restaurantTypeLabel.text = "Distance:"
-        if restaurant.menuURL != nil {
-            cell.restaurantMenuLabel.text = "M E N U"
+        //up here it works, it displays all the cells and if they have menu's or not
+        if allCuisineSelected == true {
+            if restaurant.menuURL != nil {
+                cell.restaurantMenuLabel.text = "M E N U"
+            } else {
+                cell.restaurantMenuLabel?.text = ""
+            }
+            let distance = restaurantDistance(restaurant)
+            let roundedDistance = round(distance)
+            let milesDistance = roundedDistance * 0.000621371
+            let roundedMiles = String(format: "%.1f", milesDistance)
+            cell.restaurantNameLabel.text = restaurant.name
+            cell.restaurantDistanceLabel.text = "\(roundedMiles) mi"
+            cell.restaurantTypeLabel.text = "Distance:"
         } else {
-            cell.restaurantMenuLabel?.text = ""
+            if restaurant.menuURL != nil {
+                //so here, we are saying if the allCuisine button is not selected (meaning that the onlyMenus button is selected) that we should filter that...
+                //so  for some weird reason, right here it's not filtering correctly and I feel like i've just been staring at this too long hahaha
+                // OH NO! ^ Ok. Let me take a quick look and orient myself with this.
+                // if it's cool, they are showing all the projects right now upstairs. could we possibly resume this like later tonight or tomorrow or something? I can push this over to you and you can check it out while it's going on?  Yea. Push it. We can play it by ear tonight or tomorrow. 
+                //Rad, catch ya later! Peach brotha
+                cell.restaurantMenuLabel.text = "M E N U" //hahahabib
+                // i dont know how to tell it to not return
+                //cells that dont have a menuURL.
+                // I should probably do a SORT function or something
+                //but i'm stuck... IDK man...
+                let distance = restaurantDistance(restaurant)
+                let roundedDistance = round(distance)
+                let milesDistance = roundedDistance * 0.000621371
+                let roundedMiles = String(format: "%.1f", milesDistance)
+                cell.restaurantNameLabel.text = restaurant.name
+                cell.restaurantDistanceLabel.text = "\(roundedMiles) mi"
+                cell.restaurantTypeLabel.text = "Distance:"
+            }
+            
+            // if menuURL has something in it, let the restaurant cell be full of stuff.
+            
         }
+        
+        //-------------------------------------------------------------------//
+        
         
         print(restaurant.name)
         //        print("\(restaurant.address1) \(restaurant.locality), \(restaurant.region) \(restaurant.postalCode)")
@@ -673,8 +728,8 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
     
     func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.dequeueReusableCellWithIdentifier("restaurantCell", forIndexPath: indexPath) as! RestaurantTableViewCell
-//        let restaurant = restaurants[indexPath.row]
-
+        //        let restaurant = restaurants[indexPath.row]
+        
         if let cellTitle = cell.restaurantNameLabel.text {
             print("User tapped on annotation with title: \(cellTitle)")
         }
