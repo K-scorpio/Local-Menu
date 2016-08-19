@@ -33,6 +33,12 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var filterLabel: UIButton!
     @IBOutlet weak var distanceSlider: UISlider!
     @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var filterViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var allCuisineLabel: UILabel!
+    @IBOutlet weak var onlyMenusLabel: UILabel!
+    @IBOutlet weak var allCuisineButton: UIButton!
+    @IBOutlet weak var onlyMenusButton: UIButton!
+    
     
     @IBOutlet weak var swipeRightImageView: UIImageView!
     @IBOutlet weak var randomLabel: UIButton!
@@ -66,12 +72,14 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
         setupMyLocationManager()
         requestLocuData()
         setUpSliderValues()
+        filterView.hidden = false
         
         if isOpen == true {
             resignFirstResponder()
         }
         
-        let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+//        let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+//        appDelegate.centerContainer?.centerHiddenInteractionMode
         
 //        if appDelegate.centerContainer?.centerViewController
         
@@ -80,6 +88,11 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
                 print(restaurants.count)
             }
         }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.centerContainer?.openDrawerGestureModeMask = .All
     }
     
     var restaurants: [Restaurant] {
@@ -103,6 +116,15 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func setUpSliderValues() {
+        
+        filterView.alpha = 0
+        filterViewBottomConstraint.constant = -30
+        allCuisineLabel.layer.borderColor = UIColor(hue: 0.09, saturation: 0.44, brightness: 0.55, alpha: 1.0).CGColor
+        allCuisineLabel.layer.backgroundColor = UIColor(hue: 0.09, saturation: 0.44, brightness: 0.55, alpha: 1.0).CGColor
+        allCuisineLabel.textColor = UIColor.blackColor()
+        onlyMenusLabel.layer.borderColor = UIColor(hue: 0.09, saturation: 0.44, brightness: 0.55, alpha: 1.0).CGColor
+        onlyMenusLabel.layer.borderWidth = 3
+        
         distanceSlider.minimumValue = 160.934
         distanceSlider.maximumValue = 8046.72
         if isInitialView == true {
@@ -146,8 +168,9 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
     
     
     @IBAction func searchButtonPressed(sender: AnyObject) {
-        if filterView.hidden == false {
-            filterButtonTapped(filterView)
+        if filterViewHasDissapeared == false {
+            //IF THE FILTER IS SHOWING, THEN:
+            hideFilterView()
         }
         if isOpen == false {
             searchBarField.searchBarStyle = .Minimal
@@ -201,24 +224,99 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     
+    //-----------------------------------//
+    
+    // my initial view's alpha is 0
+    // if my view is hidden when button tapped: ---> unhide and animate to alpha of 1
+    // if my view is not hidden when button tapped: ---> first animate to alpha of 0 and then hide
+    
+    
+    
+    func hideFilterView() {
+        filterViewHasDissapeared = true
+        UIView.animateWithDuration(0.2, delay: 0.1, options: [], animations: {
+            self.filterView.alpha = 0.0
+            self.filterViewBottomConstraint.constant += 30
+            self.view.layoutIfNeeded()
+            }, completion: nil)
+        
+        filterLabel.setTitleColor(UIColor.init(hue: 0.0, saturation: 0.0, brightness: 0.62, alpha: 1.0), forState: .Normal)
+//        filterView.hidden = true
+//        filterLeftConstraint.constant += 600
+    }
+    
+    func unhideFilterView() {
+        
+            filterViewHasDissapeared = false
+            //        filterView.hidden = false
+            UIView.animateWithDuration(0.2, delay: 0.1, options: [], animations: {
+                self.filterView.alpha = 1.0
+                self.filterViewBottomConstraint.constant -= 30
+                self.view.layoutIfNeeded()
+                }, completion: nil)
+            
+            filterLabel.setTitleColor(UIColor.init(hue: 0.0, saturation: 0.0, brightness: 0.62, alpha: 1.0), forState: .Normal)
+    }
+    
+    //-----------------------------------//
+    
+    var filterViewHasDissapeared = true
     
     @IBAction func filterButtonTapped(sender: AnyObject) {
         if isInitialView == true {
             return
         } else {
-            if filterView.hidden == false {
-                filterView.hidden = true
-                filterLabel.setTitleColor(UIColor.init(hue: 0.0, saturation: 0.0, brightness: 0.62, alpha: 1.0), forState: .Normal)
-            } else if filterView.hidden == true {
-                filterView.hidden = false
-                filterLabel.setTitleColor(UIColor.init(hue: 0.09, saturation: 0.44, brightness: 0.55, alpha: 1.0), forState: .Normal)
+            if filterViewHasDissapeared == false {
+                //IF THE FILTER IS SHOWING, THEN:
+                hideFilterView()
+            } else if filterViewHasDissapeared == true {
+                //IF THE FILTER IS NOT SHOWING, THEN:
+                unhideFilterView()
             }
         }
     }
     
+    var allCuisineSelected = true
+    var onlyMenusSelected = false
+    
+    @IBAction func allCuisineButtonTapped(sender: AnyObject) {
+        allCuisineSelected = true
+        onlyMenusSelected = false
+        if allCuisineSelected == true {
+            UIView.animateWithDuration(0.5, animations: {
+                self.allCuisineLabel.layer.borderColor = UIColor(hue: 0.09, saturation: 0.44, brightness: 0.55, alpha: 1.0).CGColor
+                self.allCuisineLabel.layer.backgroundColor = UIColor(hue: 0.09, saturation: 0.44, brightness: 0.55, alpha: 1.0).CGColor
+                self.allCuisineLabel.textColor = UIColor.blackColor()
+                self.onlyMenusLabel.layer.borderColor = UIColor(hue: 0.09, saturation: 0.44, brightness: 0.55, alpha: 1.0).CGColor
+                self.onlyMenusLabel.layer.backgroundColor = UIColor.clearColor().CGColor
+                self.onlyMenusLabel.layer.borderWidth = 3
+                self.onlyMenusLabel.textColor = UIColor.grayColor()
+            })
+        } else {
+            return
+        }
+    }
+    
+    @IBAction func onlyMenusButtonTapped(sender: AnyObject) {
+        allCuisineSelected = false
+        onlyMenusSelected = true
+        if onlyMenusSelected == true {
+            UIView.animateWithDuration(0.5, animations: {
+                self.onlyMenusLabel.layer.borderColor = UIColor(hue: 0.09, saturation: 0.44, brightness: 0.55, alpha: 1.0).CGColor
+                self.onlyMenusLabel.layer.backgroundColor = UIColor(hue: 0.09, saturation: 0.44, brightness: 0.55, alpha: 1.0).CGColor
+                self.onlyMenusLabel.textColor = UIColor.blackColor()
+                self.allCuisineLabel.layer.borderColor = UIColor(hue: 0.09, saturation: 0.44, brightness: 0.55, alpha: 1.0).CGColor
+                self.allCuisineLabel.layer.backgroundColor = UIColor.clearColor().CGColor
+                self.allCuisineLabel.layer.borderWidth = 3
+                self.allCuisineLabel.textColor = UIColor.grayColor()
+            })
+        } else {
+            return
+        }    }
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        if filterView.hidden == false {
-            filterButtonTapped(filterView)
+        if filterViewHasDissapeared == false {
+            //IF THE FILTER IS SHOWING, THEN:
+            hideFilterView()
         }
         if isOpen == true {
             isOpen = false
@@ -573,6 +671,21 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
+    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        let cell = tableView.dequeueReusableCellWithIdentifier("restaurantCell", forIndexPath: indexPath) as! RestaurantTableViewCell
+//        let restaurant = restaurants[indexPath.row]
+
+        if let cellTitle = cell.restaurantNameLabel.text {
+            print("User tapped on annotation with title: \(cellTitle)")
+        }
+    }
+    
+    func mapView(mapView: MGLMapView, didSelectAnnotationView annotationView: MGLAnnotationView) {
+        if let annotationTitle = annotationView.annotation?.title {
+            print("User tapped on annotation with title: \(annotationTitle!)")
+        }
+    }
+    
     
     // MARK: - Navigation
     
@@ -581,8 +694,9 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
     //    }
     
     @IBAction func cuisineButtonTapped(sender: AnyObject) {
-        if filterView.hidden == false {
-            filterButtonTapped(filterView)
+        if filterViewHasDissapeared == false {
+            //IF THE FILTER IS SHOWING, THEN:
+            hideFilterView()
         }
         let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.centerContainer?.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)

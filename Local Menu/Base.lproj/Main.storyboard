@@ -18,6 +18,10 @@
             <string>PierSans</string>
             <string>PierSans</string>
             <string>PierSans</string>
+            <string>PierSans</string>
+            <string>PierSans</string>
+            <string>PierSans</string>
+            <string>PierSans</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -256,56 +260,71 @@
                                 </subviews>
                             </stackView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Gc-Ld-uo1" userLabel="filterView">
-                                <rect key="frame" x="32" y="524" width="350" height="152"/>
+                                <rect key="frame" x="32" y="544" width="350" height="132"/>
                                 <subviews>
                                     <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Gqa-AZ-AzL" userLabel="Distance Slider">
-                                        <rect key="frame" x="57" y="26" width="236" height="31"/>
-                                        <color key="tintColor" red="0.62733147909999998" green="0.49174305289999998" blue="0.18823796940000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <rect key="frame" x="57" y="25" width="236" height="31"/>
+                                        <color key="tintColor" red="0.52314173265460029" green="0.40785573204234482" blue="0.25713334263682519" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="distanceSliderChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="vNC-rk-8qC"/>
                                             <action selector="distanceSliderEndedChange:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7Kz-ry-KdO"/>
                                         </connections>
                                     </slider>
-                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="EWJ-5S-Dho">
-                                        <rect key="frame" x="57" y="64" width="236" height="31"/>
-                                        <color key="tintColor" red="0.62733147909999998" green="0.49174305289999998" blue="0.18823796940000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    </slider>
-                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="RUh-M2-T7B">
-                                        <rect key="frame" x="57" y="102" width="236" height="31"/>
-                                        <color key="tintColor" red="0.62733147909999998" green="0.49174305289999998" blue="0.18823796940000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zlR-vm-1XB">
-                                        <rect key="frame" x="8" y="30" width="43" height="21"/>
+                                        <rect key="frame" x="8" y="29" width="43" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" red="0.73945321333185288" green="0.74924983334107575" blue="0.75452724358974366" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Max" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6gF-Nh-Sa5">
-                                        <rect key="frame" x="8" y="68" width="32" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.73945321333185288" green="0.74924983334107575" blue="0.75452724358974366" alpha="1" colorSpace="calibratedRGB"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ALL CUISINE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uMF-OH-4c5">
+                                        <rect key="frame" x="15" y="75" width="152" height="43"/>
+                                        <fontDescription key="fontDescription" name="PierSans" family="Pier Sans" pointSize="18"/>
+                                        <color key="textColor" red="0.56790511880000005" green="0.56790511880000005" blue="0.56790511880000005" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yqb-rB-xGh">
-                                        <rect key="frame" x="8" y="106" width="28" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.73945321333185288" green="0.74924983334107575" blue="0.75452724358974366" alpha="1" colorSpace="calibratedRGB"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ONLY MENUS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tg2-Kr-jkx">
+                                        <rect key="frame" x="182" y="76" width="154" height="42"/>
+                                        <fontDescription key="fontDescription" name="PierSans" family="Pier Sans" pointSize="18"/>
+                                        <color key="textColor" red="0.56790511880000005" green="0.56790511880000005" blue="0.56790511880000005" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ua7-3s-cDI">
+                                        <rect key="frame" x="15" y="75" width="152" height="43"/>
+                                        <fontDescription key="fontDescription" name="PierSans" family="Pier Sans" pointSize="17"/>
+                                        <size key="titleShadowOffset" width="2.2250738585072014e-308" height="0.0"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="allCuisineButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kro-He-7Pe"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vc8-bO-5y4">
+                                        <rect key="frame" x="182" y="76" width="154" height="42"/>
+                                        <fontDescription key="fontDescription" name="PierSans" family="Pier Sans" pointSize="17"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="onlyMenusButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oAs-UL-zIN"/>
+                                        </connections>
+                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mi" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6M1-cv-Hwe">
-                                        <rect key="frame" x="293" y="30" width="49" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.73945321333185288" green="0.74924983334107575" blue="0.75452724358974366" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$Max" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yZe-rC-00d">
-                                        <rect key="frame" x="293" y="68" width="49" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.73945321333185288" green="0.74924983334107575" blue="0.75452724358974366" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$Min" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ROa-jn-pJg">
-                                        <rect key="frame" x="293" y="106" width="49" height="21"/>
+                                        <rect key="frame" x="293" y="29" width="49" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.73945321333185288" green="0.74924983334107575" blue="0.75452724358974366" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -314,11 +333,11 @@
                                 <color key="backgroundColor" red="0.086274509803921567" green="0.086274509803921567" blue="0.086274509803921567" alpha="0.95956357758620692" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="350" id="Dmw-YU-AkB"/>
-                                    <constraint firstAttribute="height" constant="152" id="kgY-kD-F5p"/>
+                                    <constraint firstAttribute="height" constant="132" id="kgY-kD-F5p"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="12"/>
+                                        <integer key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -367,7 +386,7 @@
                                     <action selector="cuisineButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5vA-Mc-D4P"/>
                                 </connections>
                             </button>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Swipe Right" translatesAutoresizingMaskIntoConstraints="NO" id="2hI-H7-763">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Swipe Right" translatesAutoresizingMaskIntoConstraints="NO" id="2hI-H7-763">
                                 <rect key="frame" x="0.0" y="355" width="414" height="335"/>
                             </imageView>
                         </subviews>
@@ -402,7 +421,6 @@
                             <constraint firstItem="sgC-Wo-OzN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="sgJ-Ed-DII"/>
                             <constraint firstItem="VjW-vx-Bkk" firstAttribute="trailing" secondItem="yK1-v2-Hih" secondAttribute="trailing" id="uJ0-si-njF"/>
                             <constraint firstItem="2hI-H7-763" firstAttribute="centerX" secondItem="3xH-gl-tdl" secondAttribute="centerX" id="uTe-IU-1eB"/>
-                            <constraint firstItem="6Gc-Ld-uo1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vDf-3N-hYX"/>
                             <constraint firstItem="sgC-Wo-OzN" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="28" id="vsV-En-Rby"/>
                             <constraint firstItem="VjW-vx-Bkk" firstAttribute="leading" secondItem="yK1-v2-Hih" secondAttribute="leading" id="w0Y-QM-ELD"/>
                             <constraint firstItem="b9z-l3-x9Q" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xH7-hZ-iZB"/>
@@ -411,12 +429,17 @@
                     <navigationItem key="navigationItem" id="YbO-Qj-05m"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
+                        <outlet property="allCuisineButton" destination="Ua7-3s-cDI" id="2J3-GU-yIr"/>
+                        <outlet property="allCuisineLabel" destination="uMF-OH-4c5" id="AcO-18-FgH"/>
                         <outlet property="distanceLabel" destination="6M1-cv-Hwe" id="k3m-U1-bVm"/>
                         <outlet property="distanceSlider" destination="Gqa-AZ-AzL" id="mUF-1A-qF5"/>
                         <outlet property="filterLabel" destination="gFm-fb-aPb" id="FhL-DL-Y98"/>
                         <outlet property="filterView" destination="6Gc-Ld-uo1" id="013-dj-u1u"/>
+                        <outlet property="filterViewBottomConstraint" destination="8ko-co-Fv8" id="qOa-5O-eH4"/>
                         <outlet property="mapAndTableTopConstraint" destination="9qA-fz-mlo" id="6Uy-8e-KcW"/>
                         <outlet property="mapView" destination="lCk-md-35V" id="hKZ-Uh-rlk"/>
+                        <outlet property="onlyMenusButton" destination="vc8-bO-5y4" id="hlf-oe-TKj"/>
+                        <outlet property="onlyMenusLabel" destination="Tg2-Kr-jkx" id="s3l-Cf-bGR"/>
                         <outlet property="randomLabel" destination="vbp-76-opr" id="mwz-Lw-AW9"/>
                         <outlet property="restaurantTableView" destination="3xH-gl-tdl" id="pI7-n7-rb9"/>
                         <outlet property="searchBarField" destination="c7g-Sp-L84" id="nxZ-VZ-PVU"/>
@@ -666,10 +689,10 @@
                             <constraint firstAttribute="trailing" secondItem="pxI-pz-ehh" secondAttribute="trailing" id="fJL-79-12M"/>
                             <constraint firstItem="n5T-zz-hd0" firstAttribute="top" secondItem="AXk-YD-A5v" secondAttribute="bottom" id="gap-Rd-iV0"/>
                             <constraint firstAttribute="trailing" secondItem="fWm-SM-2rC" secondAttribute="trailing" constant="5" id="het-lP-ive"/>
+                            <constraint firstItem="X3U-gB-Sff" firstAttribute="top" secondItem="PvL-cb-VOe" secondAttribute="topMargin" constant="75" id="jzN-pv-8C2"/>
                             <constraint firstAttribute="trailing" secondItem="X3U-gB-Sff" secondAttribute="trailing" id="lNf-ir-Y3B"/>
                             <constraint firstItem="hoA-9A-TYc" firstAttribute="leading" secondItem="PvL-cb-VOe" secondAttribute="leadingMargin" constant="-25" id="o4g-Od-TI1"/>
                             <constraint firstItem="qab-yP-Obw" firstAttribute="top" secondItem="X3U-gB-Sff" secondAttribute="bottom" constant="-311" id="oB2-Ka-oYm"/>
-                            <constraint firstItem="X3U-gB-Sff" firstAttribute="top" secondItem="8qq-EW-cyA" secondAttribute="bottom" constant="12" id="oze-9K-zoC"/>
                             <constraint firstItem="Dxm-cJ-vjy" firstAttribute="leading" secondItem="PvL-cb-VOe" secondAttribute="leading" id="pdc-PQ-qrv"/>
                             <constraint firstAttribute="top" secondItem="PvL-cb-VOe" secondAttribute="topMargin" constant="71" id="peU-xU-2MN"/>
                             <constraint firstItem="7GB-oC-3hv" firstAttribute="top" secondItem="PvL-cb-VOe" secondAttribute="top" id="ppz-Id-6xR"/>

@@ -26,6 +26,9 @@ class RestaurantDetailViewController: UIViewController, UIScrollViewDelegate {
         kidFriendlyIconDisplay()
         liveMusicIconDisplay()
         
+        let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.centerContainer?.openDrawerGestureModeMask = .None
+        
         guard let locuID = restaurant?.locuID else {
             return
         }
