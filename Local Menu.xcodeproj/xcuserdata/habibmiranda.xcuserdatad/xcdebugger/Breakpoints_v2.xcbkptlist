@@ -17,6 +17,38 @@
             endingLineNumber = "343"
             landmarkName = "searchForRestaurantsByItem(_:city:completion:)"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Local_Menu.RestaurantController.latinAmericanFetchRestaurantsForAll (Swift.String, location : __C.CLLocationCoordinate2D, completion : (restaurants : Swift.Array&lt;Local_Menu.Restaurant&gt;, success : Swift.Bool) -&gt; ()) -&gt; ()"
+                  moduleName = "Local Menu"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/habibmiranda/Local-Menu/Local%20Menu/RestaurantController.swift"
+                  timestampString = "493686423.533892"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "345"
+                  endingLineNumber = "345"
+                  offsetFromSymbolStart = "2432">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Local_Menu.RestaurantController.(latinAmericanFetchRestaurantsForAll (Swift.String, location : __C.CLLocationCoordinate2D, completion : (restaurants : Swift.Array&lt;Local_Menu.Restaurant&gt;, success : Swift.Bool) -&gt; ()) -&gt; ()).(closure #1)"
+                  moduleName = "Local Menu"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/habibmiranda/Local-Menu/Local%20Menu/RestaurantController.swift"
+                  timestampString = "493686423.534163"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "346"
+                  endingLineNumber = "346"
+                  offsetFromSymbolStart = "48">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

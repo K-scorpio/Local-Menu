@@ -279,7 +279,7 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
     var allCuisineSelected = true
     
     @IBAction func allCuisineButtonTapped(sender: AnyObject) {
-        if allCuisineSelected == false {
+        allCuisineSelected = true
             UIView.animateWithDuration(0.5, animations: {
                 self.allCuisineLabel.layer.borderColor = UIColor(hue: 0.09, saturation: 0.44, brightness: 0.55, alpha: 1.0).CGColor
                 self.allCuisineLabel.layer.backgroundColor = UIColor(hue: 0.09, saturation: 0.44, brightness: 0.55, alpha: 1.0).CGColor
@@ -289,15 +289,10 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
                 self.onlyMenusLabel.layer.borderWidth = 3
                 self.onlyMenusLabel.textColor = UIColor.grayColor()
             })
-            allCuisineSelected = true
-            requestLocuData()
-        } else {
-            return
-        }
     }
     
     @IBAction func onlyMenusButtonTapped(sender: AnyObject) {
-        if allCuisineSelected == true {
+        allCuisineSelected = false
             UIView.animateWithDuration(0.5, animations: {
                 self.onlyMenusLabel.layer.borderColor = UIColor(hue: 0.09, saturation: 0.44, brightness: 0.55, alpha: 1.0).CGColor
                 self.onlyMenusLabel.layer.backgroundColor = UIColor(hue: 0.09, saturation: 0.44, brightness: 0.55, alpha: 1.0).CGColor
@@ -307,12 +302,8 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
                 self.allCuisineLabel.layer.borderWidth = 3
                 self.allCuisineLabel.textColor = UIColor.grayColor()
             })
-            allCuisineSelected = false
-            requestLocuData()
-        } else {
-            return
-        }
     }
+    
     func scrollViewDidScroll(scrollView: UIScrollView) {
         if filterViewHasDissapeared == false {
             //IF THE FILTER IS SHOWING, THEN:
@@ -666,6 +657,15 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
         let cell = tableView.dequeueReusableCellWithIdentifier("restaurantCell", forIndexPath: indexPath) as! RestaurantTableViewCell
         let restaurant = restaurants[indexPath.row]
         
+        var menuContainingRestaurants = [Restaurant]()
+        for menuRestaurant in restaurants {
+            if menuRestaurant.menuURL != nil {
+                menuContainingRestaurants.append(menuRestaurant)
+            }
+        }
+        
+        let menuOnlyRestaurant = menuContainingRestaurants[indexPath.row]
+        
         //-------------------------------------------------------------------//
         
         //up here it works, it displays all the cells and if they have menu's or not
@@ -682,28 +682,20 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
             cell.restaurantNameLabel.text = restaurant.name
             cell.restaurantDistanceLabel.text = "\(roundedMiles) mi"
             cell.restaurantTypeLabel.text = "Distance:"
-        } else {
+        } else if allCuisineSelected == false {
             if restaurant.menuURL != nil {
-                //so here, we are saying if the allCuisine button is not selected (meaning that the onlyMenus button is selected) that we should filter that...
-                //so  for some weird reason, right here it's not filtering correctly and I feel like i've just been staring at this too long hahaha
-                // OH NO! ^ Ok. Let me take a quick look and orient myself with this.
-                // if it's cool, they are showing all the projects right now upstairs. could we possibly resume this like later tonight or tomorrow or something? I can push this over to you and you can check it out while it's going on?  Yea. Push it. We can play it by ear tonight or tomorrow. 
-                //Rad, catch ya later! Peach brotha
-                cell.restaurantMenuLabel.text = "M E N U" //hahahabib
-                // i dont know how to tell it to not return
-                //cells that dont have a menuURL.
-                // I should probably do a SORT function or something
-                //but i'm stuck... IDK man...
+                cell.restaurantMenuLabel.text = "M E N U"
                 let distance = restaurantDistance(restaurant)
                 let roundedDistance = round(distance)
                 let milesDistance = roundedDistance * 0.000621371
                 let roundedMiles = String(format: "%.1f", milesDistance)
-                cell.restaurantNameLabel.text = restaurant.name
+                cell.restaurantNameLabel.text = menuOnlyRestaurant.name
                 cell.restaurantDistanceLabel.text = "\(roundedMiles) mi"
                 cell.restaurantTypeLabel.text = "Distance:"
+//            }  else if restaurant.menuURL == nil {
+            
             }
             
-            // if menuURL has something in it, let the restaurant cell be full of stuff.
             
         }
         
@@ -711,14 +703,7 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
         
         
         print(restaurant.name)
-        //        print("\(restaurant.address1) \(restaurant.locality), \(restaurant.region) \(restaurant.postalCode)")
-        //        print("wifi: \(restaurant.wifi) \n alcohol \(restaurant.alcohol) \n kid Friendly \(restaurant.goodForKids) \n noise level \(restaurant.noiseLevel) \n takeout \(restaurant.takeout) \n reservations \(restaurant.reservations) \n music \(restaurant.music) \n high range \(restaurant.highRange) \n low range \(restaurant.lowRange)")
-        //        print("price \(restaurant.prices)")
-        print(restaurant.takeout)
-        print("Reservation \(restaurant.reservations)")
-        print("Music \(restaurant.music)")
-        print("Wifi \(restaurant.wifi)")
-        print("Category: \(restaurant.categoryName)")
+        print(restaurant.menuURL)
         return cell
     }
     
@@ -728,7 +713,7 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
     
     func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.dequeueReusableCellWithIdentifier("restaurantCell", forIndexPath: indexPath) as! RestaurantTableViewCell
-        //        let restaurant = restaurants[indexPath.row]
+//        let restaurant = restaurants[indexPath.row]
         
         if let cellTitle = cell.restaurantNameLabel.text {
             print("User tapped on annotation with title: \(cellTitle)")
