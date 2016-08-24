@@ -649,28 +649,34 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //                return RestaurantController.sharedInstance.myRestaurants.count
-        return restaurants.count
+        
+        var menuOnlyArray = [Restaurant]()
+        for restaurant in restaurants {
+            if restaurant.menuURL != nil {
+                menuOnlyArray.append(restaurant)
+                print (menuOnlyArray.count)
+            }
+        }
+        
+        if allCuisineSelected == true {
+            return restaurants.count
+        } else if allCuisineSelected == false {
+            return menuOnlyArray.count
+        } else {
+            return 0
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("restaurantCell", forIndexPath: indexPath) as! RestaurantTableViewCell
         let restaurant = restaurants[indexPath.row]
-        
-        var menuContainingRestaurants = [Restaurant]()
-        for menuRestaurant in restaurants {
-            if menuRestaurant.menuURL != nil {
-                menuContainingRestaurants.append(menuRestaurant)
-            }
-        }
-        
-        let menuOnlyRestaurant = menuContainingRestaurants[indexPath.row]
+
         
         //-------------------------------------------------------------------//
         
-        //up here it works, it displays all the cells and if they have menu's or not
         if allCuisineSelected == true {
             if restaurant.menuURL != nil {
+                cell.hidden = false
                 cell.restaurantMenuLabel.text = "M E N U"
             } else {
                 cell.restaurantMenuLabel?.text = ""
@@ -684,16 +690,17 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
             cell.restaurantTypeLabel.text = "Distance:"
         } else if allCuisineSelected == false {
             if restaurant.menuURL != nil {
+                if restaurant.menuURL == nil {
+                    cell.hidden = true
+                }
                 cell.restaurantMenuLabel.text = "M E N U"
                 let distance = restaurantDistance(restaurant)
                 let roundedDistance = round(distance)
                 let milesDistance = roundedDistance * 0.000621371
                 let roundedMiles = String(format: "%.1f", milesDistance)
-                cell.restaurantNameLabel.text = menuOnlyRestaurant.name
+                cell.restaurantNameLabel.text = restaurant.name
                 cell.restaurantDistanceLabel.text = "\(roundedMiles) mi"
                 cell.restaurantTypeLabel.text = "Distance:"
-//            }  else if restaurant.menuURL == nil {
-            
             }
             
             
