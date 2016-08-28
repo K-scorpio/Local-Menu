@@ -505,12 +505,20 @@
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pxI-pz-ehh">
                                 <rect key="frame" x="0.0" y="419" width="414" height="317"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="317" id="GMZ-nJ-XJT"/>
+                                </constraints>
                             </webView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icons icon background" translatesAutoresizingMaskIntoConstraints="NO" id="hoA-9A-TYc">
                                 <rect key="frame" x="-5" y="311" width="424" height="108"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="108" id="6jS-2o-U5w"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="6jS-2o-U5w"/>
+                                    </mask>
+                                </variation>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="In1-AJ-DG0">
                                 <rect key="frame" x="0.0" y="311" width="414" height="6"/>
@@ -522,21 +530,21 @@
                                 <rect key="frame" x="5" y="317" width="404" height="48"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xoj-rw-DZE">
-                                        <rect key="frame" x="0.0" y="0.0" width="88.5" height="48"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="89" height="48"/>
                                         <state key="normal" image="Call Icon"/>
                                         <connections>
                                             <action selector="callButtonTapped:" destination="ljc-3t-qnE" eventType="touchUpInside" id="wmr-Mv-SYf"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ewz-Jb-QMQ">
-                                        <rect key="frame" x="105.5" y="0.0" width="88" height="48"/>
+                                        <rect key="frame" x="106" y="0.0" width="88" height="48"/>
                                         <state key="normal" image="Walk Icon"/>
                                         <connections>
                                             <action selector="walkButtonTapped:" destination="ljc-3t-qnE" eventType="touchUpInside" id="N7F-qi-bI1"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tw8-if-Hav">
-                                        <rect key="frame" x="210.5" y="0.0" width="88.5" height="48"/>
+                                        <rect key="frame" x="211" y="0.0" width="89" height="48"/>
                                         <state key="normal" image="Drive Icon"/>
                                         <connections>
                                             <action selector="driveButtonTapped:" destination="ljc-3t-qnE" eventType="touchUpInside" id="QHP-Pk-6YK"/>
@@ -561,19 +569,19 @@
                                         <rect key="frame" x="0.0" y="0.0" width="9" height="13"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Unknown Icon" translatesAutoresizingMaskIntoConstraints="NO" id="EMu-Xb-eDo">
-                                        <rect key="frame" x="58" y="0.0" width="8.5" height="13"/>
+                                        <rect key="frame" x="58" y="0.0" width="9" height="13"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Unknown Icon" translatesAutoresizingMaskIntoConstraints="NO" id="OO6-Hs-7lm">
-                                        <rect key="frame" x="115.5" y="0.0" width="9" height="13"/>
+                                        <rect key="frame" x="116" y="0.0" width="9" height="13"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Unknown Icon" translatesAutoresizingMaskIntoConstraints="NO" id="Qzm-Mq-UTj">
-                                        <rect key="frame" x="173.5" y="0.0" width="9" height="13"/>
+                                        <rect key="frame" x="174" y="0.0" width="9" height="13"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Unknown Icon" translatesAutoresizingMaskIntoConstraints="NO" id="gYp-jo-P2X">
-                                        <rect key="frame" x="231.5" y="0.0" width="9" height="13"/>
+                                        <rect key="frame" x="232" y="0.0" width="9" height="13"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Unknown Icon" translatesAutoresizingMaskIntoConstraints="NO" id="hSO-16-jaz">
-                                        <rect key="frame" x="289.5" y="0.0" width="8.5" height="13"/>
+                                        <rect key="frame" x="290" y="0.0" width="9" height="13"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Unknown Icon" translatesAutoresizingMaskIntoConstraints="NO" id="7Ub-rT-rcD">
                                         <rect key="frame" x="347" y="0.0" width="9" height="13"/>
@@ -582,6 +590,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="13" id="NKg-dN-kcb"/>
                                     <constraint firstAttribute="width" secondItem="aQz-tg-qtC" secondAttribute="height" multiplier="356:13" id="OhH-Ai-wkY"/>
+                                    <constraint firstAttribute="height" constant="13" id="dd8-Ug-yDm"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -593,25 +602,25 @@
                                 <rect key="frame" x="20" y="371" width="374" height="28"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Wifi Icon False" translatesAutoresizingMaskIntoConstraints="NO" id="Ft4-in-9Lz">
-                                        <rect key="frame" x="0.0" y="0.0" width="28.5" height="28"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="29" height="28"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Alcohol Icon False" translatesAutoresizingMaskIntoConstraints="NO" id="viB-rp-efG">
-                                        <rect key="frame" x="57.5" y="0.0" width="28.5" height="28"/>
+                                        <rect key="frame" x="58" y="0.0" width="29" height="28"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Kid Friendly Icon False" translatesAutoresizingMaskIntoConstraints="NO" id="7uI-BG-FG0">
-                                        <rect key="frame" x="115" y="0.0" width="28.5" height="28"/>
+                                        <rect key="frame" x="115" y="0.0" width="29" height="28"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Noise Icon NA" translatesAutoresizingMaskIntoConstraints="NO" id="RTN-fT-xvh">
-                                        <rect key="frame" x="172.5" y="0.0" width="29" height="28"/>
+                                        <rect key="frame" x="173" y="0.0" width="29" height="28"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Take Out Icon False" translatesAutoresizingMaskIntoConstraints="NO" id="hbQ-BA-0Al">
-                                        <rect key="frame" x="230.5" y="0.0" width="28.5" height="28"/>
+                                        <rect key="frame" x="231" y="0.0" width="29" height="28"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Reservation Icon False" translatesAutoresizingMaskIntoConstraints="NO" id="2sr-F8-oAD">
-                                        <rect key="frame" x="288" y="0.0" width="28.5" height="28"/>
+                                        <rect key="frame" x="288" y="0.0" width="29" height="28"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Live Music Icon False" translatesAutoresizingMaskIntoConstraints="NO" id="VsY-xW-lqn">
-                                        <rect key="frame" x="345.5" y="0.0" width="28.5" height="28"/>
+                                        <rect key="frame" x="346" y="0.0" width="29" height="28"/>
                                     </imageView>
                                 </subviews>
                                 <constraints>
@@ -688,6 +697,7 @@
                             <constraint firstItem="hoA-9A-TYc" firstAttribute="centerX" secondItem="PvL-cb-VOe" secondAttribute="centerX" id="eUR-WX-b3K"/>
                             <constraint firstAttribute="trailing" secondItem="pxI-pz-ehh" secondAttribute="trailing" id="fJL-79-12M"/>
                             <constraint firstItem="n5T-zz-hd0" firstAttribute="top" secondItem="AXk-YD-A5v" secondAttribute="bottom" id="gap-Rd-iV0"/>
+                            <constraint firstItem="Dxm-cJ-vjy" firstAttribute="top" secondItem="n5T-zz-hd0" secondAttribute="bottom" constant="12" id="h9f-0y-mPy"/>
                             <constraint firstAttribute="trailing" secondItem="fWm-SM-2rC" secondAttribute="trailing" constant="5" id="het-lP-ive"/>
                             <constraint firstItem="X3U-gB-Sff" firstAttribute="top" secondItem="PvL-cb-VOe" secondAttribute="topMargin" constant="73" id="kWn-Lh-BnL"/>
                             <constraint firstAttribute="trailing" secondItem="X3U-gB-Sff" secondAttribute="trailing" id="lNf-ir-Y3B"/>
@@ -717,6 +727,7 @@
                                 <exclude reference="Nxu-gt-JcE"/>
                                 <exclude reference="qee-1e-1b9"/>
                                 <exclude reference="LfR-nb-PEN"/>
+                                <exclude reference="dz3-gU-2xS"/>
                                 <exclude reference="UNe-S1-4Dk"/>
                             </mask>
                         </variation>
