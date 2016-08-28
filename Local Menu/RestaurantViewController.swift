@@ -794,9 +794,14 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let detailViewController = segue.destinationViewController as? RestaurantDetailViewController
         if segue.identifier == "toRestaurantDetail" {
-            guard let indexPath = restaurantTableView.indexPathForSelectedRow,
-                let restaurant = RestaurantController.sharedInstance.myRestaurants[indexPath.row] as? Restaurant else {return}
-            detailViewController?.restaurant = restaurant
+            guard let indexPath = restaurantTableView.indexPathForSelectedRow else { return }
+            if allCuisineSelected == true {
+               guard let restaurant = restaurants[indexPath.row] as? Restaurant else {return}
+                detailViewController?.restaurant = restaurant
+            } else if allCuisineSelected == false {
+                guard let restaurant = filteredRestaurants[indexPath.row] as? Restaurant else {return}
+                detailViewController?.restaurant = restaurant
+            }
         }
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
