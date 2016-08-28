@@ -63,7 +63,7 @@ class RestaurantController {
         }
     }
     
-    func fetchRestaurantsForMenus(category: CuisineType, distance: Float, location: CLLocationCoordinate2D, completion: (restaurants: [Restaurant], success: Bool) -> Void) {
+    func fetchRestaurantsForMenus(category: CuisineType, distance: Float, menuURL: String, location: CLLocationCoordinate2D, completion: (restaurants: [Restaurant], success: Bool) -> Void) {
         
         guard let baseURL = NSURL(string: "https://api.locu.com/v2/venue/search/") else {
             completion(restaurants: [], success: false)
@@ -82,14 +82,9 @@ class RestaurantController {
         locationRequest["$in_lat_lng_radius"] = [location.latitude,location.longitude, distance]
         
         let name = category.rawValue
-        //        if category == .All {
-        //            name = ""
-        //        } else {
-        //            name = category.rawValue
-        //        }
         
         let bodyDict = ["fields": ["name", "locu_id", "menu_url", "contact", "website_url", "extended", "open_hours", "location", "categories"],
-                        "venue_queries": [["location": ["geo": locationRequest], "categories" : ["name":name]]],
+                        "venue_queries": [["location": ["geo": locationRequest],"menu_url": menuURL, "categories" : ["name":name]]],
                         "api_key": "08f3f647d0de281100b36fa8f91f71bb821203e1"]
         
         guard let data = try? NSJSONSerialization.dataWithJSONObject(bodyDict, options: .PrettyPrinted) else {
