@@ -62,6 +62,7 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
                 self.view.layoutIfNeeded()
                 }, completion: nil)
             isInitialView = false
+            randomLabel.enabled = true
             navigationController?.popToRootViewControllerAnimated(true)
         }
     }
@@ -73,6 +74,10 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
         requestLocuData()
         setUpSliderValues()
         filterView.hidden = false
+        
+        if isInitialView == true {
+            randomLabel.enabled = false
+        }
         
         if isOpen == true {
             resignFirstResponder()
@@ -275,19 +280,18 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
             self.filterView.alpha = 0.0
             self.filterViewBottomConstraint.constant += 30
             self.view.layoutIfNeeded()
+            self.filterLabel.setTitleColor(UIColor.init(hue: 0.0, saturation: 0.0, brightness: 0.62, alpha: 1.0), forState: .Normal)
             }, completion: nil)
-        
-        filterLabel.setTitleColor(UIColor.init(hue: 0.0, saturation: 0.0, brightness: 0.62, alpha: 1.0), forState: .Normal)
     }
     
     func unhideFilterView() {
         filterViewHasDissapeared = false
         UIView.animateWithDuration(0.2, delay: 0.1, options: [], animations: {
             self.filterView.alpha = 1.0
-            self.filterViewBottomConstraint.constant -= 30
+            self.filterViewBottomConstraint .constant -= 30
             self.view.layoutIfNeeded()
+            self.filterLabel.setTitleColor(UIColor.init(hue: 0.09, saturation: 0.44, brightness: 0.55, alpha: 1.0), forState: .Normal)
             }, completion: nil)
-        filterLabel.setTitleColor(UIColor.init(hue: 0.0, saturation: 0.0, brightness: 0.62, alpha: 1.0), forState: .Normal)
     }
     
     var filterViewHasDissapeared = true
@@ -567,9 +571,10 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
                 detailViewController?.restaurant = restaurant
             }
         }
-        if isInitialView == true {
-            return
-        } else if segue.identifier == "toDetailFromRandom" {
+//        if isInitialView == true {
+//            return
+//        } else {
+            if segue.identifier == "toDetailFromRandom" {
             if allCuisineSelected == true {
                 let randomIndex = Int(arc4random_uniform(UInt32(restaurants.count)))
                 let indexPath = randomIndex
