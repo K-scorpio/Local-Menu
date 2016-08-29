@@ -366,6 +366,10 @@
                                         <state key="normal" title="R A N D O M">
                                             <color key="titleColor" red="0.65362580128205128" green="0.65362580128205128" blue="0.65362580128205128" alpha="0.87144396551724135" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="randomButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J2c-oS-AEO"/>
+                                            <segue destination="ljc-3t-qnE" kind="show" identifier="toDetailFromRandom" id="AMV-C8-aYu"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -883,6 +887,6 @@
         <image name="Wifi Icon True" width="29" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Yax-7S-t4l"/>
+        <segue reference="AMV-C8-aYu"/>
     </inferredMetricsTieBreakers>
 </document>
