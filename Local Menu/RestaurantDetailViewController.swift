@@ -25,6 +25,7 @@ class RestaurantDetailViewController: UIViewController, UIScrollViewDelegate {
         alcoholIconDisplay()
         kidFriendlyIconDisplay()
         liveMusicIconDisplay()
+        backgroundImage()
         
         let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.centerContainer?.openDrawerGestureModeMask = .None
@@ -286,23 +287,20 @@ class RestaurantDetailViewController: UIViewController, UIScrollViewDelegate {
     
     var typeOfFood: MyDrawerController.Type?
     
-    var restaurantVC: RestaurantViewController?
+    var restaurantVC = RestaurantViewController()
+    
+    var cuisineVC: CuisineViewController?
     
     
     func backgroundImage() {
-        
-//        if restaurantVC?.cuisineType?.rawValue == "Burgers" {
-//            
-//        }
-//        
-        
-        if restaurantVC?.cuisineType?.rawValue == "Burgers"{
+
+        if restaurant?.categoryName == "Burgers"{
             cuisineBackgroundImage.image = UIImage(named: "Burgers Item")
-        } else if restaurantVC?.cuisineType?.rawValue == "Pizza" {
+        } else if restaurant?.categoryName == "Pizza" {
             cuisineBackgroundImage.image = UIImage(named: "Pizza Item")
-        } else if cuisineType?.rawValue == "Coffee & Tea" {
+        } else if restaurant?.categoryName == "Coffee & Tea" {
             cuisineBackgroundImage.image = UIImage(named: "Coffee Item")
-        } else if  cuisineType?.rawValue == "Bakery" {
+        } else if  restaurant?.categoryName == "Bakery" {
             cuisineBackgroundImage.image = UIImage(named: "Bakeries Item")
         } else if restaurant?.categoryName == "Mexican" {
             cuisineBackgroundImage.image = UIImage(named: "Mexican Item")
@@ -335,6 +333,7 @@ class RestaurantDetailViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
+    @IBOutlet weak var emptyView: UIView!
     
     // MARK: Menu widget outlet and scroll actions:
     
@@ -352,10 +351,11 @@ class RestaurantDetailViewController: UIViewController, UIScrollViewDelegate {
         let offset: CGFloat = scrollView.contentOffset.y * 1.5
         guard offset > 0 else { return }
             // if scroll height is reached { do max val + height difference } else {
-        web.constant = max(20, maxConstraintValue - offset + iconView.frame.height)
+//        web.constant = max(20, maxConstraintValue - offset + iconView.frame.height)
         
-        iconsTopConstraint.constant = max(-98, maxConstraintValue - offset)
+        iconsTopConstraint.constant = max(-(cuisineBackgroundImage.bounds.height + emptyView.bounds.height + iconView.bounds.height), maxConstraintValue - offset)
         }
+        //-520
     }
     
     // MARK: - Top Navigation Item:
