@@ -33,7 +33,7 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var filterLabel: UIButton!
     @IBOutlet weak var distanceSlider: UISlider!
     @IBOutlet weak var distanceLabel: UILabel!
-//    @IBOutlet weak var filterViewBottomConstraint: NSLayoutConstraint!
+    //    @IBOutlet weak var filterViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var allCuisineLabel: UILabel!
     @IBOutlet weak var onlyMenusLabel: UILabel!
     @IBOutlet weak var allCuisineButton: UIButton!
@@ -140,7 +140,7 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
     func setUpSliderValues() {
         
         filterView.alpha = 0
-//        filterViewBottomConstraint.constant = -30
+        //        filterViewBottomConstraint.constant = -30
         allCuisineLabel.layer.borderColor = UIColor(hue: 0.09, saturation: 0.44, brightness: 0.55, alpha: 1.0).CGColor
         allCuisineLabel.layer.backgroundColor = UIColor(hue: 0.09, saturation: 0.44, brightness: 0.55, alpha: 1.0).CGColor
         allCuisineLabel.textColor = UIColor.blackColor()
@@ -278,7 +278,7 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
         filterViewHasDissapeared = true
         UIView.animateWithDuration(0.2, delay: 0.1, options: [], animations: {
             self.filterView.alpha = 0.0
-//            self.filterViewBottomConstraint.constant += 30
+            //            self.filterViewBottomConstraint.constant += 30
             self.view.layoutIfNeeded()
             self.filterLabel.setTitleColor(UIColor.init(hue: 0.0, saturation: 0.0, brightness: 0.62, alpha: 1.0), forState: .Normal)
             }, completion: nil)
@@ -288,7 +288,7 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
         filterViewHasDissapeared = false
         UIView.animateWithDuration(0.2, delay: 0.1, options: [], animations: {
             self.filterView.alpha = 1.0
-//            self.filterViewBottomConstraint .constant -= 30
+            //            self.filterViewBottomConstraint .constant -= 30
             self.view.layoutIfNeeded()
             self.filterLabel.setTitleColor(UIColor.init(hue: 0.09, saturation: 0.44, brightness: 0.55, alpha: 1.0), forState: .Normal)
             }, completion: nil)
@@ -571,10 +571,10 @@ class RestaurantViewController: UIViewController, UITableViewDataSource, UITable
                 detailViewController?.restaurant = restaurant
             }
         }
-//        if isInitialView == true {
-//            return
-//        } else {
-            if segue.identifier == "toDetailFromRandom" {
+        //        if isInitialView == true {
+        //            return
+        //        } else {
+        if segue.identifier == "toDetailFromRandom" {
             if allCuisineSelected == true {
                 let randomIndex = Int(arc4random_uniform(UInt32(restaurants.count)))
                 let indexPath = randomIndex
