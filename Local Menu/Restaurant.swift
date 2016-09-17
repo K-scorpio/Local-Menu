@@ -70,6 +70,8 @@ struct Restaurant {
     let phoneNumber: String?
     let categoryName: String?
     
+    // these ^ are my objects in a restaurant finder app
+    
     //andrew@devmountain.com
     init?(dictionary: [String: AnyObject]) {
         guard let name = dictionary[kName] as? String,

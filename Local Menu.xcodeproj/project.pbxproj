@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		285C52FD1D516802001D1055 /* widget.html in Resources */ = {isa = PBXBuildFile; fileRef = 285C52FC1D516802001D1055 /* widget.html */; };
+		E218CB421D7CDBFF00223E3D /* MapboxGeocoder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E218CB411D7CDBFF00223E3D /* MapboxGeocoder.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		E218CB431D7CDBFF00223E3D /* MapboxGeocoder.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E218CB411D7CDBFF00223E3D /* MapboxGeocoder.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E23507371D4BF4ED003159FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23507361D4BF4ED003159FB /* AppDelegate.swift */; };
 		E235073C1D4BF4ED003159FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E235073A1D4BF4ED003159FB /* Main.storyboard */; };
 		E235073E1D4BF4ED003159FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E235073D1D4BF4ED003159FB /* Assets.xcassets */; };
@@ -21,8 +23,6 @@
 		E23507751D4C222E003159FB /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23507741D4C222E003159FB /* Restaurant.swift */; };
 		E25768551D500A4700B2ADB7 /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E25768541D500A4700B2ADB7 /* Mapbox.framework */; };
 		E25768561D500A4700B2ADB7 /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E25768541D500A4700B2ADB7 /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		E257685B1D50115400B2ADB7 /* MapboxGeocoder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E257685A1D50115400B2ADB7 /* MapboxGeocoder.framework */; };
-		E257685C1D50115400B2ADB7 /* MapboxGeocoder.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E257685A1D50115400B2ADB7 /* MapboxGeocoder.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E29DF2151D4D85BA00A5765D /* RestaurantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29DF2141D4D85BA00A5765D /* RestaurantDetailViewController.swift */; };
 		E2B6B05B1D5A521200DEDBD6 /* MMDrawerBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B6B0531D5A521200DEDBD6 /* MMDrawerBarButtonItem.m */; };
 		E2B6B05C1D5A521200DEDBD6 /* MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B6B0551D5A521200DEDBD6 /* MMDrawerController.m */; };
@@ -62,7 +62,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				E25768561D500A4700B2ADB7 /* Mapbox.framework in Embed Frameworks */,
-				E257685C1D50115400B2ADB7 /* MapboxGeocoder.framework in Embed Frameworks */,
+				E218CB431D7CDBFF00223E3D /* MapboxGeocoder.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -71,6 +71,7 @@
 
 /* Begin PBXFileReference section */
 		285C52FC1D516802001D1055 /* widget.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = widget.html; sourceTree = "<group>"; };
+		E218CB411D7CDBFF00223E3D /* MapboxGeocoder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MapboxGeocoder.framework; sourceTree = "<group>"; };
 		E23507331D4BF4ED003159FB /* Local Menu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Local Menu.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E23507361D4BF4ED003159FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E235073B1D4BF4ED003159FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -89,7 +90,6 @@
 		E23507721D4C200C003159FB /* RestaurantController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantController.swift; sourceTree = "<group>"; };
 		E23507741D4C222E003159FB /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		E25768541D500A4700B2ADB7 /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mapbox.framework; sourceTree = "<group>"; };
-		E257685A1D50115400B2ADB7 /* MapboxGeocoder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MapboxGeocoder.framework; sourceTree = "<group>"; };
 		E29DF2141D4D85BA00A5765D /* RestaurantDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantDetailViewController.swift; sourceTree = "<group>"; };
 		E2B6B0511D5A521200DEDBD6 /* Local Menu-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Local Menu-Bridging-Header.h"; sourceTree = "<group>"; };
 		E2B6B0521D5A521200DEDBD6 /* MMDrawerBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerBarButtonItem.h; sourceTree = "<group>"; };
@@ -120,7 +120,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E25768551D500A4700B2ADB7 /* Mapbox.framework in Frameworks */,
-				E257685B1D50115400B2ADB7 /* MapboxGeocoder.framework in Frameworks */,
+				E218CB421D7CDBFF00223E3D /* MapboxGeocoder.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,7 +186,7 @@
 				E2B6B06F1D5CEB6900DEDBD6 /* pier-bold.otf */,
 				E2B6B0701D5CEB6900DEDBD6 /* pier-italic.otf */,
 				E2B6B0711D5CEB6900DEDBD6 /* pier-regular.otf */,
-				E257685A1D50115400B2ADB7 /* MapboxGeocoder.framework */,
+				E218CB411D7CDBFF00223E3D /* MapboxGeocoder.framework */,
 				E25768541D500A4700B2ADB7 /* Mapbox.framework */,
 				E23507351D4BF4ED003159FB /* Local Menu */,
 				E235074A1D4BF4EE003159FB /* Local MenuTests */,
@@ -480,7 +480,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "";
+			shellScript = "APP_PATH=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\n\n# This script loops through the frameworks embedded in the application and\n# removes unused architectures.\nfind \"$APP_PATH\" -name '*.framework' -type d | while read -r FRAMEWORK\ndo\nFRAMEWORK_EXECUTABLE_NAME=$(defaults read \"$FRAMEWORK/Info.plist\" CFBundleExecutable)\nFRAMEWORK_EXECUTABLE_PATH=\"$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME\"\necho \"Executable is $FRAMEWORK_EXECUTABLE_PATH\"\n\nEXTRACTED_ARCHS=()\n\nfor ARCH in $ARCHS\ndo\necho \"Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME\"\nlipo -extract \"$ARCH\" \"$FRAMEWORK_EXECUTABLE_PATH\" -o \"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\"\nEXTRACTED_ARCHS+=(\"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\")\ndone\n\necho \"Merging extracted architectures: ${ARCHS}\"\nlipo -o \"$FRAMEWORK_EXECUTABLE_PATH-merged\" -create \"${EXTRACTED_ARCHS[@]}\"\nrm \"${EXTRACTED_ARCHS[@]}\"\n\necho \"Replacing original executable with thinned version\"\nrm \"$FRAMEWORK_EXECUTABLE_PATH\"\nmv \"$FRAMEWORK_EXECUTABLE_PATH-merged\" \"$FRAMEWORK_EXECUTABLE_PATH\"\n\ndone";
 		};
 		F05AAA87779F1CAF4D3E4D25 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -662,18 +662,19 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "Local Menu/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Local-Menu";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Kevin-Habib.Local-Menu";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Local Menu/Local Menu-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				VALID_ARCHS = "arm64 armv7 armv7s";
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Debug;
 		};
@@ -684,17 +685,18 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "Local Menu/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Local-Menu";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Kevin-Habib.Local-Menu";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Local Menu/Local Menu-Bridging-Header.h";
-				VALID_ARCHS = "arm64 armv7 armv7s";
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Release;
 		};
